@@ -1,0 +1,276 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../helper/function';
+@use '../../helper/mixin';
+@use '../../helper/const';
+
+/**
+ * 블록
+ * 배너+상품
+**/
+
+
+[data-mui="rank_p_n=w6Xh18_s5_link_1"] {
+	padding: 40px 14px 59px;
+	background-color: #eee;
+
+	.mui_title#{function.escape('.T=design')} {
+		text-align: center;
+
+		.title_main {
+			font-weight: 700;
+
+			+ .title_sub {
+				margin-top: -10px;
+			}
+		}
+
+		.title_sub {
+			margin-bottom: 18px;
+			@include mixin.font('1.4rem/1.9rem');
+		}
+	}
+
+	.mui_product-list {
+		ol {
+			display: grid;
+			grid-gap: 24px 6px;
+			grid-template-columns: repeat(6, 1fr);
+
+			li {
+				position: relative;
+
+				> a {
+					display: block;
+				}
+
+				&:first-child {
+					grid-column: 1 / 7;
+
+					.text_rank {
+						bottom: 0;
+						width: 48px;
+						height: 48px;
+						background-color: #f84f33;
+
+						> strong {
+							padding-top: 7px;
+							font-size: 1.7rem;
+
+							&:only-child {
+								padding-top: 18px;
+							}
+						}
+
+						&::after {
+							border-right-color: #f84f33;
+							border-left-color: #f84f33;
+						}
+
+						> [class*="text_rank-"],
+						> [class*="uico_rank-"]:not(.uico_rank-new) {
+							color: #fff;
+
+							&::before {
+								background-color: #fff;
+							}
+						}
+
+						.uico_rank-unchanged {
+							margin-top: 3px;
+						}
+					}
+
+					.image_product {
+						border-radius: 0 30px 0 30px;
+
+						&::before {
+							position: absolute;
+							top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+							border-radius: 0 30px 0 30px;
+							@include mixin.linear-gradient(transparent, 180deg, rgba(#000, 0) 50%, rgba(#000, 0.5) 150%);
+							content: '';
+						}
+					}
+
+					figcaption {
+						position: absolute;
+						right: 0;
+						bottom: 30px;
+						left: 0;
+						padding: 0 20px 28px;
+
+						.text_brand {
+							@include mixin.text-ellipsis(1);
+							@include mixin.font(#fff '1.4rem');
+
+							> span {
+								position: relative;
+							}
+						}
+
+						.text_product {
+							margin-top: 4px;
+							@include mixin.font(#fff 700 '1.5rem');
+						}
+
+						.text_tag {
+							top: auto;
+							left: 20px;
+							bottom: 0;
+						}
+					}
+				}
+
+				&:nth-child(n+2) {
+					grid-column: auto / span 3;
+
+					figcaption {
+						margin-top: 9px;
+
+						.text_product {
+							margin-top: 3px;
+						}
+					}
+				}
+
+				.text_rank {
+					position: absolute;
+					z-index: 3;
+					bottom: 50px;
+					right: 0;
+					width: 40px;
+					height: 40px;
+					background-color: #2b2b2b;
+					@include mixin.font(#fff center);
+
+					> strong {
+						display: block;
+						padding-top: 6px;
+						@include mixin.font(500 '1.5rem');
+
+						&:only-child {
+							padding-top: 13px;
+						}
+					}
+
+					$ranks: up, down, new, unchanged;
+					@each $rank, $color in $ranks {
+						@if $rank == up or $rank == down {
+							.text_rank-#{$rank} {
+								display: inline-block;
+								margin-top: 2px;
+								@include mixin.font(#fff '1.2rem', 0);
+
+								&::before {
+									margin: 3px 2px 0 0;
+									width: 7px;
+									height: 6px;
+									@include mixin.svg(#fff url('../../image/block/common/ico_triangle.svg'));
+									content: '';
+
+									@if $rank == down {
+										@include mixin.transform(rotate(180deg));
+									}
+								}
+							}
+						}
+
+						.uico_rank-#{$rank} {
+							@if $rank == new {
+								margin-top: 2px;
+
+								&::before {
+									@include mixin.font(#fff 500 '1.2rem', 0);
+									content: 'NEW';
+								}
+							}
+
+							@if $rank == unchanged {
+								margin: 2px 0 0 1px;
+
+								&::before {
+									width: 8px;
+									height: 8px;
+									@include mixin.svg(#fff url('../../image/block/common/ico_unchanged.svg'));
+									content: '';
+								}
+							}
+						}
+					}
+
+					&#{function.escape('.T=rank-first')} {
+						background-color: #f84f33;
+						font-weight: 600;
+
+						&::after {
+							border-right-color: #f84f33;
+							border-left-color: #f84f33;
+						}
+
+						> [class*="text_rank"] {
+							color: #fff;
+
+							&::before {
+								background-color: #fff;
+							}
+						}
+					}
+				}
+			}
+
+			&::after {
+				content: none;
+			}
+		}
+
+		figure {
+			.image_product {
+				display: block;
+				padding-top: 100%;
+			}
+
+			figcaption {
+				padding: 0 10px 0 2px;
+
+				.text_brand {
+					@include mixin.font(#767676 '1.3rem');
+					@include mixin.text-ellipsis(1);
+				}
+
+				.text_product {
+					display: block;
+					height: 20px;
+					@include mixin.font(#2b2b2b '1.4rem');
+					@include mixin.text-ellipsis(1);
+				}
+			}
+		}
+	}
+
+	// 하단 랭킹 더보기
+	.btn_link {
+		display: block;
+		margin: 22px auto 0;
+		width: 128px;
+		height: 30px;
+		border: 1px solid #6a6a6a;
+		border-radius: 15px;
+		background-color: #fff;
+		@include mixin.font(#5c5c5c '1.3rem/3rem' center);
+
+		.uico_link {
+			margin: 10px 0 0 9px;
+
+			&::before {
+				width: 5px;
+				height: 9px;
+				@include mixin.svg(#6a6a6a url('../../image/block/common/ico_arrow_right.svg'));
+			}
+		}
+	}
+}

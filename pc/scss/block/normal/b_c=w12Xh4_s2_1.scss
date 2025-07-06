@@ -1,0 +1,116 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../common/helper/function' as *;
+@use '../../common/helper/mixin';
+@use '../../common/setting/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="b_c=w12Xh4_s2_1"] {
+	width: const.$grid_pc_column * 12 + const.$grid_pc_column_gutter * (12 - 1);
+
+	.mui_carousel {
+		&-list {
+			padding-top: const.$grid_pc_row * 4 + const.$grid_pc_row_gutter * (4 - 1);
+		}
+
+		&-pagination {
+			bottom: -40px;
+
+			li:nth-child(n+2) {
+				margin-left: 10px;
+			}
+
+			button {
+				width: 6px;
+				height: 6px;
+				border-radius: 3px;
+				background-color: #dcdcdc;
+				@include mixin.transition(width const.$time_fast, opacity const.$time_fast);
+
+				&#{escape('.S=on')} {
+					width: 66px;
+					background-color: #2b2b2b;
+				}
+			}
+		}
+
+		&-item {
+			> ul {
+				display: grid;
+				grid-template-columns: repeat(2, 670px);
+				column-gap: 20px;
+
+				&::after {
+					content: none;
+				}
+			}
+		}
+	}
+
+	a {
+		display: block;
+		position: relative;
+	}
+
+	figure {
+		.image_banner {
+			position: relative;
+			padding-top: const.$grid_pc_row * 4 + const.$grid_pc_row_gutter * (4 - 1);
+			width: 100%;
+
+			&::before {
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				height: 148px;
+				@include mixin.linear-gradient(transparent, 0deg, rgba(#000, 0.66), transparent);
+				content: '';
+			}
+		}
+
+		figcaption {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			padding: 0 15px 16px;
+			@include mixin.font(#fff left);
+
+			.text_banner1 {
+				@include mixin.font('1.7rem/1.4');
+
+				+ .text_banner2 {
+					margin-top: 5px;
+				}
+			}
+
+			.text_banner2 {
+				@include mixin.font('1.4rem/1.8rem');
+				@include mixin.opacity(0.6);
+			}
+
+			.text_alt {
+				@include mixin.text_ellipsis(2);
+				@include mixin.font(#a3a3a3 '1.4rem/2rem');
+
+				@include mixin.context-after(':not(.mui_image-none)', 'figure') {
+					display: none;
+				}
+			}
+		}
+	}
+
+	// 이미지 에러
+	.mui_image-none {
+		.uico_none {
+			background-color: #f5f5f5;
+		}
+	}
+}

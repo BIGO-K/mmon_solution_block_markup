@@ -1,0 +1,113 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../helper/function';
+@use '../../helper/mixin';
+@use '../../helper/var';
+
+/**
+ * 블록
+ * 배너+상품
+**/
+
+
+[data-mui="bp_nn=w6Xh25_s8"] {
+	// 배너
+	> ul {
+		> li {
+			> a {
+				display: block;
+				position: relative;
+			}
+		}
+
+		figure {
+			.image_banner {
+				padding-top: 45.21276%;
+				width: 100%;
+
+				&::before {
+					position: absolute;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					left: 0;
+					background-color: rgba(#000, 0.27);
+					content: '';
+				}
+			}
+
+			figcaption {
+				position: absolute;
+				z-index: 1;
+				top: 50%;
+				right: 0;
+				left: 0;
+				padding: 0 20px;
+				@include mixin.font(#fff 400 '2.2rem/3.2rem' center);
+				@include mixin.transform(translateY(-50%));
+
+				.text_banner1 {
+					+ .text_banner2 {
+						margin-top: 4px;
+					}
+				}
+
+				.text_banner2 {
+					@include mixin.font('1.6rem/2.2rem');
+				}
+
+				.text_alt {
+					@include mixin.text_ellipsis(2);
+					@include mixin.font(#a3a3a3 '1.4rem/2rem');
+
+					@include mixin.context-after(':not(.mui_image-none)', 'figure') {
+						display: none;
+					}
+				}
+			}
+		}
+
+		// 이미지 에러
+		.mui_image-none {
+			.uico_none {
+				background-color: #f5f5f5;
+
+				&::before {
+					content: none;
+				}
+			}
+		}
+
+		+ .mui_product-list {
+			margin-top: 20px;
+		}
+	}
+
+	// 상품
+	.mui_inner {
+		margin-top: 24px;
+		padding: 0 14px;
+
+		> .text_prod1 {
+			padding-bottom: 16px;
+			@include mixin.font(var.$color_text_base '1.7rem/2rem');
+		}
+
+		.mui_product-list {
+			> ul {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				grid-gap: 26px 12px;
+
+				> li {
+					min-width: 0;
+				}
+
+				&::after {
+					content: none;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,108 @@
+@charset 'utf-8';
+
+/**
+ * 셋팅
+ * 전역변수
+ * color: primary, secondary, tertiary, positive, negative, background, line, text, icon, tag...
+ * font-size: body, button, tag
+ */
+
+
+/** 컬러 */
+// 포인트
+$color_main: var(--color_main);
+$color_sub: var(--color_sub);
+$color_variable: var(--color_variable); // 유색 버전은 var(--color_main), 블랙 버전은 var(--color_sub)
+$color_support: var(--color_support); // 유색 버전은 #ff8800, 블랙 버전은 #4457a7
+
+// 상태(긍정/부정)
+// $color_positive_base: $color_tertiary_base;//$color_main;
+$color_negative_base: var(--color_text_base);
+
+// 기본
+$color_text_base: var(--color_text_base);
+
+/** 폰트 */
+$font_family_base: 'Pretendard', sans-serif;// ie에서 31자 이상 적용 안됨
+
+/** 프로젝트 상품 비율 */
+$prod_ratio_base: var(--prod_ratio_base);
+$prod_height_base: calc($prod_ratio_base * 100%);
+
+/** 최소사이즈 */
+$min_width_base: 320px;// pc 1360px
+$min_width_extend: $min_width_base + 200px;// pc 좌/우 날개배너 확장
+
+/** 레이아웃 */
+// 단계: min, base, extend
+
+// gnb
+$gnb_height_base: var(--gnb_height_base);
+
+// header
+$header_height_base: var(--header_height_base);
+$header_height_extend: var(--header_height_extend);
+$header_height_main: var(--header_height_main);
+$color_header: var(--color_header);
+
+// footer
+// $footer_height_base: var(--footer_height_base);
+
+// sidebar
+$sidebar_header_base: 99px;
+$sidebar_tab_base: 46px;
+
+// toolbar
+$toolbar_height_base: var(--toolbar_height_base);
+
+// lowbtn
+$lowbtn_height_base: 60px;
+
+// modal
+$modal_width_base: 296px;
+$modal_header_height_base: 45px;
+
+// filter
+$filter_head_height: 61px;
+
+// skeleton
+$skeleton_color_base: #eee;
+
+/** 폼 */
+// 단계: sm, base, lg
+
+// 기본 형태
+$form_borderColor_base: #cdcdcd;
+$form_borderRadius_base: 3px;
+$form_color_base: #101010;
+// $form_color_negative: #ff4800;
+$form_fontSize_base: 1.5rem;
+$form_clear_base: 42px;
+
+// 텍스트 인풋
+$form_text_height_base: 42px;
+$form_text_height_lg: 50px;
+$form_textarea_lineheight: ($form_fontSize_base + 0.4rem);// 계산식에 사용되어 괄호필요
+
+// 체크박스
+$form_check_height_base: 24px;
+$form_check_fontSize_base: 1.5rem;
+
+// 라디오
+$form_radio_height_base: 24px;
+$form_radio_fontSize_base: 1.5rem;
+
+// 셀렉트
+$form_select_height_base: 42px;
+$form_select_height_sm: 32px;
+$form_select_fontSize_base: 1.5rem;
+$form_select_fontSize_sm: 1.3rem;
+
+// 파일
+$form_file_clear: $form_text_height_base - 6px;
+
+// 이미지
+$form_image_clear: 24px;
+
+// 페이지네이션
+$pagination_height_base: 28px;

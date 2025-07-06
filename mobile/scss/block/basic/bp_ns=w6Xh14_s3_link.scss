@@ -1,0 +1,139 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../helper/function';
+@use '../../helper/mixin';
+@use '../../helper/const';
+
+/**
+ * 블록
+ * 배너+상품
+**/
+
+
+[data-mui="bp_ns=w6Xh14_s3_link"] {
+	// 디자인 타이틀
+	.mui_title#{function.escape('.T=design')} {
+		.title_main {
+			margin-bottom: 12px;
+			@include mixin.font(#2b2b2b 700 '2rem/2.4rem' center);
+
+			+ .title_sub {
+				margin-top: -2px;
+			}
+		}
+
+		.title_sub {
+			margin-bottom: 12px;
+			padding: 0 60px;
+			@include mixin.font(#5c5c5c '1.4rem/1.9rem' center);
+		}
+	}
+
+	// 배너
+	> a {
+		display: block;
+		position: relative;
+		padding: 0 14px;
+
+		figure {
+			.image_banner {
+				padding-top: 100%;
+				width: 100%;
+			}
+
+			figcaption {
+				position: absolute;
+				z-index: 1;
+				top: 50%;
+				right: 0;
+				left: 0;
+				padding: 0 20px;
+				@include mixin.transform(translateY(-50%));
+
+				.text_alt {
+					@include mixin.text_ellipsis(2);
+					@include mixin.font(#a3a3a3 '1.4rem/2rem' center);
+
+					@include mixin.context-after(':not(.mui_image-none)', 'figure') {
+						display: none;
+					}
+				}
+			}
+		}
+
+		// 이미지 에러
+		.mui_image-none {
+			.uico_none {
+				position: relative;
+				background-color: #f5f5f5;
+			}
+		}
+
+		+ .mui_scroller {
+			margin-top: 24px;
+		}
+	}
+
+	// 상품
+	.mui_product-list {
+		> ul {
+			display: inline-block;
+			padding: 0 14px 4px;
+			@include mixin.font('0', nowrap);
+
+			> li {
+				display: inline-block;
+				width: 152px;
+				white-space: normal;
+
+				&:nth-child(n+2) {
+					margin-left: 4px;
+				}
+			}
+		}
+
+		.mui_product-item {
+			figure {
+				figcaption {
+					padding: 0 10px 0 4px;
+
+					.text_sale {
+						right: 8px;
+						margin-top: 4px;
+					}
+
+					.text_price {
+						margin-top: 3px;
+					}
+
+					.mm_tag-list {
+						margin-top: 7px;
+					}
+				}
+			}
+		}
+	}
+
+	// 하단 더보기
+	.btn_link {
+		display: block;
+		margin: 20px auto 0;
+		padding: 0 14px;
+		width: 77px;
+		height: 30px;
+		border: 1px solid #6a6a6a;
+		border-radius: 15px;
+		@include mixin.font(#5c5c5c '1.3rem/3rem');
+
+		.uico_link {
+			margin: 9px 0 0 10px;
+
+			&::before {
+				width: 4px;
+				height: 9px;
+				@include mixin.svg(#5c5c5c url('../../image/block/common/ico_arrow_right.svg'));
+			}
+		}
+	}
+}

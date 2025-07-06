@@ -1,0 +1,175 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../common/helper/function' as *;
+@use '../../common/helper/mixin';
+@use '../../common/setting/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="p_n=w12Xh7_s6_pagination"] {
+	$prod_size: 206px;
+
+	width: const.$grid_pc_column * 12 + const.$grid_pc_column_gutter * (12 - 1);
+
+	.mui_product-list {
+		> ul {
+			display: grid;
+			grid-template-columns: repeat(3, 453.33333px);
+			row-gap: 34px;
+
+			&::after {
+				content: none;
+			}
+		}
+	}
+
+	.mui_product-item {
+		figure {
+			.mui_image-scale {
+				position: absolute;
+				top: 0;
+				left: 0;
+
+				.image_product {
+					width: $prod_size;
+				}
+			}
+
+			// 품절임박
+			.text_product-status {
+				top: calc($prod_size * const.$prod_ratio_base);
+			}
+
+			// 솔드아웃
+			.text_soldout {
+				right: auto;
+				width: $prod_size;
+			}
+
+			// 미성년자 구매불가
+			.text_adult {
+				right: auto;
+				padding-top: 0;
+				width: $prod_size;
+				height: calc($prod_size * const.$prod_ratio_base);
+			}
+
+			figcaption {
+				margin: 0 0 0 $prod_size;
+				padding: 4px 50px 0 14px;
+				min-height: calc($prod_size * const.$prod_ratio_base);
+
+				.text_product {
+					margin-top: 7px;
+				}
+
+				.text_sale {
+					right: 51px;
+				}
+			}
+		}
+
+		// MY찜에추가하기
+		.btn_like {
+			top: calc($prod_size * const.$prod_ratio_base);
+			right: auto;
+			left: $prod_size;
+			margin: 0;
+			@include mixin.transform(translate(-100%, -100%));
+		}
+	}
+
+	// 하단 페이지네이션
+	.mui_pagination {
+		$pagination_height_base: 25px;
+
+		margin-top: 34px;
+		text-align: center;
+
+		.mui_inline {
+			position: relative;
+		}
+
+		li {
+			float: left;
+
+			> button {
+				display: block;
+				padding: 0 15px;
+				height: 25px;
+				@include mixin.font(#888 '1.4rem/#{math.div(25px, const.$fontSize_base) * 1rem}' center, 0);
+
+				&#{escape('.S=page-on')} {
+					@include mixin.font(#1f1f1f v_700);
+				}
+			}
+		}
+
+		[class*="btn_control"] {
+			position: absolute;
+			top: 0;
+			width: $pagination_height_base;
+			height: $pagination_height_base;
+			border: 1px solid #767676;
+			border-radius: 2px;
+			background-color: #fff;
+
+			$pages: (first, double_left, 11px), (prev, left, 6px), (next, right, 6px), (last, double_right, 11px);
+			@each $page, $icon, $width in $pages {
+				[class*="uico_page-#{$page}"] {
+					&::before {
+						width: $width;
+						height: 11px;
+						@include mixin.svg(#6a6a6a url('../image/block/common/ico_arrow_#{$icon}.svg'));
+						content: '';
+					}
+				}
+			}
+
+			// 버튼 위치
+			&.btn_control- {
+				// 처음
+				&first {
+					left: -($pagination_height_base * 3 - 10px) - 4px;
+				}
+
+				// 이전
+				&prev {
+					left: -($pagination_height_base * 2 - 10px);
+
+					i {
+						margin-right: 1px;
+					}
+				}
+
+				// 다음
+				&next {
+					right: -($pagination_height_base * 2 - 10px);
+
+					i {
+						margin-left: 1px;
+					}
+				}
+
+				// 마지막
+				&last {
+					right: -($pagination_height_base * 3 - 10px) - 4px;
+				}
+			}
+
+			// 버튼 비활성
+			&[disabled] {
+				border-color: #b8b8b9;
+
+				[class*="uico_page"]::before {
+					background-color: #888;
+				}
+			}
+		}
+	}
+}

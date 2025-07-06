@@ -1,0 +1,199 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../common/helper/function' as *;
+@use '../../common/helper/mixin';
+@use '../../common/setting/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="coop_p_n=w12Xh5_s1_link"] {
+	width: const.$grid_pc_column * 12 + const.$grid_pc_column_gutter * (12 - 1);
+
+	.mui_inner {
+		position: relative;
+
+		// 전체보기
+		.btn_link {
+			position: absolute;
+			top: -50px;
+			right: 2px;
+			@include mixin.font(#767676 '1.5rem');
+
+			&::before {
+				position: absolute;
+				top: -20px;
+				right: -20px;
+				bottom: -20px;
+				left: -20px;
+				content: '';
+			}
+
+			.uico_link {
+				margin: 2px 0 0 9px;
+
+				&::before {
+					width: 6px;
+					height: 9px;
+					@include mixin.svg(#767676 url('../image/block/common/ico_arrow_thick_round_right.svg'));
+				}
+			}
+		}
+	}
+
+	.m_coop {
+		position: relative;
+
+		// 공동구매 상태
+		&-state {
+			position: relative;
+			padding: 19px 0 0 274px;
+			height: 70px;
+			border-radius: 3px;
+			background-color: #3d3d3d;
+
+			> b {
+				@include mixin.font(#fff v_300 '3rem');
+
+				> span {
+					margin: 0 3px;
+				}
+
+				strong {
+					margin-left: 20px;
+					font-variation-settings: 'wght' 600;
+
+					span {
+						vertical-align: 2px;
+						padding: 0 7px;
+					}
+				}
+			}
+
+			> strong {
+				position: absolute;
+				top: 0;
+				left: 90px;
+				padding-top: 41px;
+				width: 130px;
+				height: 130px;
+				background-color: #87e50c;
+				@include mixin.font(#101010 v_600 '1.7rem/2.4rem' center);
+			}
+		}
+
+		> a:not([class*="btn_"]) {
+			display: block;
+			position: relative;
+			margin: 0 182px 0 274px;
+			padding-top: 39px;
+
+			figure {
+				.image_product {
+					position: absolute;
+					z-index: 1;
+					top: -45px;
+					right: 0;
+					padding-top: 318px;
+					width: 318px;
+					border-radius: 100%;
+				}
+
+				figcaption {
+					padding-right: 318px + 40px;// 이미지 사이즈 + 여백
+
+					.text_price {
+						font-size: 2.2rem;
+
+						del {
+							position: relative;
+							margin-right: 38px;
+							vertical-align: -1px;
+							@include mixin.font(#5c5c5c v_400 '2.6rem' none);
+
+							&::after {
+								margin-left: 4px;
+								vertical-align: 1px;
+								font-size: 2.2rem;
+								content: "원";
+							}
+
+							.uico_coop-arrow {
+								position: absolute;
+								z-index: 1;
+								top: 9px;
+								right: -24px;
+
+								&::before {
+									width: 13px;
+									height: 13px;
+									@include mixin.svg(#767676 url('../image/block/common/ico_arrow_right_full.svg'));
+								}
+
+								&::after {
+									position: absolute;
+									z-index: 0;
+									top: 6px;
+									right: 10px;
+									left: -132px;
+									height: 1px;
+									border: 1px solid #767676;
+									content: '';
+								}
+							}
+						}
+
+						strong {
+							margin-left: 10px;
+							vertical-align: -2px;
+							@include mixin.font(v_700 '3.1rem');
+
+							&::after {
+								vertical-align: 2px;
+								@include mixin.font(v_500 '2.2rem');
+								content: "원";
+							}
+						}
+					}
+
+					.text_brand {
+						margin-top: 24px;
+						@include mixin.font(#6a6a6a '1.5rem/2.6rem');
+					}
+
+					.text_product {
+						@include mixin.text-ellipsis(2);
+						margin-top: 3px;
+						@include mixin.font('1.5rem/2.2rem');
+					}
+				}
+			}
+		}
+
+		.btn_coop-entry {
+			margin: 36px 0 0 274px;
+			width: 222px;
+			height: 54px;
+			border-radius: 54px;
+			background-color: #101010;
+			@include mixin.font(#87e50c '1.7rem/5.4rem' center);
+		}
+
+		//  공동구매 목표 달성
+		&#{escape('.S=coop-complete')} {
+			.m_coop-state {
+				> strong {
+					background-color: #46d8c9;
+				}
+			}
+
+			.btn_coop-entry {
+				color: #46d8c9;
+			}
+		}
+	}
+}

@@ -1,0 +1,90 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../helper/function';
+@use '../../helper/mixin';
+@use '../../helper/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="new_p_s=w6Xh5_s2_link"] {
+	.mui_title {
+		.title_main {
+			margin-bottom: 16px;
+		}
+	}
+
+	.mui_inner {
+		position: relative;
+
+		// 전체보기
+		.btn_link {
+			position: absolute;
+			top: -31px;
+			right: 20px;
+			@include mixin.font(#7b7b7b '1.3rem');
+
+			&::before {
+				position: absolute;
+				top: -10px;
+				right: -10px;
+				bottom: -10px;
+				left: -10px;
+				content: '';
+			}
+
+			.uico_link {
+				margin: 3px 0 0 4px;
+
+				&::before {
+					width: 5px;
+					height: 7px;
+					@include mixin.svg(#7b7b7b url('../../image/block/common/ico_arrow_thick_round_right.svg'));
+				}
+			}
+		}
+	}
+
+	.mui_product-list {
+		> ul {
+			display: inline-block;
+			padding: 0 14px 4px;
+			@include mixin.font('0', nowrap);
+
+			> li {
+				display: inline-block;
+				width: 152px;
+				white-space: normal;
+
+				&:nth-child(n+2) {
+					margin-left: 4px;
+				}
+			}
+		}
+
+		.mui_product-item {
+			figure {
+				figcaption {
+					padding: 0 10px 0 4px;
+
+					.text_sale {
+						right: 8px;
+						margin-top: 4px;
+					}
+
+					.text_price {
+						margin-top: 3px;
+					}
+
+					.mm_tag-list {
+						margin-top: 7px;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,240 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../helper/function';
+@use '../../helper/mixin';
+@use '../../helper/const';
+@use '../../helper/var';
+
+/**
+ * 블록
+ * 배너 + 상품
+**/
+
+[data-mui="show_bp_nn=w6Xh57_s5"] {
+	padding: 0 14px;
+
+	ul {
+		li {
+			&:nth-child(n+2) {
+				margin-top: 50px;
+			}
+
+			.btn_brand {
+				display: block;
+				position: relative;
+				padding: 8px 0 7px 48px;
+				min-height: 36px;
+				@include mixin.font(700 '1.5rem/1.4');
+
+				> i {
+					position: absolute;
+					top: 50%;
+					left: 2px;
+					width: 36px;
+					height: 36px;
+					border-radius: 100%;
+					background-color: #f5f5f5;
+					@include mixin.transform(translateY(-50%));
+				}
+
+				+ a {
+					margin-top: 12px;
+				}
+			}
+
+			> div:not(.mui_product-item) {
+				position: relative;
+
+				> a {
+					display: block;
+					position: relative;
+					padding: 0 90px 0 48px;
+					min-height: 36px;
+
+					figure {
+						.image_influencer {
+							position: absolute;
+							top: 1px;
+							left: 2px;
+							width: 36px;
+							height: 36px;
+							border-radius: 100%;
+							background-color: #f5f5f5;
+						}
+
+						figcaption {
+							strong {
+								display: block;
+								@include mixin.text-ellipsis(1);
+								@include mixin.font(700 '1.5rem');
+							}
+
+							p {
+								@include mixin.text-ellipsis(1);
+								@include mixin.font(#6a6a6a '1.2rem');
+							}
+						}
+					}
+				}
+
+				.btn_follow {
+					position: absolute;
+					top: 4px;
+					right: 0;
+					padding: 0 15px;
+					height: 30px;
+					border: 1px solid #cdcdcd;
+					border-radius: 15px;
+					@include mixin.font(#5c5c5c '1.3rem/3rem');
+
+					&#{function.escape('.S=switch-on')} {
+						background-color: #cdcdcd;
+					}
+				}
+
+				+ a {
+					margin-top: 13px;
+				}
+			}
+
+			// 쇼케이스 컨텐츠
+			> a:not(.btn_brand) {
+				display: block;
+
+				figure {
+					.image_banner {
+						padding-top: 100%;
+						width: 100%;
+						border-radius: 10px;
+					}
+
+					figcaption {
+						margin-top: 17px;
+						padding: 0 30px 0 4px;
+
+						.text_banner1 {
+							@include mixin.font('2rem/3rem');
+
+							+ .text_banner2 {
+								margin-top: 8px;
+							}
+						}
+
+						.text_banner2 {
+							@include mixin.font(#5c5c5c '1.4rem/2.1rem');
+						}
+
+						.text_alt {
+							@include mixin.text_ellipsis(2);
+							@include mixin.font(#a3a3a3 '1.4rem/2rem');
+
+							@include mixin.context-after(':not(.mui_image-none)', 'figure') {
+								display: none;
+							}
+						}
+					}
+				}
+
+				// 이미지 에러
+				.mui_image-none {
+					.uico_none {
+						position: relative;
+						background-color: #f5f5f5;
+
+						&::before {
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							width: 50%;
+							height: 50%;
+							@include mixin.transform(translate(-50%, -50%));
+							@include mixin.svg(#d3d3d3 url('../../image/common/logo.svg'));
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.mui_product-item {
+		margin-top: 17px;
+		border: 1px solid #e6e6e6;
+		border-radius: 10px;
+
+		> a {
+			padding: 13px 13px 12px;
+		}
+
+		figure {
+			position: relative;
+			padding-left: 56px;
+			height: 50px;
+
+			.image_product {
+				position: absolute;
+				top: 0;
+				left: 0;
+				padding-top: 0;
+				width: 50px;
+
+				&::after {
+					padding-top: var.$prod_height_base;
+					content: '';
+				}
+			}
+
+			.text_adult {
+				padding-top: 50px;
+				width: 50px;
+
+				.uico_adult {
+					width: 26px;
+					height: 26px;
+					border-width: 2px;
+
+					&::before {
+						@include mixin.font('1.3rem/2.2rem');
+					}
+				}
+			}
+
+			figcaption {
+				position: relative;
+				margin-top: 1px;
+				padding-right: 41px;
+
+				.text_product {
+					display: block;
+					@include mixin.text-ellipsis(1);
+					margin-top: 0;
+					height: 20px;
+				}
+
+				.text_sale {
+					position: absolute;
+					left: 2px;
+					margin-top: 2px;
+				}
+
+				.text_price {
+					margin-top: 2px;
+					padding-left: 35px;
+				}
+			}
+		}
+
+		.uico_link {
+			position: absolute;
+			top: 50%;
+			right: 23px;
+			@include mixin.transform(translateY(-50%));
+
+			&::before {
+				width: 8px;
+				height: 16px;
+				@include mixin.svg(#7b7b7b url('../../image/block/common/ico_arrow_right.svg'));
+			}
+		}
+	}
+}

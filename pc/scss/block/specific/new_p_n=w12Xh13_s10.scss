@@ -1,0 +1,28 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../common/helper/function' as *;
+@use '../../common/helper/mixin';
+@use '../../common/setting/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="new_p_n=w12Xh13_s10"] {
+	width: const.$grid_pc_column * 12 + const.$grid_pc_column_gutter * (12 - 1);
+
+	.mui_product-list {
+		> ul {
+			display: grid;
+			grid-template-columns: repeat(5, 256px);
+			gap: 54px 20px;
+
+			&::after {
+				content: none;
+			}
+		}
+	}
+}

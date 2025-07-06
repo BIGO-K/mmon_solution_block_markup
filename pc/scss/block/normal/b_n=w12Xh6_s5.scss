@@ -1,0 +1,120 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../common/helper/function' as *;
+@use '../../common/helper/mixin';
+@use '../../common/setting/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="b_n=w12Xh6_s5"] {
+	width: const.$grid_pc_column * 12 + const.$grid_pc_column_gutter * (12 - 1);
+
+	> ul {
+		display: grid;
+		grid-template-columns: repeat(5, 260px);
+		column-gap: 15px;
+
+		&::after {
+			content: none;
+		}
+
+		li {
+			padding: 12px 13px 14px;
+			border: 1px solid #e6e6e6;
+		}
+	}
+
+	a {
+		display: block;
+		position: relative;
+	}
+
+	figure {
+		.image_banner {
+			padding-top: 234px;
+			width: 234px;
+		}
+
+		figcaption {
+			position: relative;
+			margin: 19px 4px 0;
+			height: 165px;
+
+			[class*="text_banner"] {
+				overflow: hidden;
+			}
+
+			.text_banner1 {
+				position: absolute;
+				top: 0;
+				padding-right: 74px;
+				height: 20px;
+				@include mixin.font(#aeaeae v_400 '1.2rem/2rem');
+			}
+
+			.text_date {
+				margin-bottom: 16px;
+				@include mixin.font(#aeaeae v_400 '1.2rem/2rem' right);
+			}
+
+			.text_banner2 {
+				margin-bottom: 7px;
+				height: 20px;
+				@include mixin.font(#4a4a4a '1.4rem/2rem');
+			}
+
+			.text_banner3 {
+				height: 56px;
+				@include mixin.font('2rem/2.8rem');
+			}
+
+			.text_detail {
+				position: absolute;
+				bottom: 0;
+				@include mixin.font(#7b7b7b v_400 '1.2rem/1.9rem');
+
+				.uico_link {
+					margin: 3px 0 0 9px;
+
+					&::before{
+						width: 4px;
+						height: 11px;
+						@include mixin.svg(#7b7b7b url('../image/block/common/ico_arrow_thick_right.svg'));
+					}
+				}
+			}
+
+			.text_alt {
+				@include mixin.text_ellipsis(2);
+				@include mixin.font(#a3a3a3 '1.4rem/2rem');
+
+				@include mixin.context-after(':not(.mui_image-none)', 'figure') {
+					display: none;
+				}
+			}
+		}
+	}
+
+	// 이미지 에러
+	.mui_image-none {
+		.uico_none {
+			position: relative;
+			background-color: #f5f5f5;
+
+			&::before {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 50%;
+				height: 50%;
+				@include mixin.transform(translate(-50%, -50%));
+				@include mixin.svg(#d3d3d3 url('../image/common/logo.svg'));
+			}
+		}
+	}
+}

@@ -1,0 +1,88 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../common/helper/function' as *;
+@use '../../common/helper/mixin';
+@use '../../common/setting/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="b_c=w12Xh3_s1_4"] {
+	width: const.$grid_pc_column * 12 + const.$grid_pc_column_gutter * (12 - 1);
+
+	.mui_carousel {
+		&-list {
+			padding-top: const.$grid_pc_row * 3 + const.$grid_pc_row_gutter * (3 - 1);
+		}
+
+		&-pagination {
+			bottom: -10px;
+			@include mixin.transform(translate(-50%, 100%));
+
+			li:nth-child(n+2) {
+				margin-left: 9px;
+			}
+
+			button {
+				width: 9px;
+				height: 9px;
+				border-radius: 100%;
+				background-color: rgba(#101010, 0.27);
+
+				&#{escape('.S=on')} {
+					background-color: #101010;
+				}
+			}
+		}
+	}
+
+	a {
+		display: block;
+		position: relative;
+	}
+
+	figure {
+		.image_banner {
+			padding-top: const.$grid_pc_row * 3 + const.$grid_pc_row_gutter * (3 - 1);
+			width: 100%;
+		}
+
+		figcaption {
+			position: absolute;
+			top: 50%;
+			right: 0;
+			left: 0;
+			padding: 0 120px;
+			@include mixin.font(#fff '3rem/1.4' center);
+			@include mixin.transform(translateY(-50%));
+
+			&#{escape('.T=text-black')} {
+				color: const.$color_text_base;
+			}
+
+			.text_banner2 {
+				font-size: 2rem;
+			}
+
+			.text_alt {
+				@include mixin.text_ellipsis(2);
+				@include mixin.font(#a3a3a3 '1.4rem/2rem' center);
+
+				@include mixin.context-after(':not(.mui_image-none)', 'figure') {
+					display: none;
+				}
+			}
+		}
+	}
+
+	// 이미지 에러
+	.mui_image-none {
+		.uico_none {
+			background-color: #f5f5f5;
+		}
+	}
+}

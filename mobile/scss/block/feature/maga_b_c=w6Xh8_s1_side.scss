@@ -1,0 +1,184 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../helper/function';
+@use '../../helper/mixin';
+@use '../../helper/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="maga_b_c=w6Xh8_s1_side"] {
+	position: relative;
+
+	// 디자인 타이틀
+	.mui_title#{function.escape('.T=design')} {
+		position: absolute;
+		top: 0;
+		left: 14px;
+		padding: 2px 49px 0 0;
+		@include mixin.transform(rotate(-90deg) translate(-100%), 0 0);
+
+		&::after {
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 3px;
+			height: 68px;
+			background-color: #101010;
+			content: '';
+		}
+
+		.title_main {
+			margin: 0;
+			@include mixin.font(700 '3rem/3.6rem' right);
+
+			+ .title_sub {
+				margin-top: 4px;
+			}
+		}
+
+		.title_sub {
+			@include mixin.font('1.7rem' right);
+		}
+	}
+
+	.mui_carousel {
+		padding-left: 112px;
+
+		&-inner {
+			padding-right: 5.303%;
+		}
+
+		&-item {
+			&#{function.escape('.S=on')} {
+				.image_banner {
+					@include mixin.keyframes(banner-dim-fade) {
+						100% {
+							@include mixin.opacity(0);
+						}
+					}
+
+					&::after {
+						@include mixin.prefix(animation, banner-dim-fade 0.3s ease both, webkit);
+					}
+				}
+			}
+
+			&#{function.escape('.S=next')},
+			&#{function.escape('.S=on')} {
+				figcaption {
+					padding-left: 8px;
+					@include mixin.opacity(1);
+
+					&::before {
+						position: absolute;
+						bottom: 0;
+						left: 0;
+						width: 100%;
+						border-bottom: 1px solid #101010;
+						content: '';
+					}
+				}
+			}
+
+			&#{function.escape('.S=prev')} {
+				figcaption {
+					@include mixin.opacity(1);
+				}
+			}
+		}
+	}
+
+	a {
+		display: block;
+		position: relative;
+	}
+
+	figure {
+		.image_banner {
+			position: relative;
+			padding-top: 133.2%;
+			width: 100%;
+
+			&::after {
+				position: absolute;
+				z-index: const.$zIndex_floating;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background-color: rgba(#000, .4);
+				@include mixin.opacity(1);
+				content: '';
+			}
+		}
+
+		figcaption {
+			position: relative;
+			margin-top: 22px;
+			padding: 0 10px 22px 15px;
+			height: 100px;
+			background-color: #fff;
+			@include mixin.opacity(0);
+			@include mixin.transition(opacity const.$time_fast);
+
+			.text_banner1 {
+				overflow: hidden;
+				height: 56px;
+				@include mixin.font('2rem/2.8rem');
+
+				+ .text_detail {
+					margin-top: 3px;
+				}
+			}
+
+			.text_detail {
+				position: absolute;
+				bottom: 22px;
+				left: 8px;
+				@include mixin.font(#6a6a6a'1.3rem/1.9rem');
+
+				.uico_link {
+					margin: 4px 0 0 8px;
+
+					&::before{
+						width: 5px;
+						height: 11px;
+						@include mixin.svg(#7b7b7b url('../../image/block/common/ico_arrow_thick_right.svg'));
+					}
+				}
+			}
+
+			.text_alt {
+				@include mixin.text_ellipsis(2);
+				@include mixin.font(#a3a3a3 '1.4rem/2rem');
+
+				@include mixin.context-after(':not(.mui_image-none)', 'figure') {
+					display: none;
+				}
+			}
+		}
+	}
+
+	// 이미지 에러
+	.mui_image-none {
+		.uico_none {
+			position: relative;
+			background-color: #f5f5f5;
+
+			&::before {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 50%;
+				height: 50%;
+				@include mixin.transform(translate(-50%, -50%));
+				@include mixin.svg(#d3d3d3 url('../../image/common/logo.svg'));
+			}
+		}
+	}
+}

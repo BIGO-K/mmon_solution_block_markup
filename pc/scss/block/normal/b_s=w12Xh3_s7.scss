@@ -1,0 +1,125 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../common/helper/function' as *;
+@use '../../common/helper/mixin';
+@use '../../common/setting/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="b_s=w12Xh3_s7"] {
+	width: const.$grid_pc_column * 12 + const.$grid_pc_column_gutter * (12 - 1);
+
+	.mui_slider {
+		overflow: hidden;
+		position: relative;
+		padding: 0 43px;
+
+		&-inner {
+			overflow: hidden;
+		}
+
+		&-list {
+			display: inline-block;
+			@include mixin.font('0', nowrap);
+		}
+
+		&-item {
+			display: inline-block;
+			width: 182px;
+			white-space: normal;
+		}
+
+		&-control {
+			button {
+				position: absolute;
+				z-index: 3;
+				top: 67px;
+				width: 40px;
+				height: 50px;
+
+				&:disabled {
+					> i::before {
+						background-color: #cdcdcd;
+					}
+				}
+			}
+
+			.btn_slider-prev {
+				left: -11px;
+
+				i::before {
+					width: 19px;
+					height: 37px;
+					@include mixin.svg(#999 url('../image/block/common/ico_arrow_thinner_left.svg'));
+				}
+			}
+
+			.btn_slider-next {
+				right: -10px;
+
+				i::before {
+					width: 19px;
+					height: 37px;
+					@include mixin.svg(#999 url('../image/block/common/ico_arrow_thinner_right.svg'));
+				}
+			}
+		}
+	}
+
+	a {
+		display: block;
+		position: relative;
+	}
+
+	figure {
+		.image_banner {
+			position: relative;
+			padding-top: 182px;
+			width: 100%;
+
+			&::before {
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				@include mixin.linear-gradient(transparent, 0deg, rgba(#000, 0.3), transparent);
+				content: '';
+			}
+		}
+
+		figcaption {
+			position: absolute;
+			bottom: 9px;
+			left: 10px;
+			padding: 0 10px;
+
+			.text_banner1 {
+				overflow: hidden;
+				height: 20px;
+				@include mixin.font(#fff '1.7rem/2rem');
+			}
+
+			.text_alt {
+				@include mixin.text_ellipsis(2);
+				@include mixin.font(#a3a3a3 '1.4rem/2rem');
+
+				@include mixin.context-after(':not(.mui_image-none)', 'figure') {
+					display: none;
+				}
+			}
+		}
+	}
+
+	// 이미지 에러
+	.mui_image-none {
+		.uico_none {
+			background-color: #f5f5f5;
+		}
+	}
+}

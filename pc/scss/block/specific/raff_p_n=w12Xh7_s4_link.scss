@@ -1,0 +1,213 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../common/helper/function' as *;
+@use '../../common/helper/mixin';
+@use '../../common/setting/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="raff_p_n=w12Xh7_s4_link"] {
+	width: const.$grid_pc_column * 12 + const.$grid_pc_column_gutter * (12 - 1);
+
+	.mui_inner {
+		position: relative;
+
+		// 전체보기
+		.btn_link {
+			position: absolute;
+			top: -47px;
+			right: 2px;
+			@include mixin.font(#767676 '1.5rem');
+
+			&::before {
+				position: absolute;
+				top: -20px;
+				right: -20px;
+				bottom: -20px;
+				left: -20px;
+				content: '';
+			}
+
+			.uico_link {
+				margin: 2px 0 0 9px;
+
+				&::before {
+					width: 6px;
+					height: 9px;
+					@include mixin.svg(#767676 url('../image/block/common/ico_arrow_thick_round_right.svg'));
+				}
+			}
+		}
+	}
+
+	.mui_product-list {
+		> ul {
+			display: grid;
+			grid-template-columns: repeat(4, 325px);
+			column-gap: 20px;
+
+			&::after {
+				content: none;
+			}
+
+		}
+	}
+
+	.mui_product-item {
+		.mui_image-scale {
+			position: relative;
+
+			&::before {
+				position: absolute;
+				z-index: 1;
+				top: 0;
+				right: 0;
+				left: 0;
+				bottom: 0;
+				background-color: rgba(#000, 0.1);
+				content: '';
+			}
+		}
+
+		.text_adult::before {
+			position: absolute;
+			z-index: 1;
+			top: 0;
+			right: 0;
+			left: 0;
+			bottom: 0;
+			background-color: rgba(#000, 0.1);
+			content: '';
+		}
+
+		.text_raffle {
+			position: absolute;
+			z-index: 2;
+			right: 0;
+			left: 0;
+			margin-top: -88px;
+			@include mixin.font(#fff center);
+
+			strong {
+				@include mixin.font('3rem/4.2rem');
+
+				span {
+					padding: 0 8px;
+					@include mixin.font(v_700 '2.4rem/4.2rem');
+				}
+			}
+
+			b {
+				display: block;
+				margin-top: 1px;
+				font-size: 1.3rem;
+
+				span {
+					@include mixin.font(v_700 '1.6rem');
+				}
+			}
+		}
+
+		figcaption {
+			.text_product {
+				margin-top: 1px;
+			}
+
+			.text_sale {
+				right: 12px;
+				margin-top: 13px;
+				font-size: 2rem;
+			}
+
+			.text_price {
+				margin: 13px 0 0 2px;
+				font-size: 0;
+
+				strong {
+					display: inline-block;
+					font-size: 2rem;
+				}
+
+				del {
+					margin-left: 11px;
+				}
+			}
+		}
+
+		.mui_btn_box {
+			position: relative;
+
+			> a {
+				width: 154px;
+				background-color: #1f1f1f;
+				color: #fff;
+			}
+
+			> b {
+				width: 248px;
+				border: 1px solid #2b2b2b;
+				color: #2b2b2b;
+			}
+
+			.btn_raffle {
+				display: block;
+				margin: 29px auto 0;
+				padding: 0 12px;
+				height: 32px;
+				border-radius: 32px;
+				@include mixin.font('1.4rem/3.2rem' center);
+
+				&#{escape('.T=result')} {
+					background-color: #6a6a6a;
+				}
+
+				&#{escape('.T=fin')} {
+					background-color: #dcdcdc;
+					color: #767676;
+				}
+
+				&#{escape('.T=end')} {
+					background-color: #dcdcdc;
+					color: #767676;
+
+					// 당첨자 보기 버튼
+					+ .btn_winner {
+						display: block;
+						margin: 7px auto 0;
+						padding: 5px;
+						background-color: #fff;
+						@include mixin.font(#5c5c5c '1.3rem' center);
+
+						b {
+							position: relative;
+
+							&::after {
+								position: absolute;
+								right: -13px;
+								bottom: -1px;
+								left: -3px;
+								border-bottom: 1px solid #5c5c5c;
+								content: '';
+							}
+						}
+
+						.uico_link {
+							margin: 1px 0 0 7px;
+
+							&::before {
+								width: 4px;
+								height: 12px;
+								@include mixin.svg(#7b7b7b url('../image/block/common/ico_arrow_thick_round_right.svg'));
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

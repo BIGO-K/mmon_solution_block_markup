@@ -1,0 +1,94 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../helper/function';
+@use '../../helper/mixin';
+@use '../../helper/const';
+
+/**
+ * 블록
+ * 배너+상품
+**/
+
+
+[data-mui="bp_ns=w6Xh6_s3"] {
+	> a {
+		display: block;
+		position: relative;
+
+		figure {
+			.image_banner {
+				padding-top: 10.63829%;
+				width: 100%;
+			}
+
+			figcaption {
+				position: absolute;
+				z-index: 1;
+				top: 50%;
+				right: 20px;
+				left: 20px;
+				@include mixin.transform(translateY(-50%));
+
+				.text_alt {
+					@include mixin.text_ellipsis(2);
+					@include mixin.font(#a3a3a3 '1.4rem/2rem' center);
+
+					@include mixin.context-after(':not(.mui_image-none)', 'figure') {
+						display: none;
+					}
+				}
+			}
+		}
+
+		// 이미지 에러
+		.mui_image-none {
+			.uico_none {
+				background-color: #f5f5f5;
+			}
+		}
+
+		+ .mui_scroller {
+			margin-top: 15px;
+		}
+	}
+
+	.mui_product-list {
+		> ul {
+			display: inline-block;
+			padding: 0 14px 4px;
+			@include mixin.font('0', nowrap);
+
+			> li {
+				display: inline-block;
+				width: 152px;
+				white-space: normal;
+
+				&:nth-child(n+2) {
+					margin-left: 4px;
+				}
+			}
+		}
+
+		.mui_product-item {
+			figure {
+				figcaption {
+					padding: 0 10px 0 4px;
+
+					.text_sale {
+						right: 8px;
+						margin-top: 4px;
+					}
+
+					.text_price {
+						margin-top: 3px;
+					}
+
+					.mm_tag-list {
+						margin-top: 7px;
+					}
+				}
+			}
+		}
+	}
+}

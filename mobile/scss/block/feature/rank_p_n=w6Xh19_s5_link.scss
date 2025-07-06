@@ -1,0 +1,201 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../helper/function';
+@use '../../helper/mixin';
+@use '../../helper/var';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="rank_p_n=w6Xh19_s5_link"] {
+	padding: 40px 0 60px;
+	background-color: #f5f5f5;
+
+	.mui_title#{function.escape('.T=design')} {
+		text-align: center;
+
+		.title_main {
+			margin-bottom: 30px;
+		}
+	}
+
+	.mui_product-list {
+		padding: 0 22px;
+
+		> ol {
+			> li {
+				// 1위
+				&:first-child {
+					.mui_product-item {
+						.text_rank {
+							background-color: #f84f34;
+						}
+					}
+				}
+
+				&:nth-child(n+2) {
+					margin-top: 14px;
+				}
+			}
+		}
+	}
+
+	.mui_product-item {
+		.text_rank {
+			position: absolute;
+			z-index: 3;
+			top: 0;
+			left: 0;
+			width: 44px;
+			height: 44px;
+			border-radius: 100%;
+			background-color: #101010;
+			@include mixin.font(#fff center);
+
+			> strong {
+				display: block;
+				padding-top: 7px;
+				font-size: 1.5rem;
+
+				&:only-child {
+					padding-top: 13px;
+				}
+			}
+
+			$ranks: up, down, new, unchanged;
+			@each $rank, $color in $ranks {
+				@if $rank == up or $rank == down {
+					.text_rank-#{$rank} {
+						display: inline-block;
+						margin-top: 2px;
+						@include mixin.font(#fff '1.2rem', 0);
+
+						&::before {
+							margin: 3px 2px 0 0;
+							width: 7px;
+							height: 6px;
+							@include mixin.svg(#fff url('../../image/block/common/ico_triangle.svg'));
+							content: '';
+
+							@if $rank == down {
+								@include mixin.transform(rotate(180deg));
+							}
+						}
+					}
+				}
+
+				.uico_rank-#{$rank} {
+					@if $rank == new {
+						margin-top: 2px;
+
+						&::before {
+							@include mixin.font(#fff '1.2rem', 0);
+							content: 'NEW';
+						}
+					}
+
+					@if $rank == unchanged {
+						margin: 2px 0 0 1px;
+
+						&::before {
+							width: 7px;
+							height: 8px;
+							@include mixin.svg(#fff url('../../image/block/common/ico_unchanged.svg'));
+							content: '';
+						}
+					}
+				}
+			}
+		}
+
+		figure {
+			> div {
+				overflow: hidden;
+				position: relative;
+				width: 48.19277%;
+				border-radius: 100%;
+			}
+
+			figcaption {
+				position: absolute;
+				top: 0;
+				right: 0;
+				left: 0;
+				margin: 0 0 0 48.19277%;
+				padding: 19px 15px 0 14px;
+
+				> *:first-child {
+					margin-top: 0;
+					padding-top: 0;
+				}
+
+				.text_sale {
+					right: 0;
+				}
+
+				> ul {
+					margin-top: 7px;
+					font-size: 0;
+
+					li {
+						display: inline-block;
+						margin: 2px 2px 0 0;
+
+						> * {
+							padding: 0 4px;
+							height: 17px;
+							border-radius: 2px;
+							background-color: #fff;
+							@include mixin.font(#6a6a6a '1rem/1.6rem' center);
+						}
+
+						> b {
+							border: 1px solid #6a6a6a;
+							line-height: 1.5rem;
+						}
+
+						> strong {
+							display: inline-block;
+							border: 1px solid #f84f34;
+							@include mixin.font(#f84f34 '/1.5rem');
+						}
+					}
+				}
+			}
+		}
+
+		// 품절
+		.text_soldout {
+			top: auto;
+			bottom: 0;
+			height: 34px;
+			line-height: 3.4rem;
+		}
+	}
+
+	// 하단 랭킹 더보기
+	.btn_link {
+		display: block;
+		margin: 24px auto 0;
+		width: 128px;
+		height: 30px;
+		border: 1px solid #6a6a6a;
+		border-radius: 15px;
+		background-color: #fff;
+		@include mixin.font(#5c5c5c '1.3rem/3rem' center);
+
+		.uico_link {
+			margin: 10px 0 0 9px;
+
+			&::before {
+				width: 5px;
+				height: 9px;
+				@include mixin.svg(#6a6a6a url('../../image/block/common/ico_arrow_right.svg'));
+			}
+		}
+	}
+}

@@ -1,0 +1,99 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../helper/function';
+@use '../../helper/mixin';
+@use '../../helper/var';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="b_c=w6Xh7_s1_pager_1"] {
+	.mui_carousel {
+		&-list {
+			padding-top: 104.78723%;
+		}
+
+		&-count {
+			right: 5.31914%;
+			bottom: 4.06091%;
+			padding: 1px 10px 0;
+			border-radius: 13px;
+			background-color: rgba(#000, .46);
+			@include mixin.font(#fff 300 '1.3rem/2.3rem' center);
+
+			> i {
+				margin: 0 1px;
+			}
+		}
+	}
+
+	a {
+		display: block;
+		position: relative;
+	}
+
+	figure {
+		.image_banner {
+			padding-top: 104.78723%;
+			width: 100%;
+		}
+
+		figcaption {
+			position: absolute;
+			z-index: 1;
+			right: 0;
+			bottom: 14.467%;
+			left: 0;
+			padding: 0 32px;
+			@include mixin.font(var.$color_text_base '2.7rem/1.4');
+
+			.text_banner1 {
+				+ .text_banner2 {
+					margin-top: -5px;
+				}
+
+				+ [class*="text_banner"]:not(.text_banner2) {
+					margin-top: 14px;
+				}
+			}
+
+			.text_banner2 {
+				+ [class*="text_banner"] {
+					margin-top: 14px;
+				}
+			}
+
+			.text_banner3 {
+				font-size: 1.7rem;
+
+				+ .text_banner4 {
+					margin-top: 1px;
+				}
+			}
+
+			.text_banner4 {
+				font-size: 1.7rem;
+			}
+
+			.text_alt {
+				@include mixin.text_ellipsis(2);
+				@include mixin.font(#a3a3a3 '1.4rem/2rem');
+
+				@include mixin.context-after(':not(.mui_image-none)', 'figure') {
+					display: none;
+				}
+			}
+		}
+	}
+
+	// 이미지 에러
+	.mui_image-none {
+		.uico_none {
+			background-color: #f5f5f5;
+		}
+	}
+}

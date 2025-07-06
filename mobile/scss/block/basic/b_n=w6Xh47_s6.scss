@@ -1,0 +1,83 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../helper/function';
+@use '../../helper/mixin';
+@use '../../helper/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="b_n=w6Xh47_s6"] {
+	ul {
+		li:nth-child(n+2) {
+			margin-top: 28px;
+		}
+	}
+
+	a {
+		display: block;
+		position: relative;
+	}
+
+	figure {
+		.image_banner {
+			padding-top: 100%;
+			width: 100%;
+		}
+
+		figcaption {
+			padding: 0 20px;
+
+			> *:first-child {
+				margin-top: 14px;
+			}
+
+			.text_banner1 {
+				overflow: hidden;
+				height: 24px;
+				@include mixin.font('1.7rem/2.4rem');
+
+				+ .text_banner2 {
+					margin-top: 1px;
+				}
+			}
+
+			.text_banner2 {
+				overflow: hidden;
+				height: 20px;
+				@include mixin.font('1.4rem/2rem');
+			}
+
+			.text_alt {
+				@include mixin.text_ellipsis(2);
+				@include mixin.font(#a3a3a3 '1.4rem/2rem');
+
+				@include mixin.context-after(':not(.mui_image-none)', 'figure') {
+					display: none;
+				}
+			}
+		}
+	}
+
+	// 이미지 에러
+	.mui_image-none {
+		.uico_none {
+			position: relative;
+			background-color: #f5f5f5;
+
+			&::before {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 50%;
+				height: 50%;
+				@include mixin.svg(#d3d3d3 url('../../image/common/logo.svg'));
+				@include mixin.transform(translate(-50%, -50%));
+			}
+		}
+	}
+}

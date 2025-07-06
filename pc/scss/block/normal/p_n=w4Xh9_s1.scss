@@ -1,0 +1,20 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../common/helper/function' as *;
+@use '../../common/helper/mixin';
+@use '../../common/setting/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="p_n=w4Xh9_s1"] {
+	width: const.$grid_pc_column * 4 + const.$grid_pc_column_gutter * (4 - 1);
+
+	> .mui_container {
+		height: const.$grid_pc_row * 9 + const.$grid_pc_row_gutter * (9 - 1);
+	}
+}

@@ -1,0 +1,161 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../helper/function';
+@use '../../helper/mixin';
+@use '../../helper/const';
+
+/**
+ * 블록
+ * 배너+상품
+**/
+
+
+[data-mui="rank_p_n=w6Xh12_s4"] {
+	> a {
+		display: block;
+		position: relative;
+	}
+
+	.mui_product-list {
+		@include mixin.font('0' center);
+
+		ol {
+			li {
+				display: inline-block;
+				position: relative;
+				width: 82.4468%;
+				min-width: 310px;
+
+				$ranks: (1, 16px, 128px), (2, 16px, 5px), (3, 16px, 5px), (4, 16px, 128px);
+				@each $index, $positionY, $positionX in $ranks {
+					&:nth-of-type(#{$index}) {
+						@if $index % 2 == 1 {
+							.text_rank {
+								top: $positionY;
+								left: $positionX;
+							}
+						}
+						@else {
+							.text_rank {
+								right: $positionX;
+								bottom: $positionY;
+							}
+						}
+					}
+				}
+
+				&:first-of-type {
+					.text_rank {
+						border-color: #00caca;
+						vertical-align: 0;
+						@include mixin.font(#00caca '/36px');
+
+						&::after {
+							position: absolute;
+							top: -10px;
+							left: 50%;
+							margin-left: -8px;
+							width: 17px;
+							height: 10px;
+							@include mixin.svg(#00caca url('../../image/block/common/ico_crown.svg') '/contain' no-repeat);
+							content: '';
+						}
+
+						strong {
+							vertical-align: 0;
+							font-size: 20px;
+						}
+					}
+				}
+
+				// 오른쪽 이미지
+				&:nth-of-type(even) {
+					.image_rank {
+						right: 4px;
+						left: auto;
+					}
+
+					figcaption {
+						padding: 0 188px 0 8px;
+					}
+				}
+
+				// 3rd
+				&:nth-of-type(3) {
+					figcaption {
+						margin-top: -12px;
+					}
+				}
+
+				> a {
+					display: block;
+				}
+			}
+		}
+
+		.text_rank {
+			position: absolute;
+			z-index: 3;
+			width: 39px;
+			height: 39px;
+			border: 1px solid #101010;
+			border-radius: 100%;
+			background-color: #fff;
+			@include mixin.font(300 '17px/38px' center);
+
+			> strong {
+				@include mixin.font(700 '17px');
+			}
+		}
+
+		figure {
+			position: relative;
+			height: 174px;
+
+			.image_rank {
+				position: absolute;
+				top: 5px;
+				left: 4px;
+				width: 164px;
+				height: 164px;
+				border-radius: 100%;
+
+				&::after {
+					position: absolute;
+					top: -4px;
+					right: -4px;
+					bottom: -4px;
+					left: -4px;
+					border-radius: 100%;
+					border: 1px solid #eee;
+					content: '';
+				}
+			}
+		}
+
+		figcaption {
+			position: absolute;
+			top: 50%;
+			right: 20px;
+			left: 20px;
+			padding: 0 10px 0 186px;
+			@include mixin.font(700 '14px/18px' left);
+			@include mixin.transform(translateY(-50%));
+
+			> p {
+				padding-bottom: 1px;
+				max-height: (18px * 2 + 1);
+				@include mixin.text-ellipsis(2);
+			}
+
+			.text_brand {
+				@include mixin.font(500 #8c8c8c);
+			}
+
+			.text_product {
+				margin-top: 5px;
+			}
+		}
+	}
+}

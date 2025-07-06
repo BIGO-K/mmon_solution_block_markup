@@ -1,0 +1,166 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../helper/function';
+@use '../../helper/mixin';
+@use '../../helper/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="b_c=w6Xh13_s1_side"] {
+	padding: 47px 0 75px;
+	background-color: #f5f5f5;
+
+	.mui_title {
+		&#{function.escape('.T=design')} {
+			padding: 0 15%;
+			text-align: center;
+
+			.title_main {
+				margin-bottom: 16px;
+				font-weight: 700;
+
+				+ .title_sub {
+					margin-top: -9px;
+				}
+			}
+
+			.title_sub {
+				margin-bottom: 17px;
+				padding: 0 35px;
+				@include mixin.font(#5c5c5c 400 '1.4rem/1.9rem');
+			}
+		}
+	}
+
+	.mui_carousel {
+		&-list {
+			margin: 0 auto;
+			width: 71.27659%;
+		}
+
+		&-item {
+			padding: 0 3px;
+		}
+
+		&-pagination {
+			bottom: -16px;
+			@include mixin.transform(translate(-50%, 100%));
+
+			li:nth-child(n+2) {
+				margin-left: 12px;
+			}
+
+			button {
+				width: 9px;
+				height: 9px;
+				border-radius: 100%;
+				background-color: rgba(#101010, 0.27);
+
+				&#{function.escape('.S=on')} {
+					background-color: #101010;
+				}
+			}
+		}
+	}
+
+	a {
+		display: block;
+		position: relative;
+		padding: 12px 12px 41px;
+		border: 1px solid #e6e6e6;
+		background-color: #fff;
+	}
+
+	figure {
+		.image_banner {
+			padding-top: 100%;
+			width: 100%;
+		}
+
+		figcaption {
+			position: relative;
+			margin: 19px 5px 0;
+			height: 197px;
+
+			[class*="text_banner"] {
+				overflow: hidden;
+			}
+
+			.text_banner1 {
+				position: absolute;
+				top: 0;
+				padding-right: 74px; // .text_date 너비만큼 여백
+				height: 20px;
+				@include mixin.font(#aeaeae 400 '1.2rem/2rem');
+			}
+
+			.text_date {
+				@include mixin.font(#aeaeae '1.2rem/2rem' right);
+
+				+ [class*="text_banner"] {
+					margin-top: 17px;
+				}
+			}
+
+			.text_banner2 {
+				height: 20px;
+				@include mixin.font(#4a4a4a '1.5rem/2rem');
+			}
+
+			.text_banner3 {
+				margin-top: 16px;
+				max-height: 58px;
+				@include mixin.font('2rem/3rem');
+			}
+
+			.text_detail {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				@include mixin.font(#7b7b7b 400 '1.2rem/1.9rem');
+
+				.uico_link {
+					margin: 4px 0 0 8px;
+
+					&::before{
+						width: 4px;
+						height: 11px;
+						@include mixin.svg(#7b7b7b url('../../image/block/common/ico_arrow_thick_right.svg'));
+					}
+				}
+			}
+
+			.text_alt {
+				@include mixin.text_ellipsis(2);
+				@include mixin.font(#a3a3a3 '1.4rem/2rem');
+
+				@include mixin.context-after(':not(.mui_image-none)', 'figure') {
+					display: none;
+				}
+			}
+		}
+	}
+
+	// 이미지 에러
+	.mui_image-none {
+		.uico_none {
+			position: relative;
+			background-color: #f5f5f5;
+
+			&::before {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 50%;
+				height: 50%;
+				@include mixin.transform(translate(-50%, -50%));
+				@include mixin.svg(#d3d3d3 url('../../image/common/logo.svg'));
+			}
+		}
+	}
+}

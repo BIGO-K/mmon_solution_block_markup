@@ -1,0 +1,332 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../common/helper/function' as *;
+@use '../../common/helper/mixin';
+@use '../../common/setting/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="coop_p_n=w12Xh6_s1_link"] {
+	width: const.$grid_pc_column * 12 + const.$grid_pc_column_gutter * (12 - 1);
+
+	.mui_inner {
+		position: relative;
+
+		// 전체보기
+		.btn_link {
+			position: absolute;
+			top: -47px;
+			right: 2px;
+			@include mixin.font(#767676 '1.5rem');
+
+			&::before {
+				position: absolute;
+				top: -20px;
+				right: -20px;
+				bottom: -20px;
+				left: -20px;
+				content: '';
+			}
+
+			.uico_link {
+				margin: 2px 0 0 9px;
+
+				&::before {
+					width: 6px;
+					height: 9px;
+					@include mixin.svg(#767676 url('../image/block/common/ico_arrow_thick_round_right.svg'));
+				}
+			}
+		}
+	}
+
+	.m_coop {
+		position: relative;
+
+		> a {
+			display: block;
+
+			figure {
+				position: relative;
+
+				.image_product {
+					width: 446px;
+
+					&::before {
+						padding-top: calc(var(--prod_ratio_base) * 100%);
+						content: '';
+					}
+				}
+
+				.text_adult {
+					position: absolute;
+					z-index: 2;
+					top: 0;
+					left: 0;
+					width: 446px;
+					background-color: #eee;
+
+					&::before {
+						padding-top: calc(var(--prod_ratio_base) * 100%);
+						content: '';
+					}
+
+					.uico_adult {
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						width: 70px;
+						height: 70px;
+						border: 4px solid #e91b1b;
+						border-radius: 100%;
+						background-color: #fff;
+						text-align: center;
+						@include mixin.transform(translate(-50%, -50%));
+
+						&::before {
+							@include mixin.font(v_700 '4rem/6.2rem');
+							content: "19" !important;
+						}
+					}
+				}
+
+				figcaption {
+					position: absolute;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					left: 0;
+					margin-left: 446px;
+					padding-left: 30px;
+
+					.m_coop-progress {
+						position: relative;
+						padding: 65px 0 0 263px;
+						height: 220px;
+						border: 1px solid #dcdcdc;
+
+						.text_state {
+							position: absolute;
+							top: -1px;
+							bottom: -1px;
+							left: -1px;
+							padding-top: 56px;
+							width: 219px;
+							background-color: #3d3d3d;
+							@include mixin.font(#fff center);
+
+							// 날짜, 시간
+							> b {
+								@include mixin.font(v_300 '3rem');
+
+								> span {
+									margin: 0 3px;
+									vertical-align: 1px;
+								}
+
+								strong {
+									display: block;
+									margin-top: 10px;
+									font-variation-settings: 'wght' 600;
+
+									span {
+										display: inline-block;
+										margin: -3px 3px 0;
+									}
+								}
+							}
+
+							// 상태 문구
+							> strong {
+								display: block;
+								margin-top: 31px;
+								@include mixin.font(#87e50c '1.7rem');
+							}
+						}
+
+						.text_goal {
+							font-size: 1.7rem;
+
+							b {
+								display: block;
+								margin-top: 3px;
+								font-size: 2rem;
+
+								strong {
+									margin-right: 5px;
+									vertical-align: -2px;
+									@include mixin.font(v_700 '4rem');
+
+									sub {
+										margin-left: 2px;
+										vertical-align: 2px;
+										font-size: 3.4rem;
+									}
+								}
+							}
+						}
+
+						#{escape('.m...progress-bar')} {
+							position: relative;
+							margin-top: 19px;
+							width: 505px;
+							height: 10px;
+
+							&::before {
+								position: absolute;
+								top: 0;
+								right: 0;
+								bottom: 0;
+								left: 0;
+								border: 1px solid #b8b8b9;
+								content: '';
+							}
+
+							&::after {
+								position: absolute;
+								top: -40px;
+								right: 0;
+								width: 64px;
+								height: 40px;
+								@include mixin.background(url('../image/block/common/ico_coop_goal.svg') '0 0/cover' no-repeat);
+								content: '';
+							}
+
+
+							i {
+								position: relative;
+								height: 100%;
+								background-color: #86ce29;
+							}
+						}
+					}
+
+					.text_price {
+						margin-top: 58px;
+						padding-left: 30px;
+						font-size: 2rem;
+
+						del {
+							position: relative;
+							margin: -1px 34px 0 0;
+							vertical-align: -1px;
+							@include mixin.font(#5c5c5c '2.4rem' none);
+
+							&::after {
+								vertical-align: 1px;
+								font-size: 2rem;
+								content: "원";
+							}
+
+							.uico_coop-arrow {
+								position: absolute;
+								z-index: 1;
+								top: 7px;
+								right: -22px;
+
+								&::before {
+									width: 13px;
+									height: 13px;
+									@include mixin.svg(#767676 url('../image/block/common/ico_arrow_right_full.svg'));
+								}
+
+								&::after {
+									position: absolute;
+									top: 6px;
+									right: 10px;
+									left: -120px;
+									height: 1px;
+									border: 1px solid #767676;
+									content: '';
+								}
+							}
+						}
+
+						strong {
+							margin-left: 7px;
+							vertical-align: -2px;
+							@include mixin.font(v_700 '2.8rem');
+
+							&::after {
+								vertical-align: 2px;
+								@include mixin.font(v_500 '2rem');
+								content: "원";
+							}
+						}
+					}
+
+					.text_brand {
+						margin-top: 24px;
+						padding: 0 350px 0 30px;
+						@include mixin.font(#6a6a6a '1.5rem/2.6rem');
+					}
+
+					.text_product {
+						@include mixin.text-ellipsis(2);
+						padding: 0 350px 0 30px;
+						@include mixin.font('1.5rem/2.2rem');
+					}
+				}
+			}
+		}
+
+		.btn_coop-entry {
+			position: absolute;
+			right: 70px;
+			bottom: 113px;
+			width: 222px;
+			height: 54px;
+			border-radius: 54px;
+			background-color: #101010;
+			@include mixin.font(#87e50c '1.7rem/5.4rem' center);
+		}
+
+		//  공동구매 목표 달성
+		&#{escape('.S=coop-complete')} {
+			.m_coop-progress {
+				.text_state {
+					> strong {
+						color: #46d8c9;
+					}
+				}
+
+				#{escape('.m...progress-bar')} {
+					> i {
+						background-color: #11b7a6;
+					}
+
+					&::after {
+						@include mixin.background(url('../image/block/common/ico_coop_goal_complete.svg') '0 0/cover' no-repeat);
+					}
+				}
+			}
+
+			.btn_coop-entry {
+				color: #46d8c9;
+			}
+		}
+	}
+
+	// 이미지 에러
+	.mui_image-none {
+		.uico_none {
+			position: relative;
+			background-color: #f5f5f5;
+
+			&::before {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 50%;
+				height: 50%;
+				@include mixin.transform(translate(-50%, -50%));
+				@include mixin.svg(#d3d3d3 url('../image/common/logo.svg'));
+			}
+		}
+	}
+}

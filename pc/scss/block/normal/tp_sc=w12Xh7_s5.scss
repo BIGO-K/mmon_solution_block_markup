@@ -1,0 +1,195 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../common/helper/function' as *;
+@use '../../common/helper/mixin';
+@use '../../common/setting/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="tp_sc=w12Xh7_s5"] {
+	width: const.$grid_pc_column * 12 + const.$grid_pc_column_gutter * (12 - 1);
+
+	// 탭메뉴
+	.mui_tab_menu {
+		margin-bottom: 38px;
+
+		.mui_slider {
+			overflow: hidden;
+			position: relative;
+
+			&-inner {
+				overflow: hidden;
+				margin: 0 -27px;
+				padding: 0 46px;
+			}
+
+			&-list {
+				display: inline-block;
+				@include mixin.font('0', nowrap);
+			}
+
+			&-item {
+				display: inline-block;
+				padding: 0 5px;
+			}
+
+			&-control {
+				button {
+					position: absolute;
+					z-index: 3;
+					top: 0;
+					bottom: 0;
+					background-color: #fff;
+					text-align: center;
+
+					i::before {
+						width: 9px;
+						height: 20px;
+					}
+
+					&:disabled {
+						> i::before {
+							background-color: rgba(const.$color_text_base, 0.35);
+						}
+					}
+				}
+
+				.btn_slider-prev {
+					left: 0;
+					padding: 0 23px 0 14px;
+					@include mixin.linear-gradient(transparent, 90deg, #fff 50%, transparent 100%);
+
+					i::before {
+						@include mixin.svg(const.$color_text_base url('../image/block/common/ico_arrow_left.svg'));
+					}
+				}
+
+				.btn_slider-next {
+					right: 0;
+					padding: 0 14px 0 23px;
+					@include mixin.linear-gradient(transparent, -90deg, #fff 50%, transparent 100%);
+
+					i::before {
+						@include mixin.svg(const.$color_text_base url('../image/block/common/ico_arrow_right.svg'));
+					}
+				}
+			}
+		}
+
+		.btn_tab {
+			padding: 10px 30px;
+			@include mixin.font(#888 '1.7rem/2.4rem');
+
+			&#{escape('.S=tab-on')} {
+				position: relative;
+				@include mixin.font(#1f1f1f v_700);
+
+				&::before {
+					position: absolute;
+					top: 0;
+					left: 50%;
+					margin-left: -2px;
+					width: 4px;
+					height: 4px;
+					border-radius: 2px;
+					background-color: #1f1f1f;
+					content: '';
+				}
+			}
+		}
+	}
+
+	// 상품
+	.mui_carousel {
+		&-list {
+			margin: 0 -10px;
+		}
+
+		&-item {
+			padding: 0 10px;
+			background-color: #fff;
+		}
+
+		&-control {
+			top: calc(var(--prod_ratio_base, 1) * 256px / 2);
+			width: 1360px;
+
+			button {
+				width: 28px;
+				height: 54px;
+				background-color: #fff;
+				text-align: center;
+
+				&:disabled {
+					background-color: rgba(#fff, 0.54);
+
+					> i::before {
+						background-color: #101010;
+					}
+				}
+			}
+
+			.btn_carousel-prev {
+				left: 0;
+				padding-right: 10px;
+				border-radius: 0 30px 30px 0;
+
+				i::before {
+					width: 8px;
+					height: 17px;
+					@include mixin.svg(const.$color_text_base url('../image/block/common/ico_arrow_left.svg'));
+				}
+			}
+
+			.btn_carousel-next {
+				right: 0;
+				padding-left: 10px;
+				border-radius: 30px 0 0 30px;
+
+				i::before {
+					width: 8px;
+					height: 17px;
+					@include mixin.svg(const.$color_text_base url('../image/block/common/ico_arrow_right.svg'));
+				}
+			}
+		}
+
+		&-pagination {
+			bottom: -50px;
+
+			li:nth-child(n+2) {
+				margin-left: 10px;
+			}
+
+			button {
+				width: 6px;
+				height: 6px;
+				border-radius: 3px;
+				background-color: #dcdcdc;
+				@include mixin.transition(width const.$time_fast, opacity const.$time_fast);
+
+				&#{escape('.S=on')} {
+					width: 66px;
+					background-color: #2b2b2b;
+				}
+			}
+		}
+	}
+
+	.mui_product-list {
+		> ul {
+			display: grid;
+			grid-template-columns: repeat(5, 256px);
+			column-gap: 20px;
+
+			&::after {
+				content: none;
+			}
+		}
+	}
+}

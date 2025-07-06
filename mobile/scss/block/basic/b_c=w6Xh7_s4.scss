@@ -1,0 +1,115 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../helper/function';
+@use '../../helper/mixin';
+@use '../../helper/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="b_c=w6Xh7_s4"] {
+	.mui_carousel {
+		&-list {
+			padding-top: 100%;
+		}
+
+		&-item {
+			> ul {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				grid-gap: 1px;
+				padding: 0 14px;
+
+				&::after {
+					content: none;
+				}
+			}
+		}
+
+		&-pagination {
+			bottom: 4px;
+
+			li:nth-child(n+2) {
+				margin-left: 4px;
+			}
+
+			button {
+				width: 4px;
+				height: 4px;
+				border-radius: 2px;
+				background-color: rgba(#000, 0.5);
+				@include mixin.transition(width const.$time_fast, opacity const.$time_fast);
+
+				&#{function.escape('.S=on')} {
+					width: 38px;
+					background-color: #101010;
+				}
+			}
+		}
+	}
+
+	a {
+		display: block;
+		position: relative;
+	}
+
+	figure {
+		&::after {
+			position: absolute;
+			right: 0;
+			bottom: 11px;
+			left: 0;
+			height: 63.58381%;
+			@include mixin.linear-gradient(transparent, 0deg, rgba(#000, 0.6), transparent);
+			content: '';
+		}
+
+		.image_banner {
+			position: relative;
+			padding-top: 100%;
+			width: 100%;
+		}
+
+		figcaption {
+			position: absolute;
+			bottom: 11px;
+			left: 0;
+			padding: 0 16px;
+			width: 100%;
+			z-index: 1;
+			@include mixin.font(#fff '1.3rem/1.8rem');
+
+			.text_banner1,
+			.text_banner2 {
+				+ .text_banner3 {
+					margin-top: 3px;
+				}
+			}
+
+			.text_banner3 {
+				font-size: 1rem;
+			}
+		}
+
+		.text_alt {
+			@include mixin.text_ellipsis(2);
+			@include mixin.font(#a3a3a3 '1.4rem/2rem');
+
+			@include mixin.context-after(':not(.mui_image-none)', 'figure') {
+				display: none;
+			}
+		}
+	}
+
+	// 이미지 에러
+	.mui_image-none {
+		.uico_none {
+			position: relative;
+			background-color: #f5f5f5;
+		}
+	}
+}

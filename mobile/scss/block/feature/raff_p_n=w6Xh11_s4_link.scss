@@ -1,0 +1,223 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../helper/function';
+@use '../../helper/mixin';
+@use '../../helper/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="raff_p_n=w6Xh11_s4_link"] {
+	.mui_title {
+        padding-right: 80px;
+
+        &#{function.escape('.T=center')} {
+            padding-left: 80px;
+        }
+    }
+
+	.mui_inner {
+		position: relative;
+
+		// 전체보기
+		.btn_link {
+			position: absolute;
+			top: -34px;
+			right: 20px;
+			@include mixin.font(#7b7b7b '1.3rem');
+
+			&::before {
+				position: absolute;
+				top: -10px;
+				right: -10px;
+				bottom: -10px;
+				left: -10px;
+				content: '';
+			}
+
+			.uico_link {
+				margin: 3px 0 0 4px;
+
+				&::before {
+					width: 5px;
+					height: 7px;
+					@include mixin.svg(#7b7b7b url('../../image/block/common/ico_arrow_thick_round_right.svg'));
+				}
+			}
+		}
+	}
+
+    .m_raffle {
+        padding: 0 14px;
+
+        > .mui_product-item {
+            > a {
+                position: relative;
+                margin: 0 56px 0 -14px;
+            }
+
+            .image_product {
+                width: 100%;
+
+                &::after {
+                    position: absolute;
+                    top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+                    background-color: rgba(#000, 0.1);
+                    content: '';
+                }
+            }
+
+            figcaption {
+                position: inherit;
+                margin-left: 14px;
+                padding: 0;
+
+                .text_state {
+                    position: absolute;
+                    z-index: 2;
+                    top: 25px;
+                    right: -56px;
+                    padding: 0 25px 0 18px;
+                    height: 46px;
+                    background-color: #393a61;
+                    @include mixin.font(#fff '/4.4rem');
+
+                    b {
+                        @include mixin.font(600 '2.4rem');
+
+                        span {
+                            margin: 0 2px;
+                            vertical-align: 2px;
+                        }
+                    }
+
+                    strong {
+                        display: inline-block;
+                        margin-left: 13px;
+                        padding-top: 3px;
+                        @include mixin.font(700 '1.5rem');
+
+                        span {
+                            @include mixin.font(500 '1.4rem');
+                        }
+                    }
+                }
+
+                .text_brand {
+                    @include mixin.font(#6a6a6a '1.6rem/2.3rem');
+                }
+
+                .text_product {
+                    @include mixin.font(#4a4a4a '1.6rem/2.2rem');
+                }
+
+                .text_sale {
+                    margin-top: 14px;
+                    @include mixin.font(400 '2rem');
+                }
+
+                .text_price {
+                    display: inline-block;
+                    margin-top: 14px;
+                    font-size: 0;
+
+                    strong {
+                        font-size: 2rem;
+
+                        &::after {
+                            font-size: 1.5rem;
+                        }
+                    }
+
+                    del {
+                        display: inline-block;
+                        margin-left: 9px;
+                        font-size: 1.5rem;
+                        color: #888;
+
+                        &::after {
+                            vertical-align: 1px;
+                            @include mixin.font(400 '1.5rem');
+                        }
+
+                        span {
+                            margin-top: 0;
+                        }
+                    }
+                }
+            }
+
+            > .btn_raffle {
+                margin-top: 17px;
+                width: 100%;
+                height: 42px;
+                border-radius: 23px;
+                background-color: #1f1f1f;
+                @include mixin.font(#fff '1.5rem/4.2rem' center);
+            }
+        }
+
+        > .mui_product-list {
+            margin-top: 32px;
+
+            ul {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                column-gap: 6px;
+
+                .image_product {
+                    position: relative;
+
+                    &::after {
+                        position: absolute;
+                        top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+                        background-color: rgba(#000, .5);
+                        content: '';
+                    }
+                }
+
+                .text_adult {
+                    z-index: 0;
+
+                    &::after {
+                        position: absolute;
+                        top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+                        background-color: rgba(#000, .5);
+                        content: '';
+                    }
+                }
+
+                figcaption {
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    left: 0;
+                    margin-top: 1px;
+                    padding: 0 10px;
+                    @include mixin.transform(translateY(-50%));
+                }
+
+                .text_state {
+                    @include mixin.font(#fff 700 '1.5rem/1.9rem' center);
+
+                    span {
+                        @include mixin.font(500 '1.4rem');
+                    }
+                }
+            }
+        }
+    }
+}

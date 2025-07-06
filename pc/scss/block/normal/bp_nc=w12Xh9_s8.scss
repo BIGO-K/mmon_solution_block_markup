@@ -1,0 +1,123 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../common/helper/function' as *;
+@use '../../common/helper/mixin';
+@use '../../common/setting/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="bp_nc=w12Xh9_s8"] {
+	width: const.$grid_pc_column * 12 + const.$grid_pc_column_gutter * (12 - 1);
+	@include mixin.clearfix();
+
+	.mui_lside,
+	.mui_rside {
+		width: 664px;
+
+		// 배너
+		> a {
+			display: block;
+			position: relative;
+
+			figure {
+				.image_banner {
+					position: relative;
+					padding-top: 300px;
+					width: 100%;
+
+					&::before {
+						position: absolute;
+						z-index: 1;
+						top: 0;
+						right: 0;
+						bottom: 0;
+						left: 0;
+						background-color: rgba(#101010, 0.2);
+						content: '';
+					}
+				}
+
+				figcaption {
+					position: absolute;
+					z-index: 1;
+					top: 50%;
+					right: 0;
+					left: 0;
+					@include mixin.font(#fff center);
+					@include mixin.transform(translateY(-50%));
+
+					.text_banner1 {
+						font-size: 3rem;
+
+						+ .text_banner2 {
+							margin-top: 15px;
+						}
+					}
+
+					.text_banner2 {
+						font-size: 2rem;
+					}
+
+					.text_alt {
+						@include mixin.text_ellipsis(2);
+						@include mixin.font(#a3a3a3 '1.4rem/2rem' center);
+
+						@include mixin.context-after(':not(.mui_image-none)', 'figure') {
+							display: none;
+						}
+					}
+				}
+			}
+
+			// 이미지 에러
+			.mui_image-none {
+				.uico_none {
+					background-color: #f5f5f5;
+				}
+			}
+		}
+
+		// 상품
+		.mui_carousel {
+			margin-top: 20px;
+
+			.mui_product-list {
+				> ul {
+					display: grid;
+					grid-template-columns: repeat(3, 208px);
+					column-gap: 20px;
+
+					&::after {
+						content: none;
+					}
+				}
+			}
+
+			&-pagination {
+				bottom: -44px;
+
+				li:nth-child(n+2) {
+					margin-left: 10px;
+				}
+
+				button {
+					width: 6px;
+					height: 6px;
+					border-radius: 3px;
+					background-color: #dcdcdc;
+					@include mixin.transition(width const.$time_fast, opacity const.$time_fast);
+
+					&#{escape('.S=on')} {
+						width: 66px;
+						background-color: #2b2b2b;
+					}
+				}
+			}
+		}
+	}
+}

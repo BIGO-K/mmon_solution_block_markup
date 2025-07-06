@@ -1,0 +1,159 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../common/helper/function' as *;
+@use '../../common/helper/mixin';
+@use '../../common/setting/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="b_s=w12Xh5_s7"] {
+	width: const.$grid_pc_column * 12 + const.$grid_pc_column_gutter * (12 - 1);
+
+	.mui_slider {
+		overflow: hidden;
+		position: relative;
+		padding-top: 60px;
+
+		&-inner {
+			overflow: hidden;
+			margin: 0 -4px;
+		}
+
+		&-list {
+			display: inline-block;
+			@include mixin.font('0', nowrap);
+		}
+
+		&-item {
+			display: inline-block;
+			padding: 0 4px;
+			width: 204px;
+			white-space: normal;
+		}
+
+		&-control {
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0;
+			font-size: 0;
+
+			button {
+				width: 38px;
+				height: 38px;
+				border: 1px solid #a3a3a3;
+
+				&:disabled {
+					@include mixin.opacity(0.3);
+				}
+			}
+
+			.btn_slider-prev {
+				margin-right: -1px;
+
+				i::before {
+					margin-right: 3px;
+					width: 8px;
+					height: 13px;
+					@include mixin.svg(#999 url('../image/block/common/ico_arrow_left.svg'));
+				}
+			}
+
+			.btn_slider-next {
+				i::before {
+					width: 8px;
+					height: 13px;
+					@include mixin.svg(#999 url('../image/block/common/ico_arrow_right.svg'));
+				}
+			}
+		}
+	}
+
+	a {
+		display: block;
+		position: relative;
+
+		&:hover {
+			figcaption {
+				display: block;
+			}
+		}
+	}
+
+	figure {
+		.image_banner {
+			padding-top: 238px;
+			width: 100%;
+		}
+
+		figcaption {
+			display: none;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			padding: 94px 10px 0;
+			background-color: rgba(#000, 0.7);
+
+			&::before,
+			&::after {
+				position: absolute;
+				bottom: 92px;
+				left: 50%;
+				content: '';
+			}
+
+			&::before {
+				margin-left: 16px;
+				height: 7px;
+				border-left: 1px solid #fff;
+				@include mixin.transform(rotate(-45deg));
+			}
+
+			&::after {
+				margin-left: -20px;
+				width: 40px;
+				border-top: 1px solid #fff;
+			}
+
+			.text_banner1 {
+				overflow: hidden;
+				height: 18px;
+				@include mixin.font(#fff '1.5rem/1.8rem' center);
+			}
+
+			.text_alt {
+				@include mixin.text_ellipsis(2);
+				@include mixin.font(#a3a3a3 '1.4rem/2rem' center);
+
+				@include mixin.context-after(':not(.mui_image-none)', 'figure') {
+					display: none;
+				}
+			}
+		}
+	}
+
+	// 이미지 에러
+	.mui_image-none {
+		.uico_none {
+			position: relative;
+			background-color: #f5f5f5;
+
+			&::before {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 50%;
+				height: 50%;
+				@include mixin.transform(translate(-50%, -50%));
+				@include mixin.svg(#d3d3d3 url('../image/common/logo.svg'));
+			}
+		}
+	}
+}

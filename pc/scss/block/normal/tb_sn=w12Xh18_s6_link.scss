@@ -1,0 +1,225 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../common/helper/function' as *;
+@use '../../common/helper/mixin';
+@use '../../common/setting/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="tb_sn=w12Xh18_s6_link"] {
+	width: const.$grid_pc_column * 12 + const.$grid_pc_column_gutter * (12 - 1);
+
+	// 탭메뉴
+	.mui_tab_menu {
+		margin-bottom: 16px;
+
+		.mui_slider {
+			overflow: hidden;
+			position: relative;
+
+			&-inner {
+				overflow: hidden;
+				margin: 0 -27px;
+				padding: 0 46px;
+			}
+
+			&-list {
+				display: inline-block;
+				@include mixin.font('0', nowrap);
+			}
+
+			&-item {
+				display: inline-block;
+				padding: 12px 5px 0;
+			}
+
+			&-control {
+				button {
+					position: absolute;
+					z-index: 3;
+					top: 0;
+					bottom: 0;
+					background-color: #fff;
+					text-align: center;
+
+					i::before {
+						width: 9px;
+						height: 20px;
+					}
+
+					&:disabled {
+						> i::before {
+							background-color: rgba(const.$color_text_base, 0.35);
+						}
+					}
+				}
+
+				.btn_slider-prev {
+					left: 0;
+					padding: 0 23px 0 14px;
+					@include mixin.linear-gradient(transparent, 90deg, #fff 50%, transparent 100%);
+
+					i::before {
+						@include mixin.svg(const.$color_text_base url('../image/block/common/ico_arrow_left.svg'));
+					}
+				}
+
+				.btn_slider-next {
+					right: 0;
+					padding: 0 14px 0 23px;
+					@include mixin.linear-gradient(transparent, -90deg, #fff 50%, transparent 100%);
+
+					i::before {
+						@include mixin.svg(const.$color_text_base url('../image/block/common/ico_arrow_right.svg'));
+					}
+				}
+			}
+		}
+
+		.btn_tab {
+			padding: 10px 30px;
+			@include mixin.font(#888 '1.7rem/2.4rem');
+
+			&#{escape('.S=tab-on')} {
+				position: relative;
+				@include mixin.font(#1f1f1f v_700);
+
+				&::before {
+					position: absolute;
+					top: 0;
+					left: 50%;
+					margin-left: -2px;
+					width: 4px;
+					height: 4px;
+					border-radius: 2px;
+					background-color: #1f1f1f;
+					content: '';
+				}
+			}
+		}
+	}
+
+	// 탭컨텐츠
+	.mui_tab-item {
+		> ul {
+			display: grid;
+			grid-template-columns: repeat(3, 440px);
+			gap: 50px 20px;
+
+			&::after {
+				content: none;
+			}
+		}
+
+		a {
+			display: block;
+			position: relative;
+		}
+
+		figure {
+			.image_banner {
+				padding-top: 476px;
+				width: 100%;
+			}
+
+			figcaption {
+				padding: 0 20px 0 2px;
+
+				> *:first-child {
+					margin-top: 15px;
+				}
+
+				[class*="text_banner"] {
+					overflow: hidden;
+				}
+
+				.text_banner1 {
+					height: 24px;
+					@include mixin.font('1.7rem/1.4');
+
+					+ .text_banner2 {
+						margin-top: 4px;
+					}
+
+					+ .text_date {
+						margin-top: 9px;
+					}
+				}
+
+				.text_banner2 {
+					height: 44px;
+					@include mixin.font(#6a6a6a '1.4rem/2.2rem');
+
+					+ .text_date {
+						margin-top: 9px;
+					}
+				}
+
+				.text_date {
+					@include mixin.font(const.$color_text_base '1.4rem/1.8rem');
+
+					// 이미지 에러 + 문구 없을 경우(text_alt 하단에 위치)
+					@include mixin.context-after('.mui_image-none', 'figure') {
+						&:first-child {
+							margin-top: 80px;
+						}
+					}
+				}
+
+				.text_alt {
+					margin-top: -80px;// text_date 상단에 위치
+					@include mixin.text_ellipsis(2);
+					@include mixin.font(#a3a3a3 '1.4rem/2rem');
+
+					@include mixin.context-after(':not(.mui_image-none)', 'figure') {
+						display: none;
+					}
+				}
+			}
+		}
+
+		// 이미지 에러
+		.mui_image-none {
+			.uico_none {
+				position: relative;
+				background-color: #f5f5f5;
+
+				&::before {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					width: 50%;
+					height: 50%;
+					@include mixin.transform(translate(-50%, -50%));
+					@include mixin.svg(#d3d3d3 url('../image/common/logo.svg'));
+				}
+			}
+		}
+	}
+
+	// 하단 더보기
+	.btn_link {
+		display: block;
+		margin: 50px auto 0;
+		width: 174px;
+		height: 46px;
+		border: 1px solid #6a6a6a;
+		border-radius: 23px;
+		@include mixin.font(#5c5c5c '1.5rem/4.6rem' center);
+
+		.uico_link {
+			margin: 17px 0 0 10px;
+
+			&::before {
+				width: 6px;
+				height: 11px;
+				@include mixin.svg(#6a6a6a url('../image/block/common/ico_arrow_right.svg'));
+			}
+		}
+	}
+}

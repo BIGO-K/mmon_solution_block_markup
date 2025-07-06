@@ -1,0 +1,71 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../common/helper/function' as *;
+@use '../../common/helper/mixin';
+@use '../../common/setting/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="p_n=w12Xh14_s10_more"] {
+	width: const.$grid_pc_column * 12 + const.$grid_pc_column_gutter * (12 - 1);
+
+	.mui_product-list {
+		> ul {
+			display: grid;
+			grid-template-columns: repeat(5, 256px);
+			gap: 54px 20px;
+
+			&::after {
+				content: none;
+			}
+
+			> li:nth-child(n+11) {
+				display: none;
+			}
+		}
+	}
+
+	// 하단 더보기
+	.btn_more {
+		display: block;
+		margin: 54px auto 0;
+		padding: 0 59px;
+		min-width: 180px;
+		height: 46px;
+		border: 1px solid #6a6a6a;
+		border-radius: 23px;
+		@include mixin.font(#5c5c5c '1.5rem/4.6rem');
+
+		&::before {
+			content: attr(title);
+		}
+
+		.uico_more {
+			margin: 17px 0 0 10px;
+
+			&::before {
+				width: 12px;
+				height: 12px;
+				@include mixin.svg(#6a6a6a url('../image/block/common/ico_arrow_down.svg'));
+			}
+		}
+	}
+
+	// 리스트 펼침
+	&#{escape('.S=switch-on')} {
+		ul {
+			> li:nth-child(n+11) {
+				display: block;
+			}
+		}
+
+		.uico_more {
+			@include mixin.transform(scale(-1));
+		}
+	}
+}

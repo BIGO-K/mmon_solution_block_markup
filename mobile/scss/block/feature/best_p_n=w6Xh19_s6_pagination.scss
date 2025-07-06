@@ -1,0 +1,114 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../helper/function';
+@use '../../helper/mixin';
+@use '../../helper/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="best_p_n=w6Xh19_s6_pagination"] {
+	.mui_product-list {
+		padding: 0 14px;
+
+		> ul {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			grid-gap: 26px 12px;
+
+			> li {
+				min-width: 0;
+			}
+
+			&::after {
+				content: none;
+			}
+		}
+	}
+
+  	// 하단 페이지네이션
+	.mui_pagination {
+		$pagination_height_base: 28px;
+
+		margin-top: 26px;
+		text-align: center;
+
+		.mui_inline {
+			position: relative;
+		}
+
+		li {
+			float: left;
+
+			> button {
+				display: block;
+				padding: 0 16px;
+				height: $pagination_height_base;
+				@include mixin.font(#b8b8b9 '1.7rem/#{$pagination_height_base}' center, 0);
+
+				&#{function.escape('.S=page-on')} {
+					@include mixin.font(#1f1f1f 700);
+				}
+			}
+		}
+
+		[class*="btn_control"] {
+			position: absolute;
+			top: 0;
+			width: $pagination_height_base;
+			height: $pagination_height_base;
+			border: 1px solid #767676;
+			border-radius: 2px;
+			background-color: #fff;
+
+			$pages: (first, double_left, 11px), (prev, left, 6px), (next, right, 6px), (last, double_right, 11px);
+			@each $page, $icon, $width in $pages {
+				[class*="uico_page-#{$page}"] {
+					&::before {
+						margin-top: -1px;
+						width: $width;
+						height: 11px;
+						@include mixin.svg(#767676 url('../../image/block/common/ico_arrow_#{$icon}.svg'));
+						content: '';
+					}
+				}
+			}
+
+			// 버튼 위치
+			&.btn_control- {
+				// 처음
+				&first {
+					left: -($pagination_height_base * 3 - 12px) - 7px;
+				}
+
+				// 이전
+				&prev {
+					left: -($pagination_height_base * 2 - 12px);
+				}
+
+				// 다음
+				&next {
+					right: -($pagination_height_base * 2 - 12px);
+				}
+
+				// 마지막
+				&last {
+					right: -($pagination_height_base * 3 - 12px) - 7px;
+				}
+			}
+
+			// 버튼 비활성
+			&[disabled] {
+				border-color: #dcdcdc;
+
+				[class*="uico_page"]::before {
+					background-color: #dcdcdc;
+				}
+			}
+		}
+	}
+}

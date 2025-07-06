@@ -1,0 +1,180 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../common/helper/function' as *;
+@use '../../common/helper/mixin';
+@use '../../common/setting/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="b_n=w12Xh15_s6_pagination"] {
+	width: const.$grid_pc_column * 12 + const.$grid_pc_column_gutter * (12 - 1);
+
+	> ul {
+		display: grid;
+		grid-template-columns: repeat(3, 440px);
+		gap: 33px 20px;
+
+		&::after {
+			content: none;
+		}
+	}
+
+	a {
+		display: block;
+		position: relative;
+	}
+
+	figure {
+		.image_banner {
+			padding-top: 100%;
+			width: 100%;
+		}
+
+		figcaption {
+			padding: 0 20px 0 2px;
+
+			> *:first-child {
+				margin-top: 15px;
+			}
+
+			[class*="text_banner"] {
+				overflow: hidden;
+			}
+
+			.text_banner1 {
+				height: 24px;
+				@include mixin.font('1.7rem/1.4');
+
+				+ .text_banner2 {
+					margin-top: 4px;
+				}
+			}
+
+			.text_banner2 {
+				height: 44px;
+				@include mixin.font(#6a6a6a '1.4rem/2.2rem');
+			}
+
+			.text_alt {
+				@include mixin.text_ellipsis(2);
+				@include mixin.font(#a3a3a3 '1.4rem/2rem');
+
+				@include mixin.context-after(':not(.mui_image-none)', 'figure') {
+					display: none;
+				}
+			}
+		}
+	}
+
+	// 하단 페이지네이션
+	.mui_pagination {
+		$pagination_height_base: 25px;
+
+		margin-top: 34px;
+		text-align: center;
+
+		.mui_inline {
+			position: relative;
+		}
+
+		li {
+			float: left;
+
+			> button {
+				display: block;
+				padding: 0 15px;
+				height: $pagination_height_base;
+				@include mixin.font(#888 '1.4rem/#{math.div($pagination_height_base, const.$fontSize_base) * 1rem}' center, 0);
+
+				&#{escape('.S=page-on')} {
+					@include mixin.font(#1f1f1f v_700);
+				}
+			}
+		}
+
+		[class*="btn_control"] {
+			position: absolute;
+			top: 0;
+			width: $pagination_height_base;
+			height: $pagination_height_base;
+			border: 1px solid #767676;
+			border-radius: 2px;
+			background-color: #fff;
+
+			$pages: (first, double_left, 11px), (prev, left, 6px), (next, right, 6px), (last, double_right, 11px);
+			@each $page, $icon, $width in $pages {
+				[class*="uico_page-#{$page}"] {
+					&::before {
+						width: $width;
+						height: 11px;
+						@include mixin.svg(#6a6a6a url('../image/block/common/ico_arrow_#{$icon}.svg'));
+						content: '';
+					}
+				}
+			}
+
+			// 버튼 위치
+			&.btn_control- {
+				// 처음
+				&first {
+					left: -($pagination_height_base * 3 - 10px) - 4px;
+				}
+
+				// 이전
+				&prev {
+					left: -($pagination_height_base * 2 - 10px);
+
+					i {
+						margin-right: 1px;
+					}
+				}
+
+				// 다음
+				&next {
+					right: -($pagination_height_base * 2 - 10px);
+
+					i {
+						margin-left: 1px;
+					}
+				}
+
+				// 마지막
+				&last {
+					right: -($pagination_height_base * 3 - 10px) - 4px;
+				}
+			}
+
+			// 버튼 비활성
+			&[disabled] {
+				border-color: #b8b8b9;
+
+				[class*="uico_page"]::before {
+					background-color: #888;
+				}
+			}
+		}
+	}
+
+	// 이미지 에러
+	.mui_image-none {
+		.uico_none {
+			position: relative;
+			background-color: #f5f5f5;
+
+			&::before {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 50%;
+				height: 50%;
+				@include mixin.transform(translate(-50%, -50%));
+				@include mixin.svg(#d3d3d3 url('../image/common/logo.svg'));
+			}
+		}
+	}
+}

@@ -1,0 +1,99 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../helper/function';
+@use '../../helper/mixin';
+@use '../../helper/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="b_c=w6Xh7_s1_3"] {
+	.mui_carousel {
+		&-progress {
+			position: absolute;
+			right: 0;
+			top: 0;
+			left: 0;
+			padding-top: calc(72.87234% + 2px);
+
+			&::before {
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				height: 2px;
+				background-color: #e6e6e6;
+				content: '';
+			}
+
+			&-bar {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				background-color: #101010;
+				height: 2px;
+				@include mixin.transition(width const.$time_base);
+			}
+		}
+	}
+
+	a {
+		display: block;
+		position: relative;
+	}
+
+	figure {
+		.image_banner {
+			padding-top: 72.87234%;
+			width: 100%;
+		}
+
+		figcaption {
+			position: relative;
+			margin-top: 19px;
+			padding: 0 19px 20px;
+			@include mixin.font('2.2rem/2.7rem');
+
+			.text_banner1 {
+				+ .text_banner2 {
+					margin-top: 1px;
+				}
+			}
+
+			.text_banner2 {
+				@include mixin.font(#6a6a6a '1.5rem');
+			}
+
+			.text_alt {
+				@include mixin.text_ellipsis(2);
+				@include mixin.font(#a3a3a3 '1.4rem/2rem');
+
+				@include mixin.context-after(':not(.mui_image-none)', 'figure') {
+					display: none;
+				}
+			}
+		}
+	}
+
+	// 이미지 에러
+	.mui_image-none {
+		.uico_none {
+			position: relative;
+			background-color: #f5f5f5;
+
+			&::before {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 50%;
+				height: 50%;
+				@include mixin.transform(translate(-50%, -50%));
+				@include mixin.svg(#d3d3d3 url('../../image/common/logo.svg'));
+			}
+		}
+	}
+}

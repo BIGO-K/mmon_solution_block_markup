@@ -1,0 +1,747 @@
+@charset 'utf-8';
+
+/**
+ * 블록
+**/
+
+
+//! Normal 블록 //
+//< 배너
+// *-------------------- b_n --------------------*
+// b_n=w6Xh2
+@forward 'basic/b_n=w6Xh2_s1';
+@forward 'basic/b_n=w6Xh2_s1_1';
+@forward 'basic/b_n=w6Xh2_s1_2';
+
+// b_n=w6Xh3
+@forward 'basic/b_n=w6Xh3_s1';
+@forward 'basic/b_n=w6Xh3_s1_1';
+@forward 'basic/b_n=w6Xh3_s1_2';
+
+// b_n=w6Xh4
+@forward 'basic/b_n=w6Xh4_s1';
+@forward 'basic/b_n=w6Xh4_s1_1';
+@forward 'basic/b_n=w6Xh4_s1_2';
+@forward 'basic/b_n=w6Xh4_s1_3';
+@forward 'basic/b_n=w6Xh4_s2';
+
+// b_n=w6Xh5
+@forward 'basic/b_n=w6Xh5_s1';
+@forward 'basic/b_n=w6Xh5_s1_1';
+
+// b_n=w6Xh6
+@forward 'basic/b_n=w6Xh6_s2';
+@forward 'basic/b_n=w6Xh6_s2_1';
+@forward 'basic/b_n=w6Xh6_s3';
+@forward 'basic/b_n=w6Xh6_s3_1';
+
+// b_n=w6Xh7
+@forward 'basic/b_n=w6Xh7_s4';
+@forward 'basic/b_n=w6Xh7_s9';
+@forward 'basic/b_n=w6Xh7_s9_1';
+
+// b_n=w6Xh8
+@forward 'basic/b_n=w6Xh8_s1';
+@forward 'basic/b_n=w6Xh8_s2';
+@forward 'basic/b_n=w6Xh8_s2_link';
+@forward 'basic/b_n=w6Xh8_s9_refresh';
+
+// b_n=w6Xh9
+@forward 'basic/b_n=w6Xh9_s2_more';
+@forward 'basic/b_n=w6Xh9_s2_more_1';
+@forward 'basic/b_n=w6Xh9_s2_pagination';
+@forward 'basic/b_n=w6Xh9_s2_link';
+@forward 'basic/b_n=w6Xh9_s3';
+@forward 'basic/b_n=w6Xh9_s3_1';
+
+// b_n=w6Xh10
+@forward 'basic/b_n=w6Xh10_s4';
+@forward 'basic/b_n=w6Xh10_s4_1';
+@forward 'basic/b_n=w6Xh10_s6';
+@forward 'basic/b_n=w6Xh10_s15';
+
+// b_n=w6Xh11
+@forward 'basic/b_n=w6Xh11_s4';
+@forward 'basic/b_n=w6Xh11_s4_1';
+
+// b_n=w6Xh12
+@forward 'basic/b_n=w6Xh11_s2';
+@forward 'basic/b_n=w6Xh12_s2_pagination';
+@forward 'basic/b_n=w6Xh11_s2_link';
+@forward 'basic/b_n=w6Xh12_s3';
+@forward 'basic/b_n=w6Xh12_s4';
+@forward 'basic/b_n=w6Xh12_s4_refresh';
+@forward 'basic/b_n=w6Xh12_s4_link';
+@forward 'basic/b_n=w6Xh12_s12';
+@forward 'basic/b_n=w6Xh12_s18';
+
+// b_n=w6Xh13
+@forward 'basic/b_n=w6Xh13_s2_more';
+@forward 'basic/b_n=w6Xh13_s2_more_1';
+@forward 'basic/b_n=w6Xh13_s2_link';
+@forward 'basic/b_n=w6Xh13_s6';
+
+// b_n=w6Xh14
+@forward 'basic/b_n=w6Xh14_s2';
+@forward 'basic/b_n=w6Xh14_s3';
+
+// b_n=w6Xh15
+@forward 'basic/b_n=w6Xh15_s6';
+@forward 'basic/b_n=w6Xh15_s2';
+@forward 'basic/b_n=w6Xh15_s2_link';
+@forward 'basic/b_n=w6Xh15_s2_link_1';
+@forward 'basic/b_n=w6Xh15_s2_link_2';
+@forward 'basic/b_n=w6Xh15_s2_more';
+@forward 'basic/b_n=w6Xh15_s2_more_1';
+@forward 'basic/b_n=w6Xh15_s2_pagination';
+@forward 'basic/b_n=w6Xh15_s3';
+@forward 'basic/b_n=w6Xh15_s3_link';
+
+// b_n=w6Xh16
+@forward 'basic/b_n=w6Xh16_s2';
+@forward 'basic/b_n=w6Xh16_s2_more';
+@forward 'basic/b_n=w6Xh16_s2_more_1';
+@forward 'basic/b_n=w6Xh16_s2_pagination';
+@forward 'basic/b_n=w6Xh16_s2_link';
+@forward 'basic/b_n=w6Xh16_s6';
+@forward 'basic/b_n=w6Xh16_s6_link';
+
+// b_n=w6Xh17
+@forward 'basic/b_n=w6Xh17_s2';
+@forward 'basic/b_n=w6Xh17_s2_1';
+@forward 'basic/b_n=w6Xh17_s2_link';
+@forward 'basic/b_n=w6Xh17_s3';
+@forward 'basic/b_n=w6Xh17_s3_link';
+@forward 'basic/b_n=w6Xh17_s3_link_1';
+@forward 'basic/b_n=w6Xh17_s3_refresh';
+@forward 'basic/b_n=w6Xh17_s3_more';
+@forward 'basic/b_n=w6Xh17_s3_more_1';
+@forward 'basic/b_n=w6Xh17_s3_pagination';
+@forward 'basic/b_n=w6Xh17_s6';
+@forward 'basic/b_n=w6Xh17_s6_more';
+@forward 'basic/b_n=w6Xh17_s6_more_1';
+@forward 'basic/b_n=w6Xh17_s6_pagination';
+@forward 'basic/b_n=w6Xh17_s6_link';
+
+// b_n=w6Xh18
+@forward 'basic/b_n=w6Xh18_s2';
+@forward 'basic/b_n=w6Xh18_s2_link';
+@forward 'basic/b_n=w6Xh18_s2_link_1';
+@forward 'basic/b_n=w6Xh18_s2_more';
+@forward 'basic/b_n=w6Xh18_s2_more_1';
+@forward 'basic/b_n=w6Xh18_s2_pagination';
+@forward 'basic/b_n=w6Xh18_s3_more';
+@forward 'basic/b_n=w6Xh18_s3_more_1';
+@forward 'basic/b_n=w6Xh18_s3_link';
+@forward 'basic/b_n=w6Xh18_s3_pagination';
+
+// b_n=w6Xh19
+@forward 'basic/b_n=w6Xh19_s2_more';
+@forward 'basic/b_n=w6Xh19_s2_pagination';
+@forward 'basic/b_n=w6Xh19_s2_link';
+
+// b_n=w6Xh20
+@forward 'basic/b_n=w6Xh20_s2_more';
+
+// b_n=w6Xh21
+@forward 'basic/b_n=w6Xh21_s2';
+@forward 'basic/b_n=w6Xh21_s2_1';
+@forward 'basic/b_n=w6Xh21_s2_link';
+@forward 'basic/b_n=w6Xh21_s2_link_1';
+@forward 'basic/b_n=w6Xh21_s8';
+
+
+// b_n=w6Xh22
+@forward 'basic/b_n=w6Xh22_s2_pagination';
+@forward 'basic/b_n=w6Xh22_s2_link';
+@forward 'basic/b_n=w6Xh22_s8_pagination';
+@forward 'basic/b_n=w6Xh22_s8_more';
+
+// b_n=w6Xh23
+@forward 'basic/b_n=w6Xh23_s2';
+@forward 'basic/b_n=w6Xh23_s2_refresh';
+@forward 'basic/b_n=w6Xh23_s2_more';
+@forward 'basic/b_n=w6Xh23_s2_more_1';
+@forward 'basic/b_n=w6Xh23_s2_link';
+@forward 'basic/b_n=w6Xh23_s3';
+@forward 'basic/b_n=w6Xh23_s3_link';
+
+// b_n=w6Xh24
+@forward 'basic/b_n=w6Xh24_s3_1';
+@forward 'basic/b_n=w6Xh24_s3_more';
+@forward 'basic/b_n=w6Xh24_s3_more_1';
+@forward 'basic/b_n=w6Xh24_s3_pagination';
+@forward 'basic/b_n=w6Xh24_s3_link';
+@forward 'basic/b_n=w6Xh24_s3_link_1';
+
+// b_n=w6Xh25
+@forward 'basic/b_n=w6Xh25_s3_more';
+@forward 'basic/b_n=w6Xh25_s3_more_1';
+@forward 'basic/b_n=w6Xh25_s3_pagination';
+@forward 'basic/b_n=w6Xh25_s3_link';
+
+// b_n=w6Xh26
+@forward 'basic/b_n=w6Xh26_s3';
+@forward 'basic/b_n=w6Xh26_s3_link';
+
+// b_n=w6Xh27
+@forward 'basic/b_n=w6Xh27_s3_more';
+@forward 'basic/b_n=w6Xh27_s3_more_1';
+@forward 'basic/b_n=w6Xh27_s3_pagination';
+@forward 'basic/b_n=w6Xh27_s3_link';
+
+// b_n=w6Xh32
+@forward 'basic/b_n=w6Xh32_s3';
+
+// b_n=w6Xh33
+@forward 'basic/b_n=w6Xh33_s3_more';
+@forward 'basic/b_n=w6Xh33_s3_more_1';
+@forward 'basic/b_n=w6Xh33_s3_pagination';
+@forward 'basic/b_n=w6Xh33_s3_link';
+
+// b_n=w6Xh34
+@forward 'basic/b_n=w6Xh34_s3';
+
+// b_n=w6Xh35
+@forward 'basic/b_n=w6Xh35_s3_more';
+@forward 'basic/b_n=w6Xh35_s3_more_1';
+@forward 'basic/b_n=w6Xh35_s3_pagination';
+@forward 'basic/b_n=w6Xh35_s3_link';
+
+// b_n=w6Xh45_s8
+@forward 'basic/b_n=w6Xh45_s8';
+
+// b_n=w6Xh46_s8
+@forward 'basic/b_n=w6Xh46_s8_pagination';
+@forward 'basic/b_n=w6Xh46_s8_more';
+
+// b_n=w6Xh47
+@forward 'basic/b_n=w6Xh47_s6';
+
+// *------------------------- b_c -------------------------*
+// b_c=w6Xh2
+@forward 'basic/b_c=w6Xh2_s1';
+@forward 'basic/b_c=w6Xh2_s1_1';
+@forward 'basic/b_c=w6Xh2_s1_2';
+@forward 'basic/b_c=w6Xh2_s1_3';
+@forward 'basic/b_c=w6Xh2_s1_4';
+
+// b_c=w6Xh3
+@forward 'basic/b_c=w6Xh3_s1';
+@forward 'basic/b_c=w6Xh3_s1_1';
+@forward 'basic/b_c=w6Xh3_s1_2';
+@forward 'basic/b_c=w6Xh3_s1_3';
+@forward 'basic/b_c=w6Xh3_s1_4';
+@forward 'basic/b_c=w6Xh3_s1_5';
+@forward 'basic/b_c=w6Xh3_s1_6';
+
+// b_c=w6Xh4
+@forward 'basic/b_c=w6Xh4_s1';
+@forward 'basic/b_c=w6Xh4_s1_1';
+@forward 'basic/b_c=w6Xh4_s1_2';
+
+// b_c=w6Xh5
+@forward 'basic/b_c=w6Xh5_s1';
+@forward 'basic/b_c=w6Xh5_s1_1';
+
+// b_c=w6Xh6
+@forward 'basic/b_c=w6Xh6_s1';
+@forward 'basic/b_c=w6Xh6_s2';
+
+// b_c=w6Xh7
+@forward 'basic/b_c=w6Xh7_s1';
+@forward 'basic/b_c=w6Xh7_s1_1';
+@forward 'basic/b_c=w6Xh7_s1_2';
+@forward 'basic/b_c=w6Xh7_s1_3';
+@forward 'basic/b_c=w6Xh7_s1_4';
+@forward 'basic/b_c=w6Xh7_s1_side';
+@forward 'basic/b_c=w6Xh7_s1_side_1';
+@forward 'basic/b_c=w6Xh7_s1_pager';
+@forward 'basic/b_c=w6Xh7_s1_pager_1';
+@forward 'basic/b_c=w6Xh7_s1_pager_2';
+@forward 'basic/b_c=w6Xh7_s1_pager_3';
+@forward 'basic/b_c=w6Xh7_s4';
+
+// b_c=w6Xh8
+@forward 'basic/b_c=w6Xh8_s1';
+@forward 'basic/b_c=w6Xh8_s1_1';
+@forward 'basic/b_c=w6Xh8_s1_pager';
+@forward 'basic/b_c=w6Xh8_s1_pager_1';
+@forward 'basic/b_c=w6Xh8_s1_side';
+@forward 'basic/b_c=w6Xh8_s1_2';
+@forward 'basic/b_c=w6Xh8_s1_3';
+@forward 'basic/b_c=w6Xh8_s1_link_1';
+
+// b_c=w6Xh9
+@forward 'basic/b_c=w6Xh9_s1';
+@forward 'basic/b_c=w6Xh9_s1_1';
+@forward 'basic/b_c=w6Xh9_s1_side';
+@forward 'basic/b_c=w6Xh9_s1_pager';
+
+// b_c=w6Xh10
+@forward 'basic/b_c=w6Xh10_s1_pager';
+@forward 'basic/b_c=w6Xh10_s1_pager_1';
+@forward 'basic/b_c=w6Xh10_s1_pager_2';
+
+// b_c=w6Xh11
+@forward 'basic/b_c=w6Xh11_s1';
+@forward 'basic/b_c=w6Xh11_s1_side';
+@forward 'basic/b_c=w6Xh11_s1_side_1';
+
+// b_c=w6Xh12
+@forward 'basic/b_c=w6Xh12_s1';
+
+// b_c=w6Xh13
+@forward 'basic/b_c=w6Xh13_s1_side';
+
+// b_s=w6Xh2
+@forward 'basic/b_s=w6Xh2_s4';
+
+// b_s=w6Xh5
+@forward 'basic/b_s=w6Xh5_s2';
+
+// b_s=w6Xh7
+@forward 'basic/b_s=w6Xh7_s4';
+//> 배너
+
+//< 상품
+// *-------------------- p_n --------------------*
+// p_n=w6Xh11
+@forward 'basic/p_n=w6Xh11_s3';
+@forward 'basic/p_n=w6Xh11_s3_link';
+@forward 'basic/p_n=w6Xh11_s3_link_1';
+@forward 'basic/p_n=w6Xh11_s3_refresh';
+@forward 'basic/p_n=w6Xh11_s3_pagination';
+
+// p_n=w6Xh12
+@forward 'basic/p_n=w6Xh12_s4';
+@forward 'basic/p_n=w6Xh12_s4_link';
+@forward 'basic/p_n=w6Xh12_s3_more';
+@forward 'basic/p_n=w6Xh12_s3_more_1';
+
+// p_n=w6Xh14
+@forward 'basic/p_n=w6Xh14_s4';
+@forward 'basic/p_n=w6Xh14_s4_link';
+
+// p_n=w6Xh15
+@forward 'basic/p_n=w6Xh15_s4_link';
+@forward 'basic/p_n=w6Xh15_s4_more';
+@forward 'basic/p_n=w6Xh15_s4_more_1';
+@forward 'basic/p_n=w6Xh15_s4_pagination';
+
+// p_n=w6Xh18
+@forward 'basic/p_n=w6Xh18_s2';
+@forward 'basic/p_n=w6Xh18_s6';
+@forward 'basic/p_n=w6Xh18_s6_link';
+
+// p_n=w6Xh19
+@forward 'basic/p_n=w6Xh19_s6_link';
+@forward 'basic/p_n=w6Xh19_s6_refresh';
+@forward 'basic/p_n=w6Xh19_s6_pagination';
+
+// p_n=w6Xh20
+@forward 'basic/p_n=w6Xh20_s6_more';
+@forward 'basic/p_n=w6Xh20_s6_more_1';
+
+// p_n=w6Xh22
+@forward 'basic/p_n=w6Xh22_s7';
+@forward 'basic/p_n=w6Xh22_s7_link';
+
+// p_n=w6Xh23
+@forward 'basic/p_n=w6Xh23_s7_refresh';
+@forward 'basic/p_n=w6Xh23_s7_pagination';
+
+// p_n=w6Xh24
+@forward 'basic/p_n=w6Xh24_s7_link';
+@forward 'basic/p_n=w6Xh24_s7_more';
+@forward 'basic/p_n=w6Xh24_s7_more_1';
+
+// *-------------------- p_s --------------------*
+// p_s=w6Xh5
+@forward 'basic/p_s=w6Xh5_s2';
+@forward 'basic/p_s=w6Xh5_s2_link';
+
+// p_s=w6Xh12
+@forward 'basic/p_s=w6Xh12_s4';
+
+// *-------------------- p_c --------------------*
+// p_c=w6Xh11
+@forward 'basic/p_c=w6Xh11_s3';
+
+// p_c=w6Xh12
+@forward 'basic/p_c=w6Xh12_s4';
+//> 상품
+
+//< 조합형 bp(배너+상품)
+// *-------------------- bp_nn --------------------*
+// bp_nn=w6Xh10_s12
+@forward 'basic/bp_nn=w6Xh10_s12';
+
+// bp_nn=w6Xh13
+@forward 'basic/bp_nn=w6Xh13_s5';
+
+// bp_nn=w6Xh19
+@forward 'basic/bp_nn=w6Xh19_s7';
+
+// bp_nn=w6Xh20
+@forward 'basic/bp_nn=w6Xh20_s5';
+@forward 'basic/bp_nn=w6Xh20_s7_link';
+@forward 'basic/bp_nn=w6Xh20_s7_more';
+@forward 'basic/bp_nn=w6Xh20_s7_pagination';
+
+// bp_nn=w6Xh21
+@forward 'basic/bp_nn=w6Xh21_s7_more';
+
+// bp_nn=w6Xh22
+@forward 'basic/bp_nn=w6Xh22_s5';
+
+// bp_nn=w6Xh23
+@forward 'basic/bp_nn=w6Xh23_s5_link';
+@forward 'basic/bp_nn=w6Xh23_s5_more';
+@forward 'basic/bp_nn=w6Xh23_s5_more_1';
+@forward 'basic/bp_nn=w6Xh23_s5_pagination';
+
+// bp_nn=w6Xh25
+@forward 'basic/bp_nn=w6Xh25_s8';
+
+// bp_nn=w6Xh26
+@forward 'basic/bp_nn=w6Xh26_s8_link';
+@forward 'basic/bp_nn=w6Xh26_s8_more';
+@forward 'basic/bp_nn=w6Xh26_s8_more_1';
+@forward 'basic/bp_nn=w6Xh26_s8_pagination';
+
+// *-------------------- bp_nc --------------------*
+// bp_nc=w6Xh19_s6
+@forward 'basic/bp_nc=w6Xh19_s6';
+@forward 'basic/bp_nc=w6Xh19_s6_link';
+
+// *-------------------- bp_ns --------------------*
+// bp_ns=w6Xh6
+@forward 'basic/bp_ns=w6Xh6_s3';
+
+// bp_ns=w6Xh12
+@forward 'basic/bp_ns=w6Xh12_s3';
+@forward 'basic/bp_ns=w6Xh12_s4';
+@forward 'basic/bp_ns=w6Xh12_s4_link';
+
+// bp_ns=w6Xh13
+@forward 'basic/bp_ns=w6Xh13_s3';
+@forward 'basic/bp_ns=w6Xh13_s3_1';
+@forward 'basic/bp_ns=w6Xh13_s3_2';
+@forward 'basic/bp_ns=w6Xh13_s3_link';
+@forward 'basic/bp_ns=w6Xh13_s6';
+
+// bp_ns=w6Xh14
+@forward 'basic/bp_ns=w6Xh14_s3_link';
+@forward 'basic/bp_ns=w6Xh14_s3_link_1';
+@forward 'basic/bp_ns=w6Xh14_s6';
+
+// bp_ns=w6Xh14
+@forward 'basic/bp_ns=w6Xh16_s6';
+
+//> 조합형 bp(배너+상품)
+
+//< 조합형 tb(탭+배너)
+// *------------------------- tb_nn -------------------------*
+// tb_nn=w6Xh7
+@forward 'basic/tb_nn=w6Xh7_s9';
+
+// tb_nn=w6Xh27
+@forward 'basic/tb_nn=w6Xh27_s3';
+
+// tb_nn=w6Xh28
+@forward 'basic/tb_nn=w6Xh28_s3_link';
+@forward 'basic/tb_nn=w6Xh28_s3_more';
+@forward 'basic/tb_nn=w6Xh28_s3_more_1';
+@forward 'basic/tb_nn=w6Xh28_s3_pagination';
+
+// *------------------------- tb_nc -------------------------*
+// tb_nc=w6Xh8
+@forward 'basic/tb_nc=w6Xh8_s1';
+
+// *------------------------- tb_sn -------------------------*
+// tb_sn=w6Xh11
+@forward 'basic/tb_sn=w6Xh11_s4';
+
+// tb_sn=w6Xh12
+@forward 'basic/tb_sn=w6Xh12_s4_link';
+@forward 'basic/tb_sn=w6Xh12_s4_more';
+@forward 'basic/tb_sn=w6Xh12_s4_more_1';
+@forward 'basic/tb_sn=w6Xh12_s4_pagination';
+
+// tb_sn=w6Xh17
+@forward 'basic/tb_sn=w6Xh17_s3';
+@forward 'basic/tb_sn=w6Xh17_s6';
+
+// tb_sn=w6Xh18
+@forward 'basic/tb_sn=w6Xh18_s6';
+@forward 'basic/tb_sn=w6Xh18_s6_link';
+@forward 'basic/tb_sn=w6Xh18_s6_more';
+@forward 'basic/tb_sn=w6Xh18_s6_more_1';
+@forward 'basic/tb_sn=w6Xh18_s6_pagination';
+
+// tb_sn=w6Xh19
+@forward 'basic/tb_sn=w6Xh19_s2';
+@forward 'basic/tb_sn=w6Xh19_s3_link';
+@forward 'basic/tb_sn=w6Xh19_s3_more';
+@forward 'basic/tb_sn=w6Xh19_s3_more_1';
+@forward 'basic/tb_sn=w6Xh19_s3_pagination';
+@forward 'basic/tb_sn=w6Xh19_s6_link';
+
+// tb_sn=w6Xh20
+@forward 'basic/tb_sn=w6Xh20_s2_link';
+@forward 'basic/tb_sn=w6Xh20_s2_more';
+@forward 'basic/tb_sn=w6Xh20_s2_more_1';
+@forward 'basic/tb_sn=w6Xh20_s2_pagination';
+
+// tb_sn=w6Xh26
+@forward 'basic/tb_sn=w6Xh26_s3';
+
+// tb_sn=w6Xh27
+@forward 'basic/tb_sn=w6Xh27_s3';
+@forward 'basic/tb_sn=w6Xh27_s3_1';
+@forward 'basic/tb_sn=w6Xh27_s3_link';
+@forward 'basic/tb_sn=w6Xh27_s3_more';
+@forward 'basic/tb_sn=w6Xh27_s3_more_1';
+@forward 'basic/tb_sn=w6Xh27_s3_pagination';
+
+// tb_sn=w6Xh28
+@forward 'basic/tb_sn=w6Xh28_s3_more';
+@forward 'basic/tb_sn=w6Xh28_s3_link';
+@forward 'basic/tb_sn=w6Xh28_s3_link_1';
+@forward 'basic/tb_sn=w6Xh28_s3_more_1';
+@forward 'basic/tb_sn=w6Xh28_s3_more_2';
+@forward 'basic/tb_sn=w6Xh28_s3_more_3';
+@forward 'basic/tb_sn=w6Xh28_s3_pagination';
+@forward 'basic/tb_sn=w6Xh28_s3_pagination_1';
+//> 조합형 tb(탭+배너)
+
+//< 조합형 tp(탭+상품)
+// *------------------------- tp_nn -------------------------*
+// tp_nn=w6Xh15
+@forward 'basic/tp_nn=w6Xh15_s4_refresh';
+
+// tp_nn=w6Xh20
+@forward 'basic/tp_nn=w6Xh20_s6';
+
+// tp_nn=w6Xh21
+@forward 'basic/tp_nn=w6Xh21_s6_link';
+@forward 'basic/tp_nn=w6Xh21_s6_more';
+@forward 'basic/tp_nn=w6Xh21_s6_more_1';
+
+// tp_nn=w6Xh38
+@forward 'basic/tp_nn=w6Xh38_s12';
+
+// *------------------------- tp_nc -------------------------*
+// tp_nc=w6Xh14
+@forward 'basic/tp_nc=w6Xh14_s4';
+
+// tp_nc=w6Xh20
+@forward 'basic/tp_nc=w6Xh20_s6';
+
+// *------------------------- tp_sn -------------------------*
+// tp_sn=w6Xh14
+@forward 'basic/tp_sn=w6Xh14_s4_refresh';
+@forward 'basic/tp_sn=w6Xh14_s4_refresh_1';
+
+// tp_sn=w6Xh19
+@forward 'basic/tp_sn=w6Xh19_s6';
+
+// tp_sn=w6Xh20
+@forward 'basic/tp_sn=w6Xh20_s6_link';
+@forward 'basic/tp_sn=w6Xh20_s6_link_1';
+@forward 'basic/tp_sn=w6Xh20_s6_more';
+@forward 'basic/tp_sn=w6Xh20_s6_more_1';
+
+// tp_sn=w6Xh21
+@forward 'basic/tp_sn=w6Xh21_s6_more';
+@forward 'basic/tp_sn=w6Xh21_s6_more_1';
+@forward 'feature/pers_tp_sn=w6Xh21_s6_refresh';
+@forward 'feature/pers_tp_sn=w6Xh21_s6_refresh_1';
+
+// *------------------------- tp_sc -------------------------*
+// tp_sc=w6Xh13
+@forward 'basic/tp_sc=w6Xh13_s4';
+@forward 'basic/tp_sc=w6Xh13_s4_1';
+//> 조합형 tp(탭+상품)
+
+//< 조합형 cp(카테고리+상품)
+// *------------------------- cp_nn -------------------------*
+// cp_nn=w6Xh22
+@forward 'basic/cp_nn=w6Xh22_s6';
+
+// cp_nn=w6Xh23
+@forward 'basic/cp_nn=w6Xh23_s6_link';
+@forward 'basic/cp_nn=w6Xh23_s6_more';
+@forward 'basic/cp_nn=w6Xh23_s6_more_1';
+@forward 'basic/cp_nn=w6Xh23_s6_pagination';
+
+// cp_nn=w6Xh24
+@forward 'basic/cp_nn=w6Xh24_s6';
+@forward 'basic/cp_nn=w6Xh24_s6_link';
+@forward 'basic/cp_nn=w6Xh24_s6_more';
+@forward 'basic/cp_nn=w6Xh24_s6_pagination';
+
+// cp_nn=w6Xh25
+@forward 'basic/cp_nn=w6Xh25_s6_more';
+
+// cp_nn=w6Xh31
+@forward 'basic/cp_nn=w6Xh31_s9';
+
+// cp_nn=w6Xh32
+@forward 'basic/cp_nn=w6Xh32_s9_link';
+@forward 'basic/cp_nn=w6Xh32_s9_more';
+@forward 'basic/cp_nn=w6Xh32_s9_pagination';
+
+// cp_nn=w6Xh33
+@forward 'basic/cp_nn=w6Xh33_s9_more';
+//> 조합형 cp(카테고리+상품)
+
+
+//! Specific 블록 //
+//< 배너
+// *-------------------- b_n --------------------*
+// b_n=w6Xh7
+@forward 'feature/show_b_n=w6Xh7_s4';
+@forward 'feature/show_b_n=w6Xh7_s4_link';
+
+// b_n=w6Xh8
+@forward 'feature/show_b_n=w6Xh8_s4_refresh';
+@forward 'feature/show_b_n=w6Xh8_s4_link';
+
+// b_n=w6Xh10
+@forward 'feature/live_b_c=w6Xh10_s1_sideLink';
+
+// *------------------------- b_c -------------------------*
+// b_c=w6Xh7
+@forward 'feature/show_b_c=w6Xh7_s4';
+
+// b_c=w6Xh8
+@forward 'feature/maga_b_c=w6Xh8_s1_side';
+
+// b_c=w6Xh9
+@forward 'feature/maga_b_c=w6Xh8_s1_sideLink';
+
+// b_c=w6Xh10
+@forward 'feature/maga_b_c=w6Xh10_s1';
+@forward 'feature/maga_b_c=w6Xh10_s1_1';
+//> 배너
+
+//< 상품
+// *-------------------- p_n --------------------*
+// p_n=w6Xh10
+@forward 'feature/raff_p_n=w6Xh10_s1_link';
+
+// p_n=w6Xh11
+@forward 'feature/new_p_n=w6Xh11_s3';
+// @forward 'feature/new_p_n=w6Xh11_s3_link';
+// @forward 'feature/new_p_n=w6Xh11_s3_link_1';
+@forward 'feature/new_p_n=w6Xh11_s3_refresh';
+@forward 'feature/new_p_n=w6Xh11_s3_pagination';
+@forward 'feature/best_p_n=w6Xh11_s3';
+@forward 'feature/best_p_n=w6Xh11_s3_link';
+@forward 'feature/best_p_n=w6Xh11_s3_link_1';
+@forward 'feature/best_p_n=w6Xh11_s3_refresh';
+@forward 'feature/best_p_n=w6Xh11_s3_pagination';
+@forward 'feature/raff_p_n=w6Xh11_s4_link';
+@forward 'feature/coop_p_n=w6Xh11_s1_link';
+
+// p_n=w6Xh12
+@forward 'feature/new_p_n=w6Xh12_s4';
+// @forward 'feature/new_p_n=w6Xh12_s4_link';
+@forward 'feature/new_p_n=w6Xh12_s3_more';
+@forward 'feature/new_p_n=w6Xh12_s3_more_1';
+@forward 'feature/best_p_n=w6Xh12_s4';
+@forward 'feature/best_p_n=w6Xh12_s4_link';
+@forward 'feature/best_p_n=w6Xh12_s3_more';
+@forward 'feature/best_p_n=w6Xh12_s3_more_1';
+@forward 'feature/rank_p_n=w6Xh12_s4';
+@forward 'feature/coop_p_n=w6Xh12_s1_link';
+
+// p_n=w6Xh13
+@forward 'feature/rank_p_n=w6Xh13_s4_link';
+
+// p_n=w6Xh14
+@forward 'feature/new_p_n=w6Xh14_s4';
+// @forward 'feature/new_p_n=w6Xh14_s4_link';
+@forward 'feature/best_p_n=w6Xh14_s4';
+@forward 'feature/best_p_n=w6Xh14_s4_link';
+
+// p_n=w6Xh15
+// @forward 'feature/new_p_n=w6Xh15_s4_link';
+@forward 'feature/new_p_n=w6Xh15_s4_more';
+@forward 'feature/new_p_n=w6Xh15_s4_more_1';
+@forward 'feature/new_p_n=w6Xh15_s4_pagination';
+@forward 'feature/best_p_n=w6Xh15_s4_link';
+@forward 'feature/best_p_n=w6Xh15_s4_more';
+@forward 'feature/best_p_n=w6Xh15_s4_more_1';
+@forward 'feature/best_p_n=w6Xh15_s4_pagination';
+
+// p_n=w6Xh16
+@forward 'feature/rank_p_n=w6Xh16_s6_link';
+
+// p_n=w6Xh17
+@forward 'feature/rank_p_n=w6Xh17_s5_link';
+@forward 'feature/rank_p_n=w6Xh18_s5_link_1';
+
+// p_n=w6Xh18
+@forward 'feature/new_p_n=w6Xh18_s2';
+@forward 'feature/new_p_n=w6Xh18_s6';
+@forward 'feature/best_p_n=w6Xh18_s2';
+@forward 'feature/best_p_n=w6Xh18_s6';
+
+// p_n=w6Xh19
+@forward 'feature/reco_p_n=w6Xh19_s5';
+@forward 'feature/rank_p_n=w6Xh19_s5_link';
+// @forward 'feature/new_p_n=w6Xh19_s6_link';
+@forward 'feature/new_p_n=w6Xh19_s6_refresh';
+@forward 'feature/new_p_n=w6Xh19_s6_pagination';
+@forward 'feature/best_p_n=w6Xh19_s6_link';
+@forward 'feature/best_p_n=w6Xh19_s6_refresh';
+@forward 'feature/best_p_n=w6Xh19_s6_pagination';
+@forward 'feature/mult_p_n=w6Xh19_s6_refresh';
+
+// p_n=w6Xh20
+@forward 'feature/new_p_n=w6Xh20_s6_more';
+@forward 'feature/new_p_n=w6Xh20_s6_more_1';
+@forward 'feature/best_p_n=w6Xh20_s6_more';
+@forward 'feature/best_p_n=w6Xh20_s6_more_1';
+@forward 'feature/reco_p_n=w6Xh20_s5_link';
+
+// p_n=w6Xh72
+@forward 'feature/coop_p_n=w6Xh72_s10';
+@forward 'feature/coop_p_n=w6Xh72_s10_1';
+@forward 'feature/coop_p_n=w6Xh72_s10_2';
+
+// *-------------------- p_s --------------------*
+// p_s=w6Xh5
+@forward 'feature/new_p_s=w6Xh5_s2';
+// @forward 'feature/new_p_s=w6Xh5_s2_link';
+@forward 'feature/best_p_s=w6Xh5_s2';
+@forward 'feature/best_p_s=w6Xh5_s2_link';
+
+// *-------------------- p_c --------------------*
+// p_c=w6Xh9
+@forward 'feature/rank_p_c=w6Xh9_s1_side';
+
+// p_c=w6Xh11
+@forward 'feature/new_p_c=w6Xh11_s3';
+@forward 'feature/best_p_c=w6Xh11_s3';
+
+// p_c=w6Xh12
+@forward 'feature/new_p_c=w6Xh12_s4';
+@forward 'feature/best_p_c=w6Xh12_s4';
+//> 상품
+
+//< 조합형 tp(탭+상품)
+// *------------------------- _sn -------------------------*
+// tp_sn=w6Xh21
+@forward 'feature/pers_tp_sn=w6Xh21_s6_refresh';
+@forward 'feature/pers_tp_sn=w6Xh21_s6_refresh_1';
+//> 조합형 tp(탭+상품)
+
+//< 조합형 bp(배너+상품)
+// *-------------------- bp_nn --------------------*
+// bp_nn=w6Xh57
+@forward 'feature/show_bp_nn=w6Xh57_s5';
+//> 조합형 bp(배너+상품)

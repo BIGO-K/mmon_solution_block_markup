@@ -1,0 +1,78 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../common/helper/function' as *;
+@use '../../common/helper/mixin';
+@use '../../common/setting/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="tp_nn=w12Xh14_s12_link"] {
+	width: const.$grid_pc_column * 12 + const.$grid_pc_column_gutter * (12 - 1);
+
+	// 탭메뉴
+	.mui_tab_menu {
+		margin-bottom: 22px;
+		text-align: center;
+
+		ul {
+			display: inline-block;
+			margin: -10px 0 0 -10px;
+
+			li {
+				float: left;
+				margin: 10px 0 0 10px;
+			}
+		}
+
+		.btn_tab {
+			padding: 18px 24px;
+			border: 1px solid #e6e6e6;
+			border-radius: 3px;
+			@include mixin.font(#4a4a4a '1.7rem/2rem');
+
+			&#{escape('.S=tab-on')} {
+				border-color: #1f1f1f;
+				color: #1f1f1f;
+			}
+		}
+	}
+
+	// 상품
+	.mui_product-list {
+		> ul {
+			display: grid;
+			grid-template-columns: repeat(6, 210px);
+			gap: 34px 20px;
+
+			&::after {
+				content: none;
+			}
+		}
+	}
+
+	// 하단 더보기
+	.btn_link {
+		display: block;
+		margin: 54px auto 0;
+		width: 174px;
+		height: 46px;
+		border: 1px solid #6a6a6a;
+		border-radius: 23px;
+		@include mixin.font(#5c5c5c '1.5rem/4.6rem' center);
+
+		.uico_link {
+			margin: 17px 0 0 10px;
+
+			&::before {
+				width: 6px;
+				height: 11px;
+				@include mixin.svg(#6a6a6a url('../image/block/common/ico_arrow_right.svg'));
+			}
+		}
+	}
+}

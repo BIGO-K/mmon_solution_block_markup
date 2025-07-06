@@ -1,0 +1,133 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../helper/function';
+@use '../../helper/mixin';
+@use '../../helper/var';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="new_p_n=w6Xh12_s3_more"] {
+	.mui_product-list {
+		padding: 0 14px;
+
+		> ul {
+			> li:nth-child(n+2) {
+				margin-top: 8px;
+			}
+
+			> li:nth-child(n+4) {
+				display: none;
+			}
+		}
+	}
+
+	// 리스트 펼침
+	&#{function.escape('.S=switch-on')} {
+		ul {
+			> li:nth-child(n+4) {
+				display: block;
+			}
+		}
+
+		.uico_more {
+			@include mixin.transform(scale(-1));
+		}
+	}
+
+	.mui_product-item {
+		figure {
+			.image_product {
+				position: relative;
+				padding-top: 0;
+				width: 54.02298%;
+
+				&::after {
+					padding-top: var.$prod_height_base;
+					content: '';
+				}
+			}
+
+			figcaption {
+				position: absolute;
+				top: 0;
+				right: 0;
+				left: 0;
+				margin: 0 0 0 54.02298%;
+				padding: 3px 15px 0 12px;
+
+				> *:first-child {
+					margin-top: 0;
+					padding-top: 0;
+				}
+
+				.text_sale {
+					right: 0;
+				}
+
+				.mui_product-item-react {
+					.text_like {
+						.uico_like::before {
+							margin-top: 1px;
+						}
+					}
+				}
+			}
+		}
+
+		// MY찜에추가하기
+		.btn_like {
+			top: auto;
+			right: 54.02298%;
+			bottom: 0;
+			margin-top: 0;
+			@include mixin.transform(translate(100%, 0));
+		}
+
+		// soldout
+		.text_soldout {
+			width: 54.02298%;
+		}
+
+		// 미성년자 구매불가
+		.text_adult {
+			width: 54.02298%;
+			padding-top: 0;
+
+			&::after {
+				padding-top: var.$prod_height_base;
+				content: '';
+			}
+		}
+	}
+
+	// 하단 더보기
+	.btn_more {
+		display: block;
+		margin: 26px auto 0;
+		padding: 0 14px;
+		min-width: 81px;
+		height: 30px;
+		border: 1px solid #6a6a6a;
+		border-radius: 15px;
+		@include mixin.font(#5c5c5c '1.3rem/3rem');
+
+		&::before {
+			content: attr(title);
+		}
+
+		.uico_more {
+			margin: 11px 0 0 10px;
+
+			&::before {
+				width: 8px;
+				height: 8px;
+				@include mixin.svg(#5c5c5c url('../../image/block/common/ico_arrow_down.svg'));
+			}
+		}
+	}
+}

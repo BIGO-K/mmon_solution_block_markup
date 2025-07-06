@@ -1,0 +1,53 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../helper/function';
+@use '../../helper/mixin';
+@use '../../helper/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="best_p_s=w6Xh5_s2"] {
+	.mui_product-list {
+		> ul {
+			display: inline-block;
+			padding: 0 14px 4px;
+			@include mixin.font('0', nowrap);
+
+			> li {
+				display: inline-block;
+				width: 152px;
+				white-space: normal;
+
+				&:nth-child(n+2) {
+					margin-left: 4px;
+				}
+			}
+		}
+
+		.mui_product-item {
+			figure {
+				figcaption {
+					padding: 0 10px 0 4px;
+
+					.text_sale {
+						right: 8px;
+						margin-top: 4px;
+					}
+
+					.text_price {
+						margin-top: 3px;
+					}
+
+					.mm_tag-list {
+						margin-top: 7px;
+					}
+				}
+			}
+		}
+	}
+}

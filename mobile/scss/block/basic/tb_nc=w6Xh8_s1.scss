@@ -1,0 +1,201 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../helper/function';
+@use '../../helper/mixin';
+@use '../../helper/const';
+@use '../../helper/var';
+
+/**
+ * 블록
+ * 탭 + 배너
+**/
+
+
+[data-mui="tb_nc=w6Xh8_s1"] {
+	.mui_tab {
+		padding: 0 14px;
+
+		&_menu {
+			overflow: hidden;
+
+			ul {
+				border-bottom: 1px solid #000;
+
+				li {
+					@include mixin.prefix(flex, 1, webkit);
+
+					&:nth-of-type(n+2) {
+						margin-left: -1px;
+					}
+				}
+			}
+
+			.btn_tab {
+				position: relative;
+				margin-top: 6px;
+				padding: 9px 0 10px;
+				height: auto;
+				width: 100%;
+				border: 1px solid #ebebeb;
+				border-bottom-width: 0;
+				@include mixin.font(#999 '1.3rem/1.8rem' center);
+
+				&#{function.escape('.S=tab-on')} {
+					z-index: 1;
+					margin-top: 0;
+					padding: 11px 0 12px;
+					border-color: #000;
+					@include mixin.font(var.$color_text_base 700 '1.4rem/2rem');
+
+					&::before,
+					&::after {
+						position: absolute;
+						top: 8px;
+						bottom: 0;
+						width: 14px;
+						content: '';
+					}
+
+					&::before {
+						left: -15px;
+						@include mixin.linear-gradient(transparent, -70deg, rgba(#000, 0.25), rgba(#fff, 0) 48%);
+					}
+
+					&::after {
+						right: -15px;
+						@include mixin.linear-gradient(transparent, 70deg, rgba(#000, 0.25), rgba(#fff, 0) 48%);
+					}
+
+					b::after {
+						position: absolute;
+						right: 0;
+						bottom: -1px;
+						left: 0;
+						border-bottom: 1px solid #fff;
+						content: '';
+					}
+				}
+			}
+		}
+
+		&-item {
+			padding-top: 22px;
+		}
+	}
+
+	// 배너
+	.mui_carousel {
+		padding-bottom: 40px;
+
+		&-list {
+			box-sizing: content-box;
+			padding-top: 55.74712%;
+			height: 118px;
+		}
+
+		&-item {
+			a {
+				display: block;
+				position: relative;
+
+				figure {
+					.image_banner {
+						padding-top: 55.74712%;
+						width: 100%;
+					}
+
+					figcaption {
+						padding: 16px 30px 0 6px;
+						height: 118px;
+
+						.text_banner1 {
+							max-height: 54px;
+							@include mixin.text-ellipsis(2);
+							@include mixin.font('2rem/2.7rem');
+
+							+ .text_banner2 {
+								margin-top: 3px;
+							}
+						}
+
+						.text_banner2 {
+							max-height: 40px;
+							@include mixin.text-ellipsis(2);
+							@include mixin.font(#6a6a6a '1.4rem/2rem');
+						}
+
+						.text_detail {
+							position: absolute;
+							right: 10px;
+							bottom: 0;
+							@include mixin.font('1.3rem/1.6rem');
+
+							&::after {
+								position: absolute;
+								right: 1px;
+								bottom: 0;
+								left: 0;
+								border-bottom: 1px solid #101010;
+								content: '';
+							}
+
+							.uico_link {
+								margin: 4px 0 0 6px;
+
+								&::before {
+									width: 4px;
+									height: 8px;
+									@include mixin.svg(#101010 url('../../image/block/common/ico_arrow_thick_right.svg'));
+								}
+							}
+						}
+
+						.text_alt {
+							@include mixin.text_ellipsis(2);
+							@include mixin.font(#a3a3a3 '1.4rem/2rem');
+
+							@include mixin.context-after(':not(.mui_image-none)', 'figure') {
+								display: none;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		&-progress {
+			position: absolute;
+			z-index: 2;
+			right: 0;
+			bottom: -2px;
+			left: 0;
+			height: 2px;
+			background-color: #e6e6e6;
+
+			&-bar {
+				height: 100%;
+				background-color: #101010;
+				@include mixin.transition(width const.$time_base);
+			}
+		}
+	}
+
+	// 이미지 에러
+	.mui_image-none {
+		.uico_none {
+			position: relative;
+			background-color: #f5f5f5;
+
+			&::before {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 50%;
+				height: 50%;
+				@include mixin.transform(translate(-50%, -50%));
+				@include mixin.svg(#d3d3d3 url('../../image/common/logo.svg'));
+			}
+		}
+	}
+}

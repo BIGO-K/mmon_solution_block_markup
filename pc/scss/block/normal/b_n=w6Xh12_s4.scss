@@ -1,0 +1,95 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../common/helper/function' as *;
+@use '../../common/helper/mixin';
+@use '../../common/setting/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="b_n=w6Xh12_s4"] {
+	width: const.$grid_pc_column * 6 + const.$grid_pc_column_gutter * (6 - 1);
+
+	> .mui_container {
+		height: const.$grid_pc_row * 12 + const.$grid_pc_row_gutter * (12 - 1);
+	}
+
+	 ul {
+		display: grid;
+		grid-template-columns: repeat(2, 322px);
+		gap: 52px 20px;
+
+		&::after {
+			content: none;
+		}
+	}
+
+	a {
+		display: block;
+		position: relative;
+	}
+
+	figure {
+		.image_banner {
+			padding-top: 320px;
+			width: 100%;
+		}
+
+		figcaption {
+			padding: 0 14px 0 2px;
+
+			> *:first-child {
+				margin-top: 15px;
+			}
+
+			[class*="text_banner"] {
+				overflow: hidden;
+			}
+
+			.text_banner1 {
+				height: 48px;
+				@include mixin.font('1.7rem/1.4');
+
+				+ .text_banner2 {
+					margin-top: 6px;
+				}
+			}
+
+			.text_banner2 {
+				height: 40px;
+				@include mixin.font(#0b0a0a '1.4rem/2rem');
+			}
+
+			.text_alt {
+				@include mixin.text_ellipsis(2);
+				@include mixin.font(#a3a3a3 '1.4rem/2rem');
+
+				@include mixin.context-after(':not(.mui_image-none)', 'figure') {
+					display: none;
+				}
+			}
+		}
+	}
+
+	// 이미지 에러
+	.mui_image-none {
+		.uico_none {
+			position: relative;
+			background-color: #f5f5f5;
+
+			&::before {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 50%;
+				height: 50%;
+				@include mixin.transform(translate(-50%, -50%));
+				@include mixin.svg(#d3d3d3 url('../image/common/logo.svg'));
+			}
+		}
+	}
+}

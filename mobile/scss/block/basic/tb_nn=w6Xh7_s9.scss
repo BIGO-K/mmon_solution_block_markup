@@ -1,0 +1,118 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../helper/function';
+@use '../../helper/mixin';
+@use '../../helper/const';
+
+/**
+ * 블록
+ * 탭 + 배너
+**/
+
+
+[data-mui="tb_nn=w6Xh7_s9"] {
+	position: relative;
+	padding: 0 14px;
+
+	.mui_tab {
+		position: relative;
+		padding-top: 42px;
+	}
+
+	// 탭메뉴
+	.mui_tab_menu {
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: 27px;
+		border-radius: 27px;
+		background-color: #eee;
+
+		&::before {
+			position: absolute;
+			top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+			border: 1px solid #1f1f1f;
+			border-radius: 27px;
+			content: '';
+		}
+
+		ul {
+			li {
+				display: inline-block;
+
+				&:last-child {
+					margin-left: -8px;
+				}
+			}
+		}
+
+		.btn_tab {
+			position: relative;
+			z-index: 1;
+			padding: 0 13px;
+			height: 27px;
+			border-radius: 27px;
+			@include mixin.font(#a3a3a3 '1.2rem/2.8rem');
+
+			&#{function.escape('.S=tab-on')} {
+				background-color: #1f1f1f;
+				color: #fff;
+			}
+		}
+	}
+
+	// 탭컨텐츠
+	.mui_tab-item {
+		> ul {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-gap: 3px;
+
+			&::after {
+				content: none;
+			}
+		}
+
+		a {
+			display: block;
+			position: relative;
+		}
+
+		figure {
+			.image_banner {
+				padding-top: 100%;
+				width: 100%;
+			}
+
+			figcaption {
+				position: absolute;
+				z-index: 1;
+				top: 50%;
+				right: 0;
+				left: 0;
+				padding: 0 10px;
+				@include mixin.transform(translateY(-50%));
+
+				.text_alt {
+					@include mixin.text_ellipsis(2);
+					@include mixin.font(#a3a3a3 '1.4rem/2rem' center);
+
+					@include mixin.context-after(':not(.mui_image-none)', 'figure') {
+						display: none;
+					}
+				}
+			}
+		}
+
+		// 이미지 에러
+		.mui_image-none {
+			.uico_none {
+				background-color: #f5f5f5;
+			}
+		}
+	}
+}

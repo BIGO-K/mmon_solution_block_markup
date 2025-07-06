@@ -1,0 +1,71 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../helper/function';
+@use '../../helper/mixin';
+@use '../../helper/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="b_n=w6Xh4_s1_1"] {
+	a {
+		display: block;
+		position: relative;
+		padding: 0 14px;
+	}
+
+	figure {
+		.image_banner {
+			position: relative;
+			padding-top: 61.49425%;
+			width: 100%;
+
+			&::before {
+				@include mixin.context-after(':not(.mui_image-none)', 'figure') {
+					position: absolute;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					left: 0;
+					@include mixin.linear-gradient(transparent, 0deg, rgba(#000, 0.8), transparent);
+					@include mixin.opacity(0.5);
+					content: '';
+				}
+			}
+		}
+
+		figcaption {
+			position: absolute;
+			z-index: 1;
+			right: 0;
+			bottom: 11px;
+			left: 0;
+			padding: 0 16px;
+			@include mixin.font(#fff '1.6rem/1.9rem');
+
+			.text_banner2 {
+				@include mixin.font('1.3rem/2.3rem');
+			}
+
+			.text_alt {
+				@include mixin.text_ellipsis(2);
+				@include mixin.font(#a3a3a3 '1.4rem/2rem' center);
+
+				@include mixin.context-after(':not(.mui_image-none)', 'figure') {
+					display: none;
+				}
+			}
+		}
+	}
+
+	// 이미지 에러
+	.mui_image-none {
+		.uico_none {
+			background-color: #f5f5f5;
+		}
+	}
+}

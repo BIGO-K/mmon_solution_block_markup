@@ -1,0 +1,163 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../helper/function';
+@use '../../helper/mixin';
+@use '../../helper/var';
+
+/**
+ * 블록
+ * 배너+상품
+**/
+
+
+[data-mui="bp_ns=w6Xh12_s4_link"] {
+	.mui_inner {
+		position: relative;
+
+		// 전체보기
+		.btn_link {
+			position: absolute;
+			top: -31px;
+			right: 20px;
+			@include mixin.font(#7b7b7b '1.3rem');
+
+			&::before {
+				position: absolute;
+				top: -10px;
+				right: -10px;
+				bottom: -10px;
+				left: -10px;
+				content: '';
+			}
+
+			.uico_link {
+				margin: 3px 0 0 4px;
+
+				&::before {
+					width: 5px;
+					height: 7px;
+					@include mixin.svg(#7b7b7b url('../../image/block/common/ico_arrow_thick_round_right.svg'));
+				}
+			}
+		}
+
+		// 배너
+		> ul {
+			> li {
+				> a {
+					display: block;
+					position: relative;
+				}
+			}
+
+			figure {
+				.image_banner {
+					padding-top: 45.21276%;
+					width: 100%;
+
+					&::before {
+						position: absolute;
+						top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+						background-color: rgba(#000, 0.27);
+						content: '';
+					}
+				}
+
+				figcaption {
+					position: absolute;
+					z-index: 1;
+					top: 50%;
+					right: 0;
+					left: 0;
+					padding: 0 20px;
+					@include mixin.font(#fff 400 '2.2rem/3.2rem' center);
+					@include mixin.transform(translateY(-50%));
+
+					.text_banner1 {
+						+ .text_banner2 {
+							margin-top: 4px;
+						}
+					}
+
+					.text_banner2 {
+						@include mixin.font('1.6rem/2.2rem');
+					}
+
+					.text_alt {
+						@include mixin.text_ellipsis(2);
+						@include mixin.font(#a3a3a3 '1.4rem/2rem');
+
+						@include mixin.context-after(':not(.mui_image-none)', 'figure') {
+							display: none;
+						}
+					}
+				}
+			}
+
+			// 이미지 에러
+			.mui_image-none {
+				.uico_none {
+					background-color: #f5f5f5;
+				}
+			}
+
+			+ .mui_scroller {
+				margin-top: 20px;
+			}
+		}
+
+		// 상품
+		> .mui_inner {
+			margin-top: 24px;
+			padding: 0 14px;
+
+			> .text_prod1 {
+				padding-bottom: 16px;
+				@include mixin.font(var.$color_text_base '1.7rem/2rem');
+			}
+
+			.mui_product-list {
+				> ul {
+					display: inline-block;
+					padding-bottom: 4px;
+					@include mixin.font('0', nowrap);
+
+					> li {
+						display: inline-block;
+						width: 152px;
+						white-space: normal;
+
+						&:nth-child(n+2) {
+							margin-left: 4px;
+						}
+					}
+				}
+
+				.mui_product-item {
+					figure {
+						figcaption {
+							padding: 0 10px 0 4px;
+
+							.text_sale {
+								right: 8px;
+								margin-top: 4px;
+							}
+
+							.text_price {
+								margin-top: 3px;
+							}
+
+							.mm_tag-list {
+								margin-top: 7px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

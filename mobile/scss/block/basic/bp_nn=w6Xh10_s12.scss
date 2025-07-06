@@ -1,0 +1,137 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../helper/function';
+@use '../../helper/mixin';
+@use '../../helper/var';
+@use '../../helper/const';
+
+/**
+ * 블록
+ * 배너+상품
+**/
+
+
+[data-mui="bp_nn=w6Xh10_s12"] {
+	padding: 0 20px;
+
+	> ul {
+		> li {
+			&:nth-child(n+2) {
+				margin-top: 20px;
+				padding-top: 15px;
+				border-top: 1px solid #e6e6e6;
+			}
+
+			> a {
+				display: block;
+				min-height: 36px;
+
+				> figure {
+					position: relative;
+
+					.image_banner {
+						position: absolute;
+						top: 1px;
+						width: 36px;
+						height: 36px;
+						border-radius: 100%;
+					}
+
+					figcaption {
+						padding: 0 75px 0 46px;
+
+						.text_banner1 {
+							@include mixin.text-ellipsis(1);
+							@include mixin.font(700 '1.5rem');
+						}
+
+						.text_banner2 {
+							@include mixin.text-ellipsis(1);
+							@include mixin.font(#6a6a6a '1.2rem');
+						}
+
+						.btn_more {
+							position: absolute;
+							top: 4px;
+							right: 0;
+							padding: 0 15px;
+							height: 30px;
+							border: 1px solid #cdcdcd;
+							border-radius: 15px;
+							@include mixin.font(#5c5c5c '1.3rem/3rem');
+						}
+
+						.text_alt {
+							@include mixin.text_ellipsis(2);
+							@include mixin.font(#a3a3a3 '1.4rem/2rem');
+
+							@include mixin.context-after(':not(.mui_image-none)', 'figure') {
+								display: none;
+							}
+						}
+					}
+				}
+
+				// 이미지 에러
+				.mui_image-none {
+					.uico_none {
+						background-color: #f5f5f5;
+
+						&::before {
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							width: 50%;
+							height: 50%;
+							@include mixin.transform(translate(-50%, -50%));
+							@include mixin.svg(#d3d3d3 url('../../image/common/logo.svg'));
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.mui_product-list {
+		margin-top: 13px;
+
+		ul {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-gap: 0 4px;
+		}
+
+		.mui_product-item {
+			.image_product {
+				border-radius: 10px;
+			}
+
+			// 미성년자 구매불가
+			.text_adult {
+				border-radius: 10px;
+			}
+
+			// 품절
+			.text_soldout {
+				bottom: 0;
+				height: auto;
+				border-radius: 10px;
+				@include mixin.font('1.7rem/1.7rem');
+
+				span {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					@include mixin.transform(translate(-50%, -50%));
+				}
+			}
+
+			figcaption {
+				position: absolute;
+				margin: 0 0 0 -1px;
+				padding: 0;
+			}
+		}
+	}
+}

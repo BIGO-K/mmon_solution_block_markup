@@ -1,0 +1,198 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../common/helper/function' as *;
+@use '../../common/helper/mixin';
+@use '../../common/setting/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="pers_tp_sn=w12Xh16_s10_refresh"] {
+	width: const.$grid_pc_column * 12 + const.$grid_pc_column_gutter * (12 - 1);
+
+	.mui_title {
+		.title_sub {
+			margin-bottom: 20px;
+		}
+
+		&#{escape('.T=right')} {
+			padding-right: 142px;
+		}
+
+		&#{escape('.T=design')} {
+			text-align: center;
+
+			.title_main {
+				margin-bottom: 20px;
+			}
+
+			.title_sub {
+				margin-bottom: 17px;
+				font-size: 2rem;
+			}
+		}
+	}
+
+	.mui_inner {
+		position: relative;
+
+		// 상단 새로고침
+		.btn_refresh {
+			position: absolute;
+			top: -61px;
+			right: 0;
+			padding: 0 15px;
+			height: 40px;
+			border: 1px solid #999;
+			border-radius: 20px;
+			@include mixin.font(#6a6a6a '1.5rem/3.9rem');
+
+			.uico_refresh {
+				margin: 12px -4px 0 6px;
+
+				&::before {
+					width: 14px;
+					height: 14px;
+					@include mixin.svg(#6a6a6a url('../image/block/common/ico_refresh.svg'));
+				}
+			}
+		}
+	}
+
+	.mui_tab {
+		overflow: hidden;
+
+		// 탭메뉴
+		&_menu {
+			position: relative;
+			z-index: 4;// 체형정보 입력 pop
+			margin-bottom: 30px;
+			text-align: center;
+
+			.mui_slider-list {
+				display: inline-block;
+				@include mixin.font('0', nowrap);
+
+				li {
+					display: inline-block;
+					position: relative;
+					margin: 0 45px;
+				}
+			}
+
+			.btn_tab {
+				padding: 10px 24px;
+				@include mixin.font(#999 v_700 '2rem/3rem');
+
+				&#{escape('.S=tab-on')} {
+					color: #2b2b2b;
+
+					b {
+						position: relative;
+
+						&::after {
+							position: absolute;
+							right: 0;
+							bottom: -10px;
+							left: 0;
+							border-bottom: 3px solid #2b2b2b;
+							content: '';
+						}
+					}
+				}
+			}
+
+			// 체형정보 입력 pop
+			.m_pers-size-pop {
+				position: absolute;
+				top: 64px;
+				left: 24px;
+				padding: 26px 34px 20px;
+				min-width: 199px;
+				border-radius: 5px;
+				border: 2px solid #101010;
+				background-color: rgba(#fff, 0.9);
+				@include mixin.font(#101010 '1.4rem/1.8rem' center);
+
+				&::before {
+					position: absolute;
+					top: -10px;
+					left: 13px;
+					@include mixin.triangle(#101010, top, 5px, 10px);
+					content: '';
+				}
+
+				&::after {
+					position: absolute;
+					top: -7px;
+					left: 15px;
+					@include mixin.triangle(#fff, top, 3px, 8px);
+					content: '';
+				}
+
+				.btn_write {
+					margin-top: 10px;
+					padding: 0 20px;
+					height: 28px;
+					border-radius: 14px;
+					background-color: #1f1f1f;
+					@include mixin.font(#fff '1.4rem/2.8rem' center);
+				}
+
+				.btn_close {
+					position: absolute;
+					top: 0;
+					right: 0;
+					padding: 5px 7px;
+					line-height: 1;
+
+					.uico_close {
+						&::before {
+							width: 13px;
+							height: 13px;
+							@include mixin.svg(#888 url('../image/block/common/ico_close.svg'));
+						}
+					}
+				}
+			}
+		}
+
+		// 상품
+		.mui_product-list {
+			> ul {
+				display: grid;
+				grid-template-columns: repeat(5, 256px);
+				gap: 54px 20px;
+
+				&::after {
+					content: none;
+				}
+			}
+		}
+	}
+
+	// 하단 새로고침
+	> .btn_refresh {
+		display: block;
+		margin: 54px auto 0;
+		padding: 0 59px;
+		height: 46px;
+		border: 1px solid #6a6a6a;
+		border-radius: 23px;
+		@include mixin.font(#5c5c5c '1.5rem/4.5rem');
+
+		.uico_refresh {
+			margin: 15px 0 0 9px;
+
+			&::before {
+				width: 14px;
+				height: 14px;
+				@include mixin.svg(#5c5c5c url('../image/block/common/ico_refresh.svg'));
+			}
+		}
+	}
+}

@@ -1,0 +1,73 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../helper/function';
+@use '../../helper/mixin';
+@use '../../helper/const';
+
+/**
+ * 블록
+ * 탭 + 상품
+**/
+
+
+[data-mui="tp_sn=w6Xh19_s6"] {
+	.mui_tab {
+		padding: 0 14px;
+
+		// 탭메뉴
+		&_menu {
+			margin: 0 -14px 10px;
+
+			ul {
+				display: inline-block;
+				padding: 0 14px;
+				@include mixin.font('0', nowrap);
+
+				li {
+					display: inline-block;
+
+					&:nth-child(n+2) {
+						margin-left: 3px;
+					}
+				}
+			}
+
+			.btn_tab {
+				position: relative;
+				padding: 0 11px;
+				@include mixin.font(#2b2b2b '1.4rem/5rem');
+
+				&#{function.escape('.S=tab-on')} {
+					&::before {
+						position: absolute;
+						right: 0;
+						bottom: 0;
+						left: 0;
+						border-bottom: 1px solid #1f1f1f;
+						content: '';
+					}
+				}
+			}
+		}
+
+		// 탭컨텐츠
+		&-item {
+			.mui_product-list {
+				> ul {
+					display: grid;
+					grid-template-columns: repeat(2, 1fr);
+					grid-gap: 26px 12px;
+
+					> li {
+						min-width: 0;
+					}
+
+					&::after {
+						content: none;
+					}
+				}
+			}
+		}
+	}
+}

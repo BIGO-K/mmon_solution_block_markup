@@ -1,0 +1,221 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../helper/function';
+@use '../../helper/mixin';
+@use '../../helper/const';
+
+/**
+ * 블록
+ * 탭 + 배너
+**/
+
+
+[data-mui="tb_sn=w6Xh27_s3_pagination"] {
+	.mui_tab {
+		padding: 0 14px;
+
+		// 탭메뉴
+		&_menu {
+			margin: 0 -14px 5px;
+
+			ul {
+				display: inline-block;
+				padding: 0 10px;
+				@include mixin.font('0', nowrap);
+
+				li {
+					display: inline-block;
+
+					&:nth-child(n+2) {
+						margin-left: 15px;
+					}
+				}
+			}
+
+			.btn_tab {
+				position: relative;
+				padding: 7px 4px;
+				@include mixin.font(#d5d5d5 700 '1.4rem/1.8rem');
+
+				&#{function.escape('.S=tab-on')} {
+					color: #1f1f1f;
+
+					&::before {
+						position: absolute;
+						top: 0;
+						left: 50%;
+						margin-left: -1px;
+						width: 5px;
+						height: 5px;
+						border-radius: 100%;
+						background-color: #1f1f1f;
+						content: '';
+					}
+				}
+			}
+		}
+
+		// 탭컨텐츠
+		&-item {
+			> ul {
+				li:nth-child(n+2) {
+					margin-top: 38px;
+				}
+			}
+
+			a {
+				display: block;
+				position: relative;
+			}
+
+			figure {
+				.image_banner {
+					padding-top: 100%;
+					width: 100%;
+				}
+
+				figcaption {
+					position: relative;
+					margin-top: 13px;
+					padding: 0 10px 43px 2px;
+
+					.text_banner1 {
+						@include mixin.font('1.6rem/2.4rem');
+
+						+ .text_banner2 {
+							margin-top: 4px;
+						}
+					}
+
+					.text_banner2 {
+						@include mixin.font(#5c5c5c '1.3rem/1.9rem');
+					}
+
+					.text_date {
+						position: absolute;
+						bottom: 0;
+						left: 2px;
+						@include mixin.font(#a3a3a3 '1.3rem/1');
+					}
+
+					.text_alt {
+						@include mixin.text_ellipsis(2);
+						@include mixin.font(#a3a3a3 '1.4rem/2rem');
+
+						@include mixin.context-after(':not(.mui_image-none)', 'figure') {
+							display: none;
+						}
+					}
+				}
+			}
+
+			// 하단 페이지네이션
+			.mui_pagination {
+				$pagination_height_base: 28px;
+
+				margin-top: 38px;
+				text-align: center;
+
+				.mui_inline {
+					position: relative;
+				}
+
+				li {
+					float: left;
+
+					> button {
+						display: block;
+						padding: 0 16px;
+						height: $pagination_height_base;
+						@include mixin.font(#b8b8b9 '1.7rem/#{$pagination_height_base}' center, 0);
+
+						&#{function.escape('.S=page-on')} {
+							@include mixin.font(#1f1f1f 700);
+						}
+					}
+				}
+
+				[class*="btn_control"] {
+					position: absolute;
+					top: 0;
+					width: $pagination_height_base;
+					height: $pagination_height_base;
+					border: 1px solid #767676;
+					border-radius: 2px;
+					background-color: #fff;
+
+					$pages: (first, double_left, 10px), (prev, left, 6px), (next, right, 6px), (last, double_right, 10px);
+					@each $page, $icon, $width in $pages {
+						[class*="uico_page-#{$page}"] {
+							&::before {
+								width: $width;
+								height: 11px;
+								@include mixin.svg(#6a6a6a url('../../image/block/common/ico_arrow_#{$icon}.svg'));
+								content: '';
+							}
+						}
+					}
+
+					// 버튼 위치
+					&.btn_control- {
+						// 처음
+						&first {
+							left: -($pagination_height_base * 3 - 12px) - 7px;
+						}
+
+						// 이전
+						&prev {
+							left: -($pagination_height_base * 2 - 12px);
+
+							i {
+								margin-right: 1px;
+							}
+						}
+
+						// 다음
+						&next {
+							right: -($pagination_height_base * 2 - 12px);
+
+							i {
+								margin-left: 1px;
+							}
+						}
+
+						// 마지막
+						&last {
+							right: -($pagination_height_base * 3 - 12px) - 7px;
+						}
+					}
+
+					// 버튼 비활성
+					&[disabled] {
+						border-color: #dcdcdc;
+
+						[class*="uico_page"]::before {
+							background-color: #dcdcdc;
+						}
+					}
+				}
+			}
+
+			// 이미지 에러
+			.mui_image-none {
+				.uico_none {
+					position: relative;
+					background-color: #f5f5f5;
+
+					&::before {
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						width: 50%;
+						height: 50%;
+						@include mixin.transform(translate(-50%, -50%));
+						@include mixin.svg(#d3d3d3 url('../../image/common/logo.svg'));
+					}
+				}
+			}
+		}
+	}
+}

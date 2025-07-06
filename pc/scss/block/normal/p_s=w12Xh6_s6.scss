@@ -1,0 +1,82 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../common/helper/function' as *;
+@use '../../common/helper/mixin';
+@use '../../common/setting/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="p_s=w12Xh6_s6"] {
+	width: const.$grid_pc_column * 12 + const.$grid_pc_column_gutter * (12 - 1);
+
+	.mui_slider {
+		overflow: hidden;
+		position: relative;
+
+		&-inner {
+			overflow: hidden;
+			margin: 0 -10px;
+		}
+
+		&-list {
+			display: inline-block;
+			@include mixin.font('0', nowrap);
+		}
+
+		&-item {
+			display: inline-block;
+			padding: 0 10px;
+			width: 230px;
+			white-space: normal;
+		}
+
+		&-control {
+			button {
+				position: absolute;
+				z-index: 3;
+				top: 114px;
+				width: 27px;
+				height: 54px;
+				background-color: #fff;
+				text-align: center;
+
+				&:disabled {
+					background-color: rgba(#fff, 0.54);
+
+					> i::before {
+						background-color: #101010;
+					}
+				}
+			}
+
+			.btn_slider-prev {
+				left: 0;
+				padding-right: 10px;
+				border-radius: 0 30px 30px 0;
+
+				i::before {
+					width: 8px;
+					height: 17px;
+					@include mixin.svg(const.$color_text_base url('../image/block/common/ico_arrow_left.svg'));
+				}
+			}
+
+			.btn_slider-next {
+				right: 0;
+				padding-left: 10px;
+				border-radius: 30px 0 0 30px;
+
+				i::before {
+					width: 8px;
+					height: 17px;
+					@include mixin.svg(const.$color_text_base url('../image/block/common/ico_arrow_right.svg'));
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,2594 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<!-- <link rel='shortcut icon' href=""> -->
+
+	<!-- 소셜태그 -->
+	<meta property="og:title" content="">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="">
+	<meta property="og:url" content="">
+	<meta property="og:site_name" content="">
+	<!--// 소셜태그 -->
+
+	<title>b_n &#60; 배너 &#60; 2/3N 블록 - M.Mon solution</title>
+
+	<!-- 공통 css -->
+	<link rel="stylesheet" href="../css/common.css">
+	<!-- <link rel="stylesheet" href="../css/style.css"> -->
+
+	<!-- 공통 css 변수 -->
+	<style>
+		:root {
+			--prod_ratio_base: 1;
+		}
+	</style>
+
+	<!--
+		블록 css
+		(D) css/block/ 폴더에서 현재 페이지 또는 현재 프로젝트에서 사용되는 css만 combine하여 block.css을 생성해주세요.
+		현재 block.css는 전체 블록이 포함된 버전입니다.
+		현재 페이지에 블록이 없으면 block.css가 없어도 됩니다.
+	-->
+	<link rel="stylesheet" href="../css/block.css">
+	<link rel="stylesheet" href="../css/block_test.css">
+
+	<!-- 템플릿에서만 사용 -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/github.min.css">
+
+	<style>
+		:root, body {overflow: visible !important;}
+		.mm_app {padding-top:60px;}
+		.mm_app .mm_view {padding-top:0;}
+
+		.m_template-header {position:fixed;z-index:1000;top:0;right:0;left:0;background:#00989c;white-space:nowrap;}
+		.m_template-header * {display:inline-block;color:#fff;line-height:60px;}
+		.m_template-header h1 {padding:0 10px;font-size:25px;}
+
+		.m_template-sidebar {position:fixed;z-index:1000;top:60px;bottom:0;left:0;width:200px;border-right:1px solid #efefef;background:#fff;}
+		/* .m_template-sidebar .mm_scroller {padding:0 30px 30px;} */
+		.m_template-sidebar .mm_scroller > p {padding:10px;background:rgba(18, 167, 170, 0.1);color:#00989c;font-weight:700;font-size:17px;}
+		.m_template-sidebar .mm_scroller ul + p {margin-top:30px;}
+		.m_template-sidebar ul li .btn_anchor {display:block;position:relative;padding:10px 20px;color:#5a5a5a;font-size:14px;line-height:16px;}
+		.m_template-sidebar ul li .btn_anchor.S\=anchor-on {color:#00989c;font-weight:700;}
+		.m_template-sidebar ul li .btn_anchor.S\=anchor-on + .m_template-sidebar-sub {display: block;}
+
+		.m_template-sidebar .m_template-sidebar-sub {display:none;box-shadow:0px 3px 13px 0px rgba(82, 63, 105, 0.05);position:fixed;z-index:1100;top:0;left:200px;padding:15px 10px 15px 40px;height:60px;font-size:0;line-height:29px;white-space:nowrap;}
+		.m_template-sidebar .m_template-sidebar-sub > li {display:inline-block;margin-left:5px;}
+		.m_template-sidebar .m_template-sidebar-sub > li a {padding:0 10px;width:auto;border:0;background:transparent;color:#fff;font-size:14px;line-height:34px;}
+		.m_template-sidebar .m_template-sidebar-sub > li a.S\=anchor-on {color:#fff;}
+		.m_template-sidebar .m_template-sidebar-sub > li a.S\=anchor-on:after {content:none;}
+
+		.m_template-component {margin-left:200px;padding:10px;background-color:#fff;}
+		.m_template-component > article {padding-bottom:50px;}
+		.m_template-component > article > h2 {padding:17px 20px;background:rgba(18, 167, 170, 0.1);color:#00989c;font-size:17px;}
+		.m_template-component .m_template-component-item {margin-bottom:50px;background-color: #fff;}
+		.m_template-component .m_template-component-item > h3 {padding:15px 20px 10px;border-bottom:1px solid #e4e4e4;font-size:17px;color:#00989c;font-variation-settings:'wght' 700;}
+		.m_template-component .m_template-component-item > h3 small {margin-left:10px;color:#999;font-weight:400;font-size:14px;}
+
+		.m_template-component .m_template-component-item > .m\.\.\.item-inner {padding: 20px 30px;}
+		.m_template-component .m_template-component-item > .m\.\.\.item-inner > .mm_tab > .mm_tab_menu li {float:left;}
+		.m_template-component .m_template-component-item > .m\.\.\.item-inner > .mm_tab > .mm_tab_menu .btn_tab {position:relative;width:100px;height:30px;color:#cdcdcd;font-size:14px;line-height:30px;text-align:center;}
+		.m_template-component .m_template-component-item > .m\.\.\.item-inner > .mm_tab > .mm_tab_menu .btn_tab::before {display: none;}
+		.m_template-component .m_template-component-item > .m\.\.\.item-inner > .mm_tab > .mm_tab_menu .btn_tab.S\=tab-on {color:#101010;}
+		.m_template-component .m_template-component-item > .m\.\.\.item-inner > .mm_tab > .mm_tab_menu .btn_tab.S\=tab-on::after {position:absolute;right:0;bottom:-1px;left:0;border-bottom:2px solid #101010;content:'';}
+		.m_template-component .m_template-component-item > .m\.\.\.item-inner > .mm_tab > .mm_tab_menu .btn_tab b::after {border: 0;}
+		.m_template-component .m_template-component-item > .m\.\.\.item-inner > .mm_tab > .mm_tab-item {display:none;padding:25px 0;}
+		.m_template-component .m_template-component-item > .m\.\.\.item-inner > .mm_tab > .mm_tab-item.S\=tab-on {display:block;}
+		.m_template-component .m_template-component-item > .m\.\.\.item-inner > h4 {display:inline-block;margin-bottom:10px;font-size:15px;}
+		.m_template-component .m_template-component-item > .m\.\.\.item-inner > h4 b {padding:2px;background:rgba(51,26,114, 0.15);color:#331a72;}
+		.m_template-component .m_template-component-item > .m\.\.\.item-inner > p {margin-bottom:10px;color:#331a72;font-variation-settings:'wght' 700;font-size:17px;}
+
+		.m\.\.\.preview-inner {background:#fff;}
+		.m\.\.\.preview-inner > *:nth-child(n+2) {margin-top:5px;}
+
+		.m_template-component .m_template-component-item pre {overflow:auto;max-height:400px;font-size:13px;line-height:17px;letter-spacing:0.5px;white-space:pre;}
+		.m_template-component .m_template-component-item pre code {padding:20px;}
+		.m_template-component .m\.\.\.item-note {padding:0 2px 10px;font-size:13px;line-height:20px;}
+		.m_template-component .m\.\.\.item-note h6 {margin-top:5px;font-variation-settings:'wght' 700;}
+		.m_template-component .m\.\.\.item-note p {padding-left:10px;}
+		/* .m_template-component .m\.\.\.item-note > p strong {color:#331a72;font-weight:700;}
+		.m_template-component .m\.\.\.item-note table {margin-top:10px;border:1px solid #e4e4e4;font-size:14px;}
+		.m_template-component .m\.\.\.item-note table tr > * {padding:10px;border-top:1px solid #e4e4e4;line-height:22px;}
+		.m_template-component .m\.\.\.item-note table thead th {font-weight:600;}
+		.m_template-component .m\.\.\.item-note table thead th:last-child {width:50%;}
+		.m_template-component .m\.\.\.item-note table tbody tr p {text-align:left;}
+		.m_template-component .m\.\.\.item-note table tbody tr:nth-child(odd) {background:#f9f9f9;} */
+
+		/* .m_template-component .m\.\.\.item-icon b {margin:15px 0 -5px;padding:7px 13px;background:#eee;font-size:13px;}
+		.m_template-component .m\.\.\.item-icon i {margin-top:5px;width:32px;height:30px;background-repeat:no-repeat;}
+		.m_template-component .m\.\.\.item-icon table tr > * {padding:6px;} */
+		.m_template-component .m\.\.\.item-match {padding-bottom: 10px;}
+		.m_template-component .m\.\.\.item-match p {position: relative;margin-left:60px;color:#999;font-size:15px;line-height:1.4;}
+		.m_template-component .m\.\.\.item-match p::before {position: absolute;top: 0;left: -40px; content: '↔';}
+		.m_template-component .m\.\.\.item-match p span {display: inline-block;padding:0 2px; background:#ebebeb;}
+		.m_template-component .m\.\.\.item-match p + p {margin-top: 5px;}
+		.m_template-component .m\.\.\.item-match p + .m\.\.\.match-split {margin-top: 12px;}
+		.m_template-component .m\.\.\.item-match .m\.\.\.match-split p span {background-color: #fdedc0;}
+	</style>
+
+	<script type="module" src="/src/script/app/app.ts"></script>
+
+	<!-- (D) 페이지 공통 스크립트는 body 하단, 전용 스크립트는 .mm_page-content 하단에 넣어주세요. -->
+</head>
+<body>
+	<div id="mm_app" class="mm_app">
+		<!-- 템플릿 헤더 -->
+		<div class="m_template-header">
+			<h1><b>2/3N배너 (b_n)</b></h1>
+		</div>
+		<!--// 템플릿 헤더 -->
+
+		<div class="mm_view L=frame">
+			<!-- 템플릿 사이드바 -->
+			<div class="m_template-sidebar">
+				<div class="mm_scroller">
+					<!-- w4 -->
+					<p>w4</p>
+					<ul>
+						<li>
+							<a class="btn_anchor" href="#w4Xh7"><b>h7</b></a>
+							<ul class="m_template-sidebar-sub">
+								<!-- <li><a href="#"><b>자동생성</b></a></li> -->
+							</ul>
+						</li>
+						<li>
+							<a class="btn_anchor" href="#w4Xh8"><b>h8</b></a>
+							<ul class="m_template-sidebar-sub">
+								<!-- <li><a href="#"><b>자동생성</b></a></li> -->
+							</ul>
+						</li>
+						<li>
+							<a class="btn_anchor" href="#w4Xh9"><b>h9</b></a>
+							<ul class="m_template-sidebar-sub">
+								<!-- <li><a href="#"><b>자동생성</b></a></li> -->
+							</ul>
+						</li>
+						<li>
+							<a class="btn_anchor" href="#w4Xh10"><b>h10</b></a>
+							<ul class="m_template-sidebar-sub">
+								<!-- <li><a href="#"><b>자동생성</b></a></li> -->
+							</ul>
+						</li>
+						<li>
+							<a class="btn_anchor" href="#w4Xh12"><b>h12</b></a>
+							<ul class="m_template-sidebar-sub">
+								<!-- <li><a href="#"><b>자동생성</b></a></li> -->
+							</ul>
+						</li>
+					</ul>
+					<!--// w4 -->
+
+					<!-- w6 -->
+					<p>w6</p>
+					<ul>
+						<li>
+							<a class="btn_anchor" href="#w6Xh8"><b>h8</b></a>
+							<ul class="m_template-sidebar-sub">
+								<!-- <li><a href="#"><b>자동생성</b></a></li> -->
+							</ul>
+						</li>
+						<li>
+							<a class="btn_anchor" href="#w6Xh9"><b>h9</b></a>
+							<ul class="m_template-sidebar-sub">
+								<!-- <li><a href="#"><b>자동생성</b></a></li> -->
+							</ul>
+						</li>
+						<li>
+							<a class="btn_anchor" href="#w6Xh10"><b>h10</b></a>
+							<ul class="m_template-sidebar-sub">
+								<!-- <li><a href="#"><b>자동생성</b></a></li> -->
+							</ul>
+						</li>
+						<li>
+							<a class="btn_anchor" href="#w6Xh12"><b>h12</b></a>
+							<ul class="m_template-sidebar-sub">
+								<!-- <li><a href="#"><b>자동생성</b></a></li> -->
+							</ul>
+						</li>
+					</ul>
+					<!--// w6 -->
+
+					<!-- w8 -->
+					<p>w8</p>
+					<ul>
+						<li>
+							<a class="btn_anchor" href="#w8Xh7"><b>h7</b></a>
+							<ul class="m_template-sidebar-sub">
+								<!-- <li><a href="#"><b>자동생성</b></a></li> -->
+							</ul>
+						</li>
+						<li>
+							<a class="btn_anchor" href="#w8Xh8"><b>h8</b></a>
+							<ul class="m_template-sidebar-sub">
+								<!-- <li><a href="#"><b>자동생성</b></a></li> -->
+							</ul>
+						</li>
+						<li>
+							<a class="btn_anchor" href="#w8Xh9"><b>h9</b></a>
+							<ul class="m_template-sidebar-sub">
+								<!-- <li><a href="#"><b>자동생성</b></a></li> -->
+							</ul>
+						</li>
+						<li>
+							<a class="btn_anchor" href="#w8Xh10"><b>h10</b></a>
+							<ul class="m_template-sidebar-sub">
+								<!-- <li><a href="#"><b>자동생성</b></a></li> -->
+							</ul>
+						</li>
+						<li>
+							<a class="btn_anchor" href="#w8Xh11"><b>h11</b></a>
+							<ul class="m_template-sidebar-sub">
+								<!-- <li><a href="#"><b>자동생성</b></a></li> -->
+							</ul>
+						</li>
+					</ul>
+					<!--// w8 -->
+				</div>
+			</div>
+			<!--// 템플릿 사이드바 -->
+
+			<!-- 템플릿 요소 -->
+			<div class="m_template-component">
+				<!-- w4 -->
+				<!-- w4Xh7 -->
+				<article id="w4Xh7">
+					<h2><b>w4Xh7</b></h2>
+
+					<!-- w4Xh7_s1 -->
+					<section class="m_template-component-item">
+						<h3><b>w4Xh7_s1</b></h3>
+
+						<!-- b_n=w4Xh7_s1 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w4Xh7_s1</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh23_s2</span></p>
+									<p><span>b_c=w6Xh11_s1_side</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 43자</p>
+								<p>문구2: 최대 69자</p>
+								<p>문구3: 최대 21자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 432px * H 350px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w4Xh7_s1">
+									<div class="mui_container">
+										<a href="#">
+											<figure>
+												<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w4Xh7_s1_01.jpg' }"></i>
+												<figcaption>
+													<p class="text_banner1">보이는 편안함 그대로의 디자인, 크로세 니트부터 버킷햇까지</p>
+													<p class="text_banner2">내추럴하면서도 그 시대의 핫한 감성을 제안하는 아티스틱 디자이너 브랜드, 그동안 보고싶었던 사람들과의 즐거운 만남을 위하여!</p>
+													<p class="text_banner3">메뉴1</p>
+													<p class="text_date">2022.06</p>
+													<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+													<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+												</figcaption>
+											</figure>
+										</a>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w4Xh7_s1.ts"></script>
+						</div>
+						<!--// b_n=w4Xh7_s1 -->
+					</section>
+					<!--// w4Xh7_s1 -->
+				</article>
+				<!--// w4Xh7 -->
+
+				<!-- w4Xh8 -->
+				<article id="w4Xh8">
+					<h2><b>w4Xh8</b></h2>
+
+					<!-- w4Xh8_s1 -->
+					<section class="m_template-component-item">
+						<h3><b>w4Xh8_s1</b></h3>
+
+						<!-- b_n=w4Xh8_s1 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w4Xh8_s1</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh12_s4 / b_n=w6Xh18_s2</span></p>
+									<p><span>b_c=w6Xh9_s1_1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 30자</p>
+								<p>문구2: 최대 69자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 432px * H 476px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w4Xh8_s1">
+									<div class="mui_container">
+										<a href="#">
+											<figure>
+												<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w4Xh8_s1_01.jpg' }"></i>
+												<figcaption>
+													<p class="text_banner1">바라만 봐도 매일이 행복해지는 라이프 스타일</p>
+													<p class="text_banner2">서로 다른 시선으로 바라본 다양한 오브젝트의 이야기. TIMELESS & TIME SAVING 제품들을 만나보세요</p>
+													<p class="text_date">2022.07.21 ~ 2022.08.02</p>
+													<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+													<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+												</figcaption>
+											</figure>
+										</a>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w4Xh8_s1.ts"></script>
+						</div>
+						<!--// b_n=w4Xh8_s1 -->
+
+						<!-- b_n=w4Xh8_s1_1 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w4Xh8_s1_1</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh5_s1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 20자</p>
+								<p>문구2: 최대 35자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 432px * H 526px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w4Xh8_s1_1">
+									<div class="mui_container">
+										<a href="#">
+											<figure>
+												<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w4Xh8_s1_1_01.jpg' }"></i>
+												<figcaption>
+													<p class="text_banner1">컬러풀한 스타일부터 편안함까지</p>
+													<p class="text_banner2">패션 위크에서 엿본 다양한 컬러</p>
+													<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+													<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+												</figcaption>
+											</figure>
+										</a>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w4Xh8_s1_1.ts"></script>
+						</div>
+						<!--// b_n=w4Xh8_s1_1 -->
+
+						<!-- b_n=w4Xh8_s1_2 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w4Xh8_s1_2</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh5_s1_1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 20자</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w4Xh8_s1_2">
+									<div class="mui_container">
+										<a href="#">
+											<figure>
+												<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w4Xh8_s1_2_01.jpg' }"></i>
+												<figcaption>
+													<p class="text_banner1">컬러풀한 스타일부터 편안함까지</p>
+													<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+													<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+												</figcaption>
+											</figure>
+										</a>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w4Xh8_s1_2.ts"></script>
+						</div>
+						<!--// b_n=w4Xh8_s1_2 -->
+
+						<!-- b_n=w4Xh8_s1_3 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w4Xh8_s1_3</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh23_s2</span></p>
+									<p><span>b_c=w6Xh11_s1_side</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 43자</p>
+								<p>문구2: 최대 99자</p>
+								<p>문구3: 최대 21자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 432px * H 400px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w4Xh8_s1_3">
+									<div class="mui_container">
+										<a href="#">
+											<figure>
+												<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w4Xh8_s1_3_01.jpg' }"></i>
+												<figcaption>
+													<p class="text_banner1">보이는 편안함 그대로의 디자인, 크로세 니트부터 버킷햇까지</p>
+													<p class="text_banner2">내추럴하면서도 그 시대의 핫한 감성을 제안하는 아티스틱 디자이너 브랜드, 그동안 보고싶었던 사람들과의 즐거운 만남을 위하여! 베스트 아이템을 모아봤어요</p>
+													<p class="text_banner3">메뉴1</p>
+													<p class="text_date">2022.06</p>
+													<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+													<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+												</figcaption>
+											</figure>
+										</a>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w4Xh8_s1_3.ts"></script>
+						</div>
+						<!--// b_n=w4Xh8_s1_3 -->
+					</section>
+					<!--// w4Xh8_s1 -->
+
+					<!-- w4Xh8_s2 -->
+					<section class="m_template-component-item">
+						<h3><b>w4Xh8_s2</b></h3>
+
+						<!-- b_n=w4Xh8_s2 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w4Xh8_s2</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh7_s4 / b_n=w6Xh8_s2</span></p>
+									<p><span>b_c=w6Xh4_s1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 30자</p>
+								<p>문구2: 최대 36자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 432px * H 286px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w4Xh8_s2">
+									<div class="mui_container">
+										<ul>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w4Xh8_s2_01.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">보이는 편안함 그대로의 디자인, 크로세 니트부터 버킷햇까지</p>
+															<p class="text_banner2">엠몬스타</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w4Xh8_s2_02.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">다양한 사람들이 검증한 원마일 아이템</p>
+															<p class="text_banner2">엠몬스타</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w4Xh8_s2.ts"></script>
+						</div>
+						<!--// b_n=w4Xh8_s2 -->
+					</section>
+					<!--// w4Xh8_s2 -->
+				</article>
+				<!--// w4Xh8 -->
+
+				<!-- w4Xh9 -->
+				<article id="w4Xh9">
+					<h2><b>w4Xh9</b></h2>
+
+					<!-- w4Xh9_s1 -->
+					<section class="m_template-component-item">
+						<h3><b>w4Xh9_s1</b></h3>
+
+						<!-- b_n=w4Xh9_s1 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w4Xh9_s1</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh12_s4 / b_n=w6Xh18_s2</span></p>
+									<p><span>b_c=w6Xh9_s1_1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 30자</p>
+								<p>문구2: 최대 69자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 432px * H 556px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w4Xh9_s1">
+									<div class="mui_container">
+										<a href="#">
+											<figure>
+												<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w4Xh9_s1_01.jpg' }"></i>
+												<figcaption>
+													<p class="text_banner1">바라만 봐도 매일이 행복해지는 라이프 스타일</p>
+													<p class="text_banner2">서로 다른 시선으로 바라본 다양한 오브젝트의 이야기. TIMELESS & TIME SAVING 제품들을 만나보세요</p>
+													<p class="text_date">2022.07.21 ~ 2022.08.02</p>
+													<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+													<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+												</figcaption>
+											</figure>
+										</a>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w4Xh9_s1.ts"></script>
+						</div>
+						<!--// b_n=w4Xh9_s1 -->
+
+						<!-- b_n=w4Xh9_s1_1 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w4Xh9_s1_1</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh5_s1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 20자</p>
+								<p>문구2: 최대 35자</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w4Xh9_s1_1">
+									<div class="mui_container">
+										<a href="#">
+											<figure>
+												<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w4Xh9_s1_1_01.jpg' }"></i>
+												<figcaption>
+													<p class="text_banner1">컬러풀한 스타일부터 편안함까지</p>
+													<p class="text_banner2">패션 위크에서 엿본 다양한 컬러</p>
+													<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+													<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+												</figcaption>
+											</figure>
+										</a>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w4Xh9_s1_1.ts"></script>
+						</div>
+						<!--// b_n=w4Xh9_s1_1 -->
+
+						<!-- b_n=w4Xh9_s1_2 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w4Xh9_s1_2</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh5_s1_1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 20자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 432px * H 606px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w4Xh9_s1_2">
+									<div class="mui_container">
+										<a href="#">
+											<figure>
+												<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w4Xh9_s1_2_01.jpg' }"></i>
+												<figcaption>
+													<p class="text_banner1">컬러풀한 스타일부터 편안함까지</p>
+													<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+													<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+												</figcaption>
+											</figure>
+										</a>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w4Xh9_s1_2.ts"></script>
+						</div>
+						<!--// b_n=w4Xh9_s1_2 -->
+
+						<!-- b_n=w4Xh9_s1_3 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w4Xh9_s1_3</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh23_s2</span></p>
+									<p><span>b_c=w6Xh11_s1_side</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 43자</p>
+								<p>문구2: 최대 99자</p>
+								<p>문구3: 최대 27자</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w4Xh9_s1_3">
+									<div class="mui_container">
+										<a href="#">
+											<figure>
+												<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w4Xh9_s1_3_01.jpg' }"></i>
+												<figcaption>
+													<p class="text_banner1">보이는 편안함 그대로의 디자인, 크로세 니트부터 버킷햇까지</p>
+													<p class="text_banner2">내추럴하면서도 그 시대의 핫한 감성을 제안하는 아티스틱 디자이너 브랜드, 그동안 보고싶었던 사람들과의 즐거운 만남을 위하여! 베스트 아이템을 모아봤어요</p>
+													<p class="text_banner3">메뉴1</p>
+													<p class="text_date">2022.06</p>
+													<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+													<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+												</figcaption>
+											</figure>
+										</a>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w4Xh9_s1_3.ts"></script>
+						</div>
+						<!--// b_n=w4Xh9_s1_3 -->
+					</section>
+					<!--// w4Xh9_s1 -->
+
+					<!-- w4Xh9_s3 -->
+					<section class="m_template-component-item">
+						<h3><b>w4Xh9_s3</b></h3>
+
+						<!-- b_n=w4Xh9_s3 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w4Xh9_s3</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh12_s4 / b_n=w6Xh18_s2</span></p>
+									<p><span>b_c=w6Xh9_s1_1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 21자</p>
+								<p>문구2: 최대 37자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 206px * H 206px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w4Xh9_s3">
+									<div class="mui_container">
+										<ul>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w4Xh9_s3_01.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">보이는 편안함 그대로의 디자인, 크로세 니트부터 버킷햇까지</p>
+															<p class="text_banner2">내추럴하면서도 그 시대의 핫한 감성을 제안하는 아티스틱 디자이너 브랜드, 그동안 보고싶었던 사람들과의 즐거운 만남을 위하여!</p>
+															<p class="text_date">2022.07.21 ~ 2022.08.02</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w4Xh9_s3_02.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">다양한 사람들이 검증한 원마일 아이템</p>
+															<p class="text_banner2">리뷰 이벤트 참여하고 사은품 받아가세요!</p>
+															<p class="text_date">2022.07.21 ~ 2022.08.02</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w4Xh9_s3_03.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">OUTLET SUPER WEEK</p>
+															<p class="text_banner2">인기 브랜드를 한자리에 ~60% + 15% 다양한 할인혜택을 만나보세요</p>
+															<p class="text_date">2022.07.21 ~ 2022.08.02</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w4Xh9_s3.ts"></script>
+						</div>
+						<!--// b_n=w4Xh9_s3 -->
+					</section>
+					<!--// w4Xh9_s3 -->
+				</article>
+				<!--// w4Xh9 -->
+
+				<!-- w4Xh10 -->
+				<article id="w4Xh10">
+					<h2><b>w4Xh10</b></h2>
+
+					<!-- w4Xh10_s1 -->
+					<section class="m_template-component-item">
+						<h3><b>w4Xh10_s1</b></h3>
+
+						<!-- b_n=w4Xh10_s1 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w4Xh10_s1</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh12_s4 / b_n=w6Xh18_s2</span></p>
+									<p><span>b_c=w6Xh9_s1_1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 30자</p>
+								<p>문구2: 최대 69자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 432px * H 636px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w4Xh10_s1">
+									<div class="mui_container">
+										<a href="#">
+											<figure>
+												<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w4Xh10_s1_01.jpg' }"></i>
+												<figcaption>
+													<p class="text_banner1">바라만 봐도 매일이 행복해지는 라이프 스타일</p>
+													<p class="text_banner2">서로 다른 시선으로 바라본 다양한 오브젝트의 이야기. TIMELESS & TIME SAVING 제품들을 만나보세요</p>
+													<p class="text_date">2022.07.21 ~ 2022.08.02</p>
+													<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+													<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+												</figcaption>
+											</figure>
+										</a>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w4Xh10_s1.ts"></script>
+						</div>
+						<!--// b_n=w4Xh10_s1 -->
+
+						<!-- b_n=w4Xh10_s1_1 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w4Xh10_s1_1</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh5_s1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 20자</p>
+								<p>문구2: 최대 35자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 432px * H 686px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w4Xh10_s1_1">
+									<div class="mui_container">
+										<a href="#">
+											<figure>
+												<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w4Xh10_s1_1_01.jpg' }"></i>
+												<figcaption>
+													<p class="text_banner1">컬러풀한 스타일부터 편안함까지</p>
+													<p class="text_banner2">패션 위크에서 엿본 다양한 컬러</p>
+													<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+													<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+												</figcaption>
+											</figure>
+										</a>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w4Xh10_s1_1.ts"></script>
+						</div>
+						<!--// b_n=w4Xh10_s1_1 -->
+
+						<!-- b_n=w4Xh10_s1_2 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w4Xh10_s1_2</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh5_s1_1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 20자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 432px * H 686px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w4Xh10_s1_2">
+									<div class="mui_container">
+										<a href="#">
+											<figure>
+												<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w4Xh10_s1_2_01.jpg' }"></i>
+												<figcaption>
+													<p class="text_banner1">컬러풀한 스타일부터 편안함까지</p>
+													<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+													<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+												</figcaption>
+											</figure>
+										</a>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w4Xh10_s1_2.ts"></script>
+						</div>
+						<!--// b_n=w4Xh10_s1_2 -->
+
+						<!-- b_n=w4Xh10_s1_3 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w4Xh10_s1_3</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh23_s2</span></p>
+									<p><span>b_c=w6Xh11_s1_side</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 43자</p>
+								<p>문구2: 최대 99자</p>
+								<p>문구3: 최대 27자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 432px * H 560px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w4Xh10_s1_3">
+									<div class="mui_container">
+										<a href="#">
+											<figure>
+												<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w4Xh10_s1_3_01.jpg' }"></i>
+												<figcaption>
+													<p class="text_banner1">보이는 편안함 그대로의 디자인, 크로세 니트부터 버킷햇까지</p>
+													<p class="text_banner2">내추럴하면서도 그 시대의 핫한 감성을 제안하는 아티스틱 디자이너 브랜드, 그동안 보고싶었던 사람들과의 즐거운 만남을 위하여! 베스트 아이템을 모아봤어요</p>
+													<p class="text_banner3">메뉴1</p>
+													<p class="text_date">2022.06</p>
+													<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+													<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+												</figcaption>
+											</figure>
+										</a>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w4Xh10_s1_3.ts"></script>
+						</div>
+						<!--// b_n=w4Xh10_s1_3 -->
+					</section>
+					<!--// w4Xh10_s1 -->
+
+					<!-- w4Xh10_s2 -->
+					<section class="m_template-component-item">
+						<h3><b>w4Xh10_s2</b></h3>
+
+						<!-- b_n=w4Xh10_s2 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w4Xh10_s2</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh12_s4 / b_n=w6Xh18_s2</span></p>
+									<p><span>b_c=w6Xh9_s1_1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 48자</p>
+								<p>문구2: 최대 58자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 432px * H 286px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w4Xh10_s2">
+									<div class="mui_container">
+										<ul>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w4Xh10_s2_01.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">보이는 편안함 그대로의 디자인, 크로세 니트부터 버킷햇까지</p>
+															<p class="text_banner2">엠몬스타</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w4Xh10_s2_02.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">보이는 편안함 그대로의 디자인, 크로세 니트부터 버킷햇까지</p>
+															<p class="text_banner2">엠몬스타</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w4Xh10_s2.ts"></script>
+						</div>
+						<!--// b_n=w4Xh10_s2 -->
+
+						<!-- b_n=w4Xh10_s2_1 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w4Xh10_s2_1</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh7_s4 / b_n=w6Xh8_s2</span></p>
+									<p><span>b_c=w6Xh4_s1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 30자</p>
+								<p>문구2: 최대 36자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 432px * H 366px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w4Xh10_s2_1">
+									<div class="mui_container">
+										<ul>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w4Xh10_s2_1_01.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">보이는 편안함 그대로의 디자인, 크로세 니트부터 버킷햇까지</p>
+															<p class="text_banner2">엠몬스타</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w4Xh10_s2_1_02.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">매일이 행복해지는 라이프 스타일</p>
+															<p class="text_banner2">엠몬스타</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w4Xh10_s2_1.ts"></script>
+						</div>
+						<!--// b_n=w4Xh10_s2_1 -->
+					</section>
+					<!--// w4Xh10_s2 -->
+				</article>
+				<!--// w4Xh10 -->
+
+				<!-- w4Xh12 -->
+				<article id="w4Xh12">
+					<h2><b>w4Xh12</b></h2>
+
+					<!-- w4Xh12_s1 -->
+					<section class="m_template-component-item">
+						<h3><b>w4Xh12_s1</b></h3>
+
+						<!-- b_n=w4Xh12_s2 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w4Xh12_s2</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh12_s4 / b_n=w6Xh18_s2</span></p>
+									<p><span>b_c=w6Xh9_s1_1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 30자</p>
+								<p>문구2: 최대 69자</p>
+								<div class="m...item-note">
+									<h6><b>배너 이미지 사이즈</b></h6>
+									<p>W 432px * H 316px</p>
+								</div>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w4Xh12_s2">
+									<div class="mui_container">
+										<ul>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w4Xh12_s2_01.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">보이는 편안함 그대로의 디자인, 크로세 니트부터 버킷햇까지</p>
+								 							<p class="text_banner2">내추럴하면서도 그 시대의 핫한 감성을 제안하는 아티스틱 디자이너 브랜드, 그동안 보고싶었던 사람들과의 즐거운 만남을 위하여!</p>
+															<p class="text_date">2022.07.21 ~ 2022.08.02</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w4Xh12_s2_02.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">요즘 뭐 입지? #1 셋업</p>
+															<p class="text_banner2">옷장 앞 고민을 덜어줄 지금 필요한 봄 셋업 시리즈</p>
+															<p class="text_date">2022.07.21 ~ 2022.08.02</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w4Xh12_s2.ts"></script>
+						</div>
+						<!--// b_n=w4Xh12_s2 -->
+
+						<!-- b_n=w4Xh12_s2_1 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w4Xh12_s2_1</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh10_s4 / b_n=w6Xh11_s2</span></p>
+									<p><span>b_c=w6Xh6_s1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 32자</p>
+								<p>문구2: 최대 38자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 432px * H 336px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w4Xh12_s2_1">
+									<div class="mui_container">
+										<ul>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w4Xh12_s2_1_01.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">보이는 편안함 그대로의 디자인, 크로세 니트부터 버킷햇까지</p>
+															<p class="text_banner2">엠몬스타</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w4Xh12_s2_1_02.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">보이는 편안함 그대로의 디자인, 크로세 니트부터 버킷햇까지</p>
+															<p class="text_banner2">엠몬스타</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w4Xh12_s2_1.ts"></script>
+						</div>
+						<!--// b_n=w4Xh12_s2_1 -->
+					</section>
+					<!--// w4Xh12_s1 -->
+
+					<!-- w4Xh12_s4 -->
+					<section class="m_template-component-item">
+						<h3><b>w4Xh12_s4</b></h3>
+
+						<!-- b_n=w4Xh12_s4 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w4Xh12_s4</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh12_s4 / b_n=w6Xh18_s2</span></p>
+									<p><span>b_c=w6Xh6_s1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 21자</p>
+								<p>문구2: 최대 37자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 206px * H 206px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w4Xh12_s4">
+									<div class="mui_container">
+										<ul>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w4Xh12_s4_01.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">보이는 편안함 그대로의 디자인, 크로세 니트부터 버킷햇까지</p>
+															<p class="text_banner2">내추럴하면서도 그 시대의 핫한 감성을 제안하는 아티스틱 디자이너 브랜드, 그동안 보고싶었던 사람들과의 즐거운 만남을 위하여!</p>
+															<p class="text_date">2022.07.21 ~ 2022.08.02</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w4Xh12_s4_02.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">다양한 사람들이 검증한 원마일 아이템</p>
+															<p class="text_banner2">리뷰 이벤트 참여하고 사은품 받아가세요!</p>
+															<p class="text_date">2022.07.21 ~ 2022.08.02</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w4Xh12_s4_03.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">OUTLET SUPER WEEK</p>
+															<p class="text_banner2">인기 브랜드를 한자리에 ~60% + 15% 다양한 할인혜택을 만나보세요</p>
+															<p class="text_date">2022.07.21 ~ 2022.08.02</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w4Xh12_s4_04.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">바라만 봐도 매일이 행복해지는 라이프 스타일</p>
+															<p class="text_banner2">서로 다른 시선으로 바라본 다양한 오브젝트의 이야기. TIMELESS & TIME SAVING 제품들을 만나보세요</p>
+															<p class="text_date">2022.07.21 ~ 2022.08.02</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w4Xh12_s4.ts"></script>
+						</div>
+						<!--// b_n=w4Xh12_s4 -->
+					</section>
+					<!--// w4Xh12_s4 -->
+				</article>
+				<!--// w4Xh12 -->
+				<!--// w4 -->
+
+				<!-- w6 -->
+				<!-- w6Xh8 -->
+				<article id="w6Xh8">
+					<h2><b>w6Xh8</b></h2>
+
+					<!-- w6Xh8_s1 -->
+					<section class="m_template-component-item">
+						<h3><b>w6Xh8_s1</b></h3>
+
+						<!-- b_n=w6Xh8_s1 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w6Xh8_s1</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh5_s1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 30자</p>
+								<p>문구2: 최대 54자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 664px * H 526px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w6Xh8_s1">
+									<div class="mui_container">
+										<a href="#">
+											<figure>
+												<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w6Xh8_s1_01.jpg' }"></i>
+												<figcaption>
+													<p class="text_banner1">컬러풀한 스타일부터 편안함까지</p>
+													<p class="text_banner2">패션 위크에서 엿본 다양한 컬러</p>
+													<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+													<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+												</figcaption>
+											</figure>
+										</a>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w6Xh8_s1.ts"></script>
+						</div>
+						<!--// b_n=w6Xh8_s1 -->
+
+						<!-- b_n=w6Xh8_s1_1 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w6Xh8_s1_1</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh17_s2</span></p>
+									<p><span>b_c=w6Xh9_s1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 46자</p>
+								<p>문구2: 최대 109자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 664px * H 476px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w6Xh8_s1_1">
+									<div class="mui_container">
+										<a href="#">
+											<figure>
+												<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w6Xh8_s1_1_01.jpg' }"></i>
+												<figcaption>
+													<p class="text_banner1">보이는 편안함 그대로의 디자인, 크로세 니트부터 버킷햇까지</p>
+													<p class="text_banner2">내추럴하면서도 그 시대의 핫한 감성을 제안하는 아티스틱 디자이너 브랜드, 그동안 보고싶었던 사람들과의 즐거운 만남을 위하여!</p>
+													<p class="text_date">2022.07.21 ~ 2022.08.02</p>
+													<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+													<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+												</figcaption>
+											</figure>
+										</a>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w6Xh8_s1_1.ts"></script>
+						</div>
+						<!--// b_n=w6Xh8_s1_1 -->
+
+						<!-- b_n=w6Xh8_s1_2 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w6Xh8_s1_2</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh5_s1_1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 30자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 664px * H 526px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w6Xh8_s1_2">
+									<div class="mui_container">
+										<a href="#">
+											<figure>
+												<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w6Xh8_s1_2_01.jpg' }"></i>
+												<figcaption>
+													<p class="text_banner1">컬러풀한 스타일부터 편안함까지</p>
+													<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+													<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+												</figcaption>
+											</figure>
+										</a>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w6Xh8_s1_2.ts"></script>
+						</div>
+						<!--// b_n=w6Xh8_s1_2 -->
+					</section>
+					<!--// w6Xh8_s1 -->
+
+					<!-- w6Xh8_s2 -->
+					<section class="m_template-component-item">
+						<h3><b>w6Xh8_s2</b></h3>
+
+						<!-- b_n=w6Xh8_s2 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w6Xh8_s2</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh15_s6 / b_n=w6Xh16_s2</span></p>
+									<p><span>b_c=w6Xh8_s1_1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 30자</p>
+								<p>문구2: 최대 54자</p>
+								<p>문구3: 최대 16자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 316px * H 430px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w6Xh8_s2">
+									<div class="mui_container">
+										<ul>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w6Xh8_s2_01.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">보이는 편안함 그대로의 디자인, 크로세 니트부터 버킷햇까지</p>
+															<p class="text_banner2">내추럴하면서도 그 시대에 핫한 감성을 제안하는 아티스틱 디자이너 브랜드</p>
+															<p class="text_banner3">메뉴1</p>
+															<p class="text_date">2022.06</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w6Xh8_s2_02.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">바라만 봐도 매일이 행복해지는 라이프 스타일</p>
+															<p class="text_banner2">서로 다른 시선으로 바라본 다양한 오브젝트의 이야기. TIMELESS & TIME SAVING 제품들을 만나보세요</p>
+															<p class="text_banner3">메뉴2</p>
+															<p class="text_date">2022.06</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w6Xh8_s2.ts"></script>
+						</div>
+						<!--// b_n=w6Xh8_s2 -->
+					</section>
+					<!--// w6Xh8_s2 -->
+				</article>
+				<!-- w6Xh8 -->
+
+				<!-- w6Xh9 -->
+				<article id="w6Xh9">
+					<h2><b>w6Xh9</b></h2>
+
+					<!-- w6Xh9_s1 -->
+					<section class="m_template-component-item">
+						<h3><b>w6Xh9_s1</b></h3>
+
+						<!-- b_n=w6Xh9_s1 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w6Xh9_s1</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh5_s1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 30자</p>
+								<p>문구2: 최대 54자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 664px * H 606px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w6Xh9_s1">
+									<div class="mui_container">
+										<a href="#">
+											<figure>
+												<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w6Xh9_s1_01.jpg' }"></i>
+												<figcaption>
+													<p class="text_banner1">컬러풀한 스타일부터 편안함까지</p>
+													<p class="text_banner2">패션 위크에서 엿본 다양한 컬러</p>
+													<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+													<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+												</figcaption>
+											</figure>
+										</a>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w6Xh9_s1.ts"></script>
+						</div>
+						<!--// b_n=w6Xh9_s1 -->
+
+						<!-- b_n=w6Xh9_s1_1 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w6Xh9_s1_1</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh17_s2</span></p>
+									<p><span>b_c=w6Xh9_s1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 46자</p>
+								<p>문구2: 최대 109자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 664px * H 556px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w6Xh9_s1_1">
+									<div class="mui_container">
+										<a href="#">
+											<figure>
+												<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w6Xh9_s1_1_01.jpg' }"></i>
+												<figcaption>
+													<p class="text_banner1">보이는 편안함 그대로의 디자인, 크로세 니트부터 버킷햇까지</p>
+													<p class="text_banner2">내추럴하면서도 그 시대의 핫한 감성을 제안하는 아티스틱 디자이너 브랜드, 그동안 보고싶었던 사람들과의 즐거운 만남을 위하여!</p>
+													<p class="text_date">2022.07.21 ~ 2022.08.02</p>
+													<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+													<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+												</figcaption>
+											</figure>
+										</a>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w6Xh9_s1_1.ts"></script>
+						</div>
+						<!--// b_n=w6Xh9_s1_1 -->
+
+						<!-- b_n=w6Xh9_s1_2 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w6Xh9_s1_2</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh5_s1_1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 30자</p>
+								<p>문구2: 최대 54자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 664px * H 606px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w6Xh9_s1_2">
+									<div class="mui_container">
+										<a href="#">
+											<figure>
+												<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w6Xh9_s1_2_01.jpg' }"></i>
+												<figcaption>
+													<p class="text_banner1">컬러풀한 스타일부터 편안함까지</p>
+													<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+													<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+												</figcaption>
+											</figure>
+										</a>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w6Xh9_s1_2.ts"></script>
+						</div>
+						<!--// b_n=w6Xh9_s1_2 -->
+					</section>
+					<!--// w6Xh9_s1 -->
+
+					<!-- w6Xh9_s3 -->
+					<section class="m_template-component-item">
+						<h3><b>w6Xh9_s3</b></h3>
+
+						<!-- b_n=w6Xh9_s3 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w6Xh9_s3</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh12_s4 / b_n=w6Xh18_s2</span></p>
+									<p><span>b_c=w6Xh9_s1_1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 39자</p>
+								<p>문구2: 최대 71자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 206px * H 206px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w6Xh9_s3">
+									<div class="mui_container">
+										<ul>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w6Xh9_s3_01.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">바라만 봐도 매일이 행복해지는 라이프 스타일</p>
+															<p class="text_banner2">서로 다른 시선으로 바라본 다양한 오브젝트의 이야기. TIMELESS & TIME SAVING 제품들을 만나보세요</p>
+															<p class="text_date">2022.07.21 ~ 2022.08.02</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w6Xh9_s3_02.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">요즘 뭐 입지? #1 셋업</p>
+															<p class="text_banner2">옷장 앞 고민을 덜어줄 지금 필요한 봄 셋업 시리즈</p>
+															<p class="text_date">2022.07.21 ~ 2022.08.02</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w6Xh9_s3_03.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">나만의 색상으로 표현하는 개성 넘치는 코디 아이템 만나보기!</p>
+															<p class="text_banner2">상세페이지 상단 5% 쿠폰 다운로드 필수! UP TO 60%+ 5% 쿠폰 혜택 받아가세요</p>
+															<p class="text_date">2022.07.21 ~ 2022.08.02</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w6Xh9_s3.ts"></script>
+						</div>
+						<!--// b_n=w6Xh9_s3 -->
+					</section>
+					<!--// w6Xh9_s3 -->
+				</article>
+				<!-- w6Xh9 -->
+
+				<!-- w6Xh10 -->
+				<article id="w6Xh10">
+					<h2><b>w6Xh10</b></h2>
+
+					<!-- w6Xh10_s1 -->
+					<section class="m_template-component-item">
+						<h3><b>w6Xh10_s1</b></h3>
+
+						<!-- b_n=w6Xh10_s1 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w6Xh10_s1</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh5_s1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 30자</p>
+								<p>문구2: 최대 54자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 664px * H 686px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w6Xh10_s1">
+									<div class="mui_container">
+										<a href="#">
+											<figure>
+												<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w6Xh10_s1_01.jpg' }"></i>
+												<figcaption>
+													<p class="text_banner1">컬러풀한 스타일부터 편안함까지</p>
+													<p class="text_banner2">패션 위크에서 엿본 다양한 컬러</p>
+													<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+													<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+												</figcaption>
+											</figure>
+										</a>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w6Xh10_s1.ts"></script>
+						</div>
+						<!--// b_n=w6Xh10_s1 -->
+
+						<!-- b_n=w6Xh10_s1_1 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w6Xh10_s1_1</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh17_s2</span></p>
+									<p><span>b_c=w6Xh9_s1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 46자</p>
+								<p>문구2: 최대 109자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 664px * H 636px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w6Xh10_s1_1">
+									<div class="mui_container">
+										<a href="#">
+											<figure>
+												<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w6Xh10_s1_1_01.jpg' }"></i>
+												<figcaption>
+													<p class="text_banner1">보이는 편안함 그대로의 디자인, 크로세 니트부터 버킷햇까지</p>
+													<p class="text_banner2">내추럴하면서도 그 시대의 핫한 감성을 제안하는 아티스틱 디자이너 브랜드, 그동안 보고싶었던 사람들과의 즐거운 만남을 위하여!</p>
+													<p class="text_date">2022.07.21 ~ 2022.08.02</p>
+													<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+													<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+												</figcaption>
+											</figure>
+										</a>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w6Xh10_s1_1.ts"></script>
+						</div>
+						<!--// b_n=w6Xh10_s1_1 -->
+
+						<!-- b_n=w6Xh10_s1_2 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w6Xh10_s1_2</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh5_s1_1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 30자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 664px * H 686px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w6Xh10_s1_2">
+									<div class="mui_container">
+										<a href="#">
+											<figure>
+												<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w6Xh10_s1_2_01.jpg' }"></i>
+												<figcaption>
+													<p class="text_banner1">컬러풀한 스타일부터 편안함까지</p>
+													<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+													<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+												</figcaption>
+											</figure>
+										</a>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w6Xh10_s1_2.ts"></script>
+						</div>
+						<!--// b_n=w6Xh10_s1_2 -->
+					</section>
+					<!--// w6Xh10_s1 -->
+
+					<!-- w6Xh10_s2 -->
+					<section class="m_template-component-item">
+						<h3><b>w6Xh10_s2</b></h3>
+
+						<!-- b_n=w6Xh10_s2 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w6Xh10_s2</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh7_s4 / b_n=w6Xh8_s2</span></p>
+									<p><span>b_c=w6Xh4_s1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 45자</p>
+								<p>문구2: 최대 55자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 664px * H 366px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w6Xh10_s2">
+									<div class="mui_container">
+										<ul>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w6Xh10_s2_01.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">보이는 편안함 그대로의 디자인, 크로세 니트부터 버킷햇까지</p>
+															<p class="text_banner2">엠몬스타</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w6Xh10_s2_02.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">매일이 행복해지는 라이프 스타일</p>
+															<p class="text_banner2">엠몬스타</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w6Xh10_s2.ts"></script>
+						</div>
+						<!--// b_n=w6Xh10_s2 -->
+					</section>
+					<!--// w6Xh10_s2 -->
+				</article>
+				<!-- w6Xh10 -->
+
+				<!-- w6Xh12 -->
+				<article id="w6Xh12">
+					<h2><b>w6Xh12</b></h2>
+
+					<!-- w6Xh12_s4 -->
+					<section class="m_template-component-item">
+						<h3><b>w6Xh12_s4</b></h3>
+
+						<!-- b_n=w6Xh12_s4 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w6Xh12_s4</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh17_s2 / b_n=w6Xh17_s6</span></p>
+									<p><span>b_c=w6Xh9_s1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 43자</p>
+								<p>문구2: 최대 51자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 322px * H 320px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w6Xh12_s4">
+									<div class="mui_container">
+										<ul>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w6Xh12_s4_01.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">보이는 편안함 그대로의 디자인, 크로세 니트부터 버킷햇까지</p>
+															<p class="text_banner2">내추럴하면서도 그 시대에 핫한 감성을 제안하는 아티스틱 디자이너 브랜드</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w6Xh12_s4_02.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">매일이 행복해지는 라이프 스타일</p>
+															<p class="text_banner2">서로 다른 시선으로 바라본 다양한 오브젝트의 이야기. TIMELESS & TIME SAVING 제품들을 만나보세요</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w6Xh12_s4_03.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">다양한 사람들이 검증한 원마일 아이템</p>
+															<p class="text_banner2">리뷰 이벤트 참여하고 사은품 받아가세요!</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w6Xh12_s4_04.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">요즘 뭐 입지? #1 셋업</p>
+															<p class="text_banner2">옷장 앞 고민을 덜어줄 지금 필요한 봄 셋업 시리즈</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w6Xh12_s4.ts"></script>
+						</div>
+						<!--// b_n=w6Xh12_s4 -->
+
+						<!-- b_n=w6Xh12_s4_1 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w6Xh12_s4_1</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh12_s4 / b_n=w6Xh18_s2</span></p>
+									<p><span>b_c=w6Xh9_s1_1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 39자</p>
+								<p>문구2: 최대 71자</p>
+								<div class="m...item-note">
+									<h6><b>배너 이미지 사이즈</b></h6>
+									<p>W 206px * H 206px</p>
+								</div>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w6Xh12_s4_1">
+									<div class="mui_container">
+										<ul>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w6Xh12_s4_1_01.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">보이는 편안함 그대로의 디자인, 크로세 니트부터 버킷햇까지</p>
+															<p class="text_banner2">내추럴하면서도 그 시대의 핫한 감성을 제안하는 아티스틱 디자이너 브랜드, 그동안 보고싶었던 사람들과의 즐거운 만남을 위하여!</p>
+															<p class="text_date">2022.07.21 ~ 2022.08.02</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w6Xh12_s4_1_02.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">바라만 봐도 매일이 행복해지는 라이프 스타일</p>
+															<p class="text_banner2">서로 다른 시선으로 바라본 다양한 오브젝트의 이야기. TIMELESS & TIME SAVING 제품들을 만나보세요</p>
+															<p class="text_date">2022.07.21 ~ 2022.08.02</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w6Xh12_s4_1_03.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">인기 브랜드 모두 모아 OUTLET SUPER WEEK</p>
+															<p class="text_banner2">엠몬스타 쇼핑몰 인기 브랜드를 한자리에 ~60% + 15% 다양한 할인혜택을 만나보세요</p>
+															<p class="text_date">2022.07.21 ~ 2022.08.02</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w6Xh12_s4_1_04.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">나만의 색상으로 표현하는 개성 넘치는 코디 아이템 만나보기!</p>
+															<p class="text_banner2">상세페이지 상단 5% 쿠폰 다운로드 필수! UP TO 60%+ 5% 쿠폰 혜택 받아가세요</p>
+															<p class="text_date">2022.07.21 ~ 2022.08.02</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w6Xh12_s4_1.ts"></script>
+						</div>
+						<!--// b_n=w6Xh12_s4_1 -->
+					</section>
+					<!--// w6Xh12_s4 -->
+				</article>
+				<!--// w6Xh12 -->
+				<!--// w6 -->
+
+				<!-- w8 -->
+				<!-- w8Xh7 -->
+				<article id="w8Xh7">
+					<h2><b>w8Xh7</b></h2>
+
+					<!-- w8Xh7_s1 -->
+					<section class="m_template-component-item">
+						<h3><b>w8Xh7_s1</b></h3>
+
+						<!-- b_n=w8Xh7_s1 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w8Xh7_s1</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh5_s1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 40자</p>
+								<p>문구2: 최대 73자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 896px * H 446px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w8Xh7_s1">
+									<div class="mui_container">
+										<a href="#">
+											<figure>
+												<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w8Xh7_s1_01.jpg' }"></i>
+												<figcaption>
+													<p class="text_banner1">컬러풀한 스타일부터 편안함까지</p>
+													<p class="text_banner2">패션 위크에서 엿본 다양한 컬러</p>
+													<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+													<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+												</figcaption>
+											</figure>
+										</a>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w8Xh7_s1.ts"></script>
+						</div>
+						<!--// b_n=w8Xh7_s1 -->
+
+						<!-- b_n=w8Xh7_s1_1 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w8Xh7_s1_1</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh5_s1_1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 40자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 896px * H 446px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w8Xh7_s1_1">
+									<div class="mui_container">
+										<a href="#">
+											<figure>
+												<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w8Xh7_s1_1_01.jpg' }"></i>
+												<figcaption>
+													<p class="text_banner1">컬러풀한 스타일부터 편안함까지</p>
+													<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+													<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+												</figcaption>
+											</figure>
+										</a>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w8Xh7_s1_1.ts"></script>
+						</div>
+						<!--// b_n=w8Xh7_s1_1 -->
+					</section>
+					<!-- w8Xh7_s1 -->
+				</article>
+				<!-- w8Xh7 -->
+
+				<!-- w8Xh8 -->
+				<article id="w8Xh8">
+					<h2><b>w8Xh8</b></h2>
+
+					<!-- w8Xh8_s1 -->
+					<section class="m_template-component-item">
+						<h3><b>w8Xh8_s1</b></h3>
+
+						<!-- b_n=w8Xh8_s1 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w8Xh8_s1</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh5_s1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 40자</p>
+								<p>문구2: 최대 73자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 896px * H 526px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w8Xh8_s1">
+									<div class="mui_container">
+										<a href="#">
+											<figure>
+												<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w8Xh8_s1_01.jpg' }"></i>
+												<figcaption>
+													<p class="text_banner1">컬러풀한 스타일부터 편안함까지</p>
+													<p class="text_banner2">패션 위크에서 엿본 다양한 컬러</p>
+													<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+													<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+												</figcaption>
+											</figure>
+										</a>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w8Xh8_s1.ts"></script>
+						</div>
+						<!--// b_n=w8Xh8_s1 -->
+
+						<!-- b_n=w8Xh8_s1_1 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w8Xh8_s1_1</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w8Xh8_s1_1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 40자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 896px * H 526px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w8Xh8_s1_1">
+									<div class="mui_container">
+										<a href="#">
+											<figure>
+												<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w8Xh8_s1_1_01.jpg' }"></i>
+												<figcaption>
+													<p class="text_banner1">컬러풀한 스타일부터 편안함까지</p>
+													<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+													<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+												</figcaption>
+											</figure>
+										</a>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w8Xh8_s1_1.ts"></script>
+						</div>
+						<!--// b_n=w8Xh8_s1_1 -->
+					</section>
+					<!-- w8Xh8_s1 -->
+				</article>
+				<!-- w8Xh8 -->
+
+				<!-- w8Xh9 -->
+				<article id="w8Xh9">
+					<h2><b>w8Xh9</b></h2>
+
+					<!-- w8Xh9_s1 -->
+					<section class="m_template-component-item">
+						<h3><b>w8Xh9_s1</b></h3>
+
+						<!-- b_n=w8Xh9_s1 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w8Xh9_s1</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh5_s1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 40자</p>
+								<p>문구2: 최대 73자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 896px * H 606px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w8Xh9_s1">
+									<div class="mui_container">
+										<a href="#">
+											<figure>
+												<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w8Xh9_s1_01.jpg' }"></i>
+												<figcaption>
+													<p class="text_banner1">컬러풀한 스타일부터 편안함까지</p>
+													<p class="text_banner2">패션 위크에서 엿본 다양한 컬러</p>
+													<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+													<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+												</figcaption>
+											</figure>
+										</a>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w8Xh9_s1.ts"></script>
+						</div>
+						<!--// b_n=w8Xh9_s1 -->
+
+						<!-- b_n=w8Xh9_s1_1 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w8Xh9_s1_1</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh5_s1_1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 40자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 896px * H 606px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w8Xh9_s1_1">
+									<div class="mui_container">
+										<a href="#">
+											<figure>
+												<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w8Xh9_s1_1_01.jpg' }"></i>
+												<figcaption>
+													<p class="text_banner1">컬러풀한 스타일부터 편안함까지</p>
+													<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+													<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+												</figcaption>
+											</figure>
+										</a>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w8Xh9_s1_1.ts"></script>
+						</div>
+						<!--// b_n=w8Xh9_s1_1 -->
+					</section>
+					<!-- w8Xh9_s1 -->
+				</article>
+				<!-- w8Xh9 -->
+
+				<!-- w8Xh10 -->
+				<article id="w8Xh10">
+					<h2><b>w8Xh10</b></h2>
+
+					<!-- w8Xh10_s1 -->
+					<section class="m_template-component-item">
+						<h3><b>w8Xh10_s1</b></h3>
+
+						<!-- b_n=w8Xh10_s1 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w8Xh10_s1</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh5_s1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 40자</p>
+								<p>문구2: 최대 73자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 896px * H 686px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w8Xh10_s1">
+									<div class="mui_container">
+										<a href="#">
+											<figure>
+												<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w8Xh10_s1_01.jpg' }"></i>
+												<figcaption>
+													<p class="text_banner1">컬러풀한 스타일부터 편안함까지</p>
+													<p class="text_banner2">패션 위크에서 엿본 다양한 컬러</p>
+													<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+													<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+												</figcaption>
+											</figure>
+										</a>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w8Xh10_s1.ts"></script>
+						</div>
+						<!--// b_n=w8Xh10_s1 -->
+
+						<!-- b_n=w8Xh10_s1_1 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w8Xh10_s1_1</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh5_s1_1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 40자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 896px * H 686px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w8Xh10_s1_1">
+									<div class="mui_container">
+										<a href="#">
+											<figure>
+												<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w8Xh10_s1_1_01.jpg' }"></i>
+												<figcaption>
+													<p class="text_banner1">컬러풀한 스타일부터 편안함까지</p>
+													<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+													<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+												</figcaption>
+											</figure>
+										</a>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w8Xh10_s1_1.ts"></script>
+						</div>
+						<!--// b_n=w8Xh10_s1_1 -->
+					</section>
+					<!-- w8Xh10_s1 -->
+
+					<!-- w8Xh10_s4 -->
+					<section class="m_template-component-item">
+						<h3><b>w8Xh10_s4</b></h3>
+
+						<!-- b_n=w8Xh10_s4 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w8Xh10_s4</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh10_s4 / b_n=w6Xh11_s2</span></p>
+									<p><span>b_c=w6Xh6_s1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 31자</p>
+								<p>문구2: 최대 37자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 438px * H 300px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w8Xh10_s4">
+									<div class="mui_container">
+										<ul>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w8Xh10_s4_01.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">보이는 편안함 그대로의 디자인, 크로세 니트부터 버킷햇까지</p>
+															<p class="text_banner2">엠몬스타</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w8Xh10_s4_02.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">매일이 행복해지는 라이프 스타일</p>
+															<p class="text_banner2">엠몬스타</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w8Xh10_s4_03.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">다른 사람들이 검증한 원마일 아이템</p>
+															<p class="text_banner2">엠몬스타</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w8Xh10_s4_04.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">요즘 뭐 입지? #1 셋업</p>
+															<p class="text_banner2">엠몬스타</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w8Xh10_s4.ts"></script>
+						</div>
+						<!--// b_n=w8Xh10_s4 -->
+					</section>
+					<!-- w8Xh10_s4 -->
+				</article>
+				<!-- w8Xh10 -->
+
+				<!-- w8Xh11 -->
+				<article id="w8Xh11">
+					<h2><b>w8Xh11</b></h2>
+
+					<!-- w8Xh11_s1 -->
+					<section class="m_template-component-item">
+						<h3><b>w8Xh11_s1</b></h3>
+
+						<!-- b_n=w8Xh11_s1 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w8Xh11_s1</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh5_s1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 40자</p>
+								<p>문구2: 최대 73자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 896px * H 766px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w8Xh11_s1">
+									<div class="mui_container">
+										<a href="#">
+											<figure>
+												<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w8Xh11_s1_01.jpg' }"></i>
+												<figcaption>
+													<p class="text_banner1">컬러풀한 스타일부터 편안함까지</p>
+													<p class="text_banner2">패션 위크에서 엿본 다양한 컬러</p>
+													<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+													<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+												</figcaption>
+											</figure>
+										</a>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w8Xh11_s1.ts"></script>
+						</div>
+						<!--// b_n=w8Xh11_s1 -->
+
+						<!-- b_n=w8Xh11_s1_1 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w8Xh11_s1_1</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh5_s1_1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 40자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 896px * H 766px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w8Xh11_s1_1">
+									<div class="mui_container">
+										<a href="#">
+											<figure>
+												<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w8Xh11_s1_1_01.jpg' }"></i>
+												<figcaption>
+													<p class="text_banner1">컬러풀한 스타일부터 편안함까지</p>
+													<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+													<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+												</figcaption>
+											</figure>
+										</a>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w8Xh11_s1_1.ts"></script>
+						</div>
+						<!--// b_n=w8Xh11_s1_1 -->
+					</section>
+					<!-- w8Xh11_s1 -->
+
+					<!-- w8Xh11_s2 -->
+					<section class="m_template-component-item">
+						<h3><b>w8Xh11_s2</b></h3>
+
+						<!-- b_n=w8Xh11_s2 -->
+						<div class="m...item-inner">
+							<h4><b>b_n=w8Xh11_s2</b></h4>
+							<div class="m...item-match">
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh23_s2</span></p>
+									<p><span>b_c=w6Xh11_s1_side</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 43자</p>
+								<p>문구2: 최대 99자</p>
+								<p>문구3: 최대 29자</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_n=w8Xh11_s2">
+									<div class="mui_container">
+										<ul>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w8Xh11_s2_01.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">보이는 편안함 그대로의 디자인, 크로세 니트부터 버킷햇까지</p>
+															<p class="text_banner2">내추럴하면서도 그 시대의 핫한 감성을 제안하는 아티스틱 디자이너 브랜드, 그동안 보고싶었던 사람들과의 즐거운 만남을 위하여! 베스트 아이템을 모아봤어요</p>
+															<p class="text_banner3">메뉴1</p>
+															<p class="text_date">2022.06</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<figure>
+														<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_n=w8Xh11_s2_02.jpg' }"></i>
+														<figcaption>
+															<p class="text_banner1">바라만 봐도 매일이 행복해지는 라이프 스타일</p>
+															<p class="text_banner2">서로 다른 시선으로 바라본 다양한 오브젝트의 이야기. TIMELES S & TIME SAVING 제품들을 만나보세요</p>
+															<p class="text_banner3">메뉴3</p>
+															<p class="text_date">2022.06</p>
+															<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+															<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+														</figcaption>
+													</figure>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_n_nN/b_n=w8Xh11_s2.ts"></script>
+						</div>
+						<!--// b_n=w8Xh11_s2 -->
+					</section>
+					<!-- w8Xh11_s2 -->
+				</article>
+				<!-- w8Xh11 -->
+				<!--// w8 -->
+			</div>
+			<!--// 템플릿 요소 -->
+		</div>
+
+		<!-- 공통 페이지 스크립트 -->
+		<script type="module" src="../script/template.ts"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+		<script>
+			// markup 색상 적용(highlight js)
+			window.onload = hljs.initHighlighting;
+		</script>
+	</div>
+</body>
+
+</html>

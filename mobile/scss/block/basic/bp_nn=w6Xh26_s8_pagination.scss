@@ -1,0 +1,195 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../helper/function';
+@use '../../helper/mixin';
+@use '../../helper/var';
+
+/**
+ * 블록
+ * 배너+상품
+**/
+
+
+[data-mui="bp_nn=w6Xh26_s8_pagination"] {
+	// 배너
+	> ul {
+		> li {
+			> a {
+				display: block;
+				position: relative;
+			}
+		}
+
+		figure {
+			.image_banner {
+				padding-top: 45.21276%;
+				width: 100%;
+
+				&::before {
+					position: absolute;
+					top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+					background-color: rgba(#000, 0.27);
+					content: '';
+				}
+			}
+
+			figcaption {
+				position: absolute;
+				z-index: 1;
+				top: 50%;
+				right: 0;
+				left: 0;
+				padding: 0 20px;
+				@include mixin.font(#fff 400 '2.2rem/3.2rem' center);
+				@include mixin.transform(translateY(-50%));
+
+				.text_banner1 {
+					+ .text_banner2 {
+						margin-top: 4px;
+					}
+				}
+
+				.text_banner2 {
+					@include mixin.font('1.6rem/2.2rem');
+				}
+
+				.text_alt {
+					@include mixin.text_ellipsis(2);
+					@include mixin.font(#a3a3a3 '1.4rem/2rem');
+
+					@include mixin.context-after(':not(.mui_image-none)', 'figure') {
+						display: none;
+					}
+				}
+			}
+		}
+
+		// 이미지 에러
+		.mui_image-none {
+			.uico_none {
+				background-color: #f5f5f5;
+
+				&::before {
+					content: none;
+				}
+			}
+		}
+
+		+ .mui_product-list {
+			margin-top: 20px;
+		}
+	}
+
+	// 상품
+	.mui_inner {
+		margin-top: 24px;
+		padding: 0 14px;
+
+		> .text_prod1 {
+			padding-bottom: 16px;
+			@include mixin.font(var.$color_text_base '1.7rem/2rem');
+		}
+
+		.mui_product-list {
+			> ul {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				grid-gap: 26px 12px;
+
+				> li {
+					min-width: 0;
+				}
+
+				&::after {
+					content: none;
+				}
+			}
+		}
+	}
+
+  	// 하단 페이지네이션
+	.mui_pagination {
+		$pagination_height_base: 28px;
+
+		margin-top: 26px;
+		text-align: center;
+
+		.mui_inline {
+			position: relative;
+		}
+
+		li {
+			float: left;
+
+			> button {
+				display: block;
+				padding: 0 16px;
+				height: $pagination_height_base;
+				@include mixin.font(#b8b8b9 '1.7rem/#{$pagination_height_base}' center, 0);
+
+				&#{function.escape('.S=page-on')} {
+					@include mixin.font(#1f1f1f 700);
+				}
+			}
+		}
+
+		[class*="btn_control"] {
+			position: absolute;
+			top: 0;
+			width: $pagination_height_base;
+			height: $pagination_height_base;
+			border: 1px solid #767676;
+			border-radius: 2px;
+			background-color: #fff;
+
+			$pages: (first, double_left, 11px), (prev, left, 6px), (next, right, 6px), (last, double_right, 11px);
+			@each $page, $icon, $width in $pages {
+				[class*="uico_page-#{$page}"] {
+					&::before {
+						margin-top: -1px;
+						width: $width;
+						height: 11px;
+						@include mixin.svg(#767676 url('../../image/block/common/ico_arrow_#{$icon}.svg'));
+						content: '';
+					}
+				}
+			}
+
+			// 버튼 위치
+			&.btn_control- {
+				// 처음
+				&first {
+					left: -($pagination_height_base * 3 - 12px) - 7px;
+				}
+
+				// 이전
+				&prev {
+					left: -($pagination_height_base * 2 - 12px);
+				}
+
+				// 다음
+				&next {
+					right: -($pagination_height_base * 2 - 12px);
+				}
+
+				// 마지막
+				&last {
+					right: -($pagination_height_base * 3 - 12px) - 7px;
+				}
+			}
+
+			// 버튼 비활성
+			&[disabled] {
+				border-color: #dcdcdc;
+
+				[class*="uico_page"]::before {
+					background-color: #dcdcdc;
+				}
+			}
+		}
+	}
+}

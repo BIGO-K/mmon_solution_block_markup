@@ -1,0 +1,131 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../common/helper/function' as *;
+@use '../../common/helper/mixin';
+@use '../../common/setting/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="best_p_n=w12Xh7_s4_more"] {
+	$prod_size: 206px;
+
+	width: const.$grid_pc_column * 12 + const.$grid_pc_column_gutter * (12 - 1);
+
+	.mui_product-list {
+		> ul {
+			display: grid;
+			grid-template-columns: repeat(2, 680px);
+			row-gap: 34px;
+
+			&::after {
+				content: none;
+			}
+
+			> li:nth-child(n+5) {
+				display: none;
+			}
+		}
+	}
+
+	.mui_product-item {
+		figure {
+			.mui_image-scale {
+				position: absolute;
+				top: 0;
+				left: 0;
+
+				.image_product {
+					width: $prod_size;
+				}
+			}
+
+			// 품절임박
+			.text_product-status {
+				top: calc($prod_size * const.$prod_ratio_base);
+			}
+
+			// 솔드아웃
+			.text_soldout {
+				right: auto;
+				width: $prod_size;
+			}
+
+			// 미성년자 구매불가
+			.text_adult {
+				right: auto;
+				padding-top: 0;
+				width: $prod_size;
+				height: calc($prod_size * const.$prod_ratio_base);
+			}
+
+			figcaption {
+				margin: 0 0 0 $prod_size;
+				padding: 4px 70px 0 14px;
+				min-height: calc($prod_size * const.$prod_ratio_base);
+
+				.text_sale {
+					right: 72px;
+				}
+
+				.mui_product-item-react {
+					.uico_review::before {
+						margin: 2px 0 -2px;
+					}
+				}
+			}
+		}
+
+		// MY찜에추가하기
+		.btn_like {
+			top: calc($prod_size * const.$prod_ratio_base);
+			right: auto;
+			left: $prod_size;
+			margin: 0;
+			@include mixin.transform(translate(-100%, -100%));
+		}
+	}
+
+	// 하단 더보기
+	.btn_more {
+		display: block;
+		margin: 34px auto 0;
+		padding: 0 59px;
+		min-width: 180px;
+		height: 46px;
+		border: 1px solid #6a6a6a;
+		border-radius: 23px;
+		@include mixin.font(#5c5c5c '1.5rem/4.6rem');
+
+		&::before {
+			content: attr(title);
+		}
+
+		.uico_more {
+			margin: 17px 0 0 10px;
+
+			&::before {
+				width: 12px;
+				height: 12px;
+				@include mixin.svg(#6a6a6a url('../image/block/common/ico_arrow_down.svg'));
+			}
+		}
+	}
+
+	// 리스트 펼침
+	&#{escape('.S=switch-on')} {
+		ul {
+			> li:nth-child(n+5) {
+				display: block;
+			}
+		}
+
+		.uico_more {
+			@include mixin.transform(scale(-1));
+		}
+	}
+}

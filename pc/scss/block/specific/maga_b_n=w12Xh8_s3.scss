@@ -1,0 +1,154 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../common/helper/function' as *;
+@use '../../common/helper/mixin';
+@use '../../common/setting/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="maga_b_n=w12Xh8_s3"] {
+	width: const.$grid_pc_column * 12 + const.$grid_pc_column_gutter * (12 - 1);
+
+	> .mui_inner {
+		position: relative;
+
+		> .text_title {
+			position: absolute;
+			top: 12px;
+			left: 20px;
+			padding-right: 74px;
+			@include mixin.font('2rem' right);
+			@include mixin.transform(rotate(-90deg) translate(-100%), 0 0);
+
+			strong {
+				display: block;
+				margin-top: -6px;
+				padding: 4px 0 15px;
+				@include mixin.font(v_700 '5rem');
+			}
+
+			&::after {
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 2px;
+				height: 142px;
+				background-color: #101010;
+				content: '';
+			}
+		}
+
+		> ul {
+			display: grid;
+			grid-template-columns: repeat(3, 350px);
+			column-gap: 36px;
+			padding-left: 238px;
+
+			&::after {
+				content: none;
+			}
+		}
+	}
+
+	a {
+		display: block;
+		position: relative;
+	}
+
+	figure {
+		position: relative;
+		padding-bottom: 100%;
+
+		.image_banner {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			padding-top: 100%;
+			width: 100%;
+		}
+
+		figcaption {
+			margin-top: 32px;
+			padding: 0 20px 0 2px;
+			height: 224px;
+
+			[class*="text_banner"] {
+				overflow: hidden;
+			}
+
+			.text_banner1 {
+				height: 66px;
+				@include mixin.font('2.3rem/3.3rem');
+
+				+ .text_banner2,
+				+ .text_banner3,
+				+ .text_date {
+					margin-top: 10px;
+				}
+			}
+
+			.text_banner2 {
+				height: 42px;
+				@include mixin.font(#6a6a6a '1.4rem/2.1rem');
+
+				+ .text_banner3,
+				+ .text_date {
+					margin-top: 16px;
+				}
+			}
+
+			.text_banner3 {
+				display: block;
+				height: 25px;
+				@include mixin.font(v_700 #999 '1.4rem/2.5rem');
+
+				+ .text_date {
+					margin-top: 6px;
+				}
+			}
+
+			.text_date {
+				@include mixin.font(#999 '1.4rem/2.5rem');
+
+				// 이미지 에러 + 문구 없을 경우(text_alt 하단에 위치)
+				@include mixin.context-after('.mui_image-none', 'figure') {
+					&:first-child {
+						position: absolute;
+						margin-top: 38px;
+					}
+				}
+			}
+
+			.text_alt {
+				@include mixin.text_ellipsis(2);
+				@include mixin.font(#a3a3a3 '1.4rem/2rem');
+
+				@include mixin.context-after(':not(.mui_image-none)', 'figure') {
+					display: none;
+				}
+			}
+		}
+	}
+
+	// 이미지 에러
+	.mui_image-none {
+		.uico_none {
+			background-color: #f5f5f5;
+
+			&::before {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 50%;
+				height: 50%;
+				@include mixin.transform(translate(-50%, -50%));
+				@include mixin.svg(#d3d3d3 url('../image/common/logo.svg'));
+			}
+		}
+	}
+}

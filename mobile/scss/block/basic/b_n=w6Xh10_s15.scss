@@ -1,0 +1,62 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../helper/function';
+@use '../../helper/mixin';
+@use '../../helper/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="b_n=w6Xh10_s15"] {
+	ul {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-gap: 3px 3px;
+		padding: 0 14px;
+
+		&::after {
+			content: none;
+		}
+	}
+
+	a {
+		display: block;
+		position: relative;
+	}
+
+	figure {
+		.image_banner {
+			padding-top: 100%;
+			width: 100%;
+		}
+
+		figcaption {
+			position: absolute;
+			z-index: 1;
+			top: 50%;
+			right: 8px;
+			left: 8px;
+			@include mixin.transform(translateY(-50%));
+
+			.text_alt {
+				@include mixin.text_ellipsis(2);
+				@include mixin.font(#a3a3a3 '1.4rem/2rem' center);
+
+				@include mixin.context-after(':not(.mui_image-none)', 'figure') {
+					display: none;
+				}
+			}
+		}
+	}
+
+	// 이미지 에러
+	.mui_image-none {
+		.uico_none {
+			background-color: #f5f5f5;
+		}
+	}
+}

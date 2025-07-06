@@ -1,0 +1,100 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../helper/function';
+@use '../../helper/mixin';
+@use '../../helper/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="b_c=w6Xh4_s1"] {
+	.mui_carousel {
+		&-list {
+			padding-top: 56.91489%;
+		}
+
+		&-pagination {
+			bottom: -20px;
+
+			li:nth-child(n+2) {
+				margin-left: 4px;
+			}
+
+			button {
+				width: 4px;
+				height: 4px;
+				border-radius: 2px;
+				background-color: rgba(#000, 0.5);
+				@include mixin.transition(width const.$time_fast, opacity const.$time_fast);
+
+				&#{function.escape('.S=on')} {
+					width: 38px;
+					background-color: #101010;
+				}
+			}
+		}
+	}
+
+	a {
+		display: block;
+		position: relative;
+	}
+
+	figure {
+		.image_banner {
+			padding-top: 56.91489%;
+			width: 100%;
+
+			&::before {
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				height: 148px;
+				@include mixin.linear-gradient(transparent, 0deg, rgba(#000, 0.66), transparent);
+				content: '';
+			}
+		}
+
+		figcaption {
+			position: absolute;
+			right: 0;
+			bottom: 8.41121%;
+			left: 0;
+			margin-top: 14px;
+			padding: 0 20px;
+
+			.text_banner1 {
+				@include mixin.font(#fff '2rem/2.4rem');
+
+				+ .text_banner2 {
+					margin-top: 7px;
+				}
+			}
+
+			.text_banner2 {
+				@include mixin.font(#fff '1.5rem/1.8rem');
+			}
+
+			.text_alt {
+				@include mixin.text_ellipsis(2);
+				@include mixin.font(#a3a3a3 '1.4rem/2rem');
+
+				@include mixin.context-after(':not(.mui_image-none)', 'figure') {
+					display: none;
+				}
+			}
+		}
+	}
+
+	// 이미지 에러
+	.mui_image-none {
+		.uico_none {
+			background-color: #f5f5f5;
+		}
+	}
+}

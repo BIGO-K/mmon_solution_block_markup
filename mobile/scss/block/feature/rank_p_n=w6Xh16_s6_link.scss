@@ -1,0 +1,268 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../helper/function';
+@use '../../helper/mixin';
+@use '../../helper/const';
+
+/**
+ * 블록
+ * 배너+상품
+**/
+
+
+[data-mui="rank_p_n=w6Xh16_s6_link"] {
+	padding: 0 14px;
+
+	.mui_title#{function.escape('.T=design')} {
+		text-align: center;
+
+		.title_sub {
+			margin-bottom: 17px;
+			font-size: 1.4rem;
+
+			@include mixin.context-before('.title_main+') {
+				margin-top: -11px;
+			}
+		}
+	}
+
+	.mui_product-list {
+		ol {
+			display: grid;
+			grid-gap: 21px 6px;
+			grid-template-columns: repeat(6, 1fr);
+
+			li {
+				position: relative;
+				grid-column: auto / span 2;
+
+				> a {
+					display: block;
+				}
+
+				&:first-child {
+					grid-column: 1 / 7;
+
+					.text_rank {
+						background-color: #f84f33;
+
+						&::after {
+							border-right-color: #f84f33;
+							border-left-color: #f84f33;
+						}
+
+						> [class*="text_rank-"],
+						> [class*="uico_rank-"] {
+							color: #fff;
+
+							&::before {
+								background-color: #fff;
+							}
+						}
+					}
+
+					figcaption {
+						margin-top: 11px;
+
+						.text_product {
+							margin-top: 2px;
+						}
+					}
+				}
+
+				&:nth-child(-n+3) {
+					.text_rank {
+						padding-top: 6px;
+						width: 34px;
+						height: 41px;
+						@include mixin.font('1.5rem' center);
+
+						strong {
+							display: block;
+						}
+
+						[class*="text_rank-"] {
+							margin-top: 5px;
+						}
+
+						.uico_rank {
+							&-new {
+								margin-top: 5px;
+							}
+
+							&-unchanged {
+								margin-top: 4px;
+							}
+						}
+					}
+
+					&:not(:first-child) {
+						grid-column: auto / span 3;
+
+						figcaption {
+							margin-top: 9px;
+
+							.text_product {
+								margin-top: 3px;
+							}
+						}
+					}
+				}
+
+				&:nth-child(n+4) {
+					.text_rank {
+						padding: 0 8px 0 6px;
+						min-width: 36px;
+						height: 21px;
+						line-height: 2.1rem;
+
+						&::after {
+							content: none;
+						}
+
+						[class*="text_rank-"] {
+							margin: 1px 1px 0 9px;
+
+							&::before {
+								margin-top: 7px;
+							}
+						}
+
+						.uico_rank {
+							&-new {
+								margin: 6px 0 0 8px;
+							}
+
+							&-unchanged {
+								margin: 5px 0 0 8px;
+							}
+						}
+					}
+
+					figcaption {
+						margin-top: 7px;
+
+						.text_brand {
+							margin-top: 0;
+							font-size: 1.2rem;
+						}
+
+						.text_product {
+							margin-top: 2px;
+							font-size: 1.2rem;
+						}
+					}
+				}
+
+				.text_rank {
+					position: absolute;
+					z-index: 3;
+					top: 0;
+					left: 0;
+					background-color: #2b2b2b;
+					@include mixin.font(#fff '1.3rem');
+
+					&::after {
+						position: absolute;
+						bottom: -9px;
+						left: 0;
+						width: 34px;
+						@include mixin.triangle(transparent, top, 17px, 9px);
+						border-right-color: #2b2b2b;
+						border-left-color: #2b2b2b;
+						content: '';
+					}
+
+					$ranks: (up, #ee6439), (down, #3e98ff), (new, #fff), (unchanged, #fff);
+					@each $rank, $color in $ranks {
+						@if $rank == up or $rank == down {
+							.text_rank-#{$rank} {
+								display: inline-block;
+								@include mixin.font($color '1.2rem', 0);
+
+								&::before {
+									margin: 3px 2px 0 0;
+									width: 7px;
+									height: 6px;
+									@include mixin.svg($color url('../../image/block/common/ico_triangle.svg'));
+									content: '';
+
+									@if $rank == down {
+										@include mixin.transform(rotate(180deg));
+									}
+								}
+							}
+						}
+
+						.uico_rank-#{$rank} {
+							@if $rank == new {
+								&::before {
+									@include mixin.font($color '1rem', 0);
+									content: 'NEW';
+								}
+							}
+
+							@if $rank == unchanged {
+								&::before {
+									width: 6px;
+									height: 11px;
+									@include mixin.svg($color url('../../image/block/common/ico_unchanged.svg'));
+									content: '';
+								}
+							}
+						}
+					}
+				}
+			}
+
+			&::after {
+				content: none;
+			}
+		}
+
+		figure {
+			.image_product {
+				display: block;
+				padding-top: 100%;
+			}
+
+			figcaption {
+				padding: 0 10px 0 2px;
+
+				.text_brand {
+					@include mixin.font(#767676 '1.3rem');
+					@include mixin.text-ellipsis(1);
+				}
+
+				.text_product {
+					display: block;
+					height: 20px;
+					@include mixin.font(#2b2b2b '1.4rem');
+					@include mixin.text-ellipsis(1);
+				}
+			}
+		}
+	}
+
+	// 하단 랭킹 더보기
+	.btn_link {
+		display: block;
+		margin: 20px auto 0;
+		width: 128px;
+		height: 30px;
+		border: 1px solid #6a6a6a;
+		border-radius: 15px;
+		@include mixin.font(#5c5c5c '1.3rem/3rem' center);
+
+		.uico_link {
+			margin: 10px 0 0 9px;
+
+			&::before {
+				width: 5px;
+				height: 9px;
+				@include mixin.svg(#6a6a6a url('../../image/block/common/ico_arrow_right.svg'));
+			}
+		}
+	}
+}

@@ -1,0 +1,59 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../common/helper/function' as *;
+@use '../../common/helper/mixin';
+@use '../../common/setting/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="new_p_c=w12Xh9_s3"] {
+	width: const.$grid_pc_column * 12 + const.$grid_pc_column_gutter * (12 - 1);
+
+	.mui_carousel {
+		&-inner {
+			margin: 0 -16px;
+		}
+
+		&-item {
+			padding: 0 16px;
+		}
+
+		&-pagination {
+			bottom: -50px;
+
+			li:nth-child(n+2) {
+				margin-left: 10px;
+			}
+
+			button {
+				width: 6px;
+				height: 6px;
+				border-radius: 3px;
+				background-color: #dcdcdc;
+				@include mixin.transition(width const.$time_fast, opacity const.$time_fast);
+
+				&#{escape('.S=on')} {
+					width: 66px;
+					background-color: #2b2b2b;
+				}
+			}
+		}
+	}
+
+	.mui_product-list {
+		> ul {
+			display: grid;
+			grid-template-columns: repeat(3, 432px);
+			column-gap: 32px;
+
+			&::after {
+				content: none;
+			}
+		}
+	}
+}

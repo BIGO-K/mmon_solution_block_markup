@@ -1,0 +1,257 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../common/helper/function' as *;
+@use '../../common/helper/mixin';
+@use '../../common/setting/const';
+
+/**
+ * 블록 옵션
+ * 컨트롤러, 페이지네이션, 타이틀
+**/
+
+
+//< 타이틀
+.mui_title {
+	// 메인타이틀
+	.title_main {
+		margin-bottom: 33px;
+		@include mixin.font(const.$color_text_base '3.8rem/4.2rem');
+
+		+ .title_sub {
+			margin-top: -13px;
+		}
+	}
+
+	.title_sub {
+		margin-bottom: 30px;
+		@include mixin.font(const.$color_text_base '2.6rem/3rem');
+	}
+
+	// 정렬
+	$align: 'center', 'right';
+	@each $text in $align {
+		&#{escape('.T=#{$text}')} {
+			text-align: #{$text};
+		}
+	}
+}
+//> 타이틀
+
+//< 컨트롤러
+// .uico_control- {
+// 	$styles: ('01', _thinner), ('02', _thin), ('03', ''), ('04', _thick), ('05', ''), ('06', _thinner);
+// 	@each $style, $type in $styles {
+// 		&prev#{escape('.T=prev#{$style}')}::before {
+// 			@include mixin.svg(#fff url('../image/block/common/ico_arrow#{$type}_left.svg'));
+// 		}
+
+// 		&next#{escape('.T=next#{$style}')}::before {
+// 			@include mixin.svg(#fff url('../image/block/common/ico_arrow#{$type}_right.svg'));
+// 		}
+// 	}
+
+// 	// s02
+// 	&prev#{escape('.T=prev02')},
+// 	&next#{escape('.T=next02')} {
+// 		@include mixin.prefix(filter, drop-shadow(0 3px 6px rgba(#000, 0.16)), (webkit));
+
+// 		[disabled] > &::before {
+// 			background-color: rgba(#fff, 0.35);
+// 		}
+// 	}
+
+// 	// s02
+// 	&prev#{escape('.T=prev02')},
+// 	&next#{escape('.T=next02')} {
+// 		[disabled] > &::before {
+// 			background-color: #d5d5d5;
+// 		}
+// 	}
+
+// 	// s04
+// 	&prev#{escape('.T=prev04')},
+// 	&next#{escape('.T=next04')} {
+// 		@include mixin.prefix(filter, drop-shadow(0 0 4px rgba(#000, 0.34)), (webkit));
+
+// 		&::before {
+// 			background-color: #3d3d3d;
+// 		}
+
+// 		[disabled] > & {
+// 			@include mixin.prefix(filter, drop-shadow(0 0 4px rgba(#000, 0.16)), (webkit));
+
+// 			&::before {
+// 				background-color: rgba(#fff, 0.65);
+// 			}
+// 		}
+// 	}
+
+// 	// s05
+// 	&prev#{escape('.T=prev05')},
+// 	&next#{escape('.T=next05')} {
+// 		@include mixin.prefix(box-shadow, 0 0 13px 0 rgba(#000, 0.13), webkit);
+// 		padding-top: 16px;
+// 		width: 58px;
+// 		height: 58px;
+// 		border-radius: 100%;
+// 		background-color: #fff;
+
+// 		&::before {
+// 			width: 12px !important;
+// 			height: 23px !important;
+// 			background-color: #101010;
+// 		}
+
+// 		&:is(#{escape('.T=prev05')})::before {
+// 			margin-right: 4px;
+// 		}
+
+// 		&:is(#{escape('.T=next05')})::before {
+// 			margin-left: 4px;
+// 		}
+
+// 		[disabled] > &::before {
+// 			background-color: #cdcdcd;
+// 		}
+// 	}
+
+// 	// s06
+// 	&prev#{escape('.T=prev06')},
+// 	&next#{escape('.T=next06')} {
+// 		padding-top: 20px;
+// 		width: 74px;
+// 		height: 74px;
+// 		border: 1px solid #e6e6e6;
+// 		border-radius: 100%;
+// 		background-color: rgba(#f5f5f5, 0.8);
+
+// 		&::before {
+// 			width: 17px !important;
+// 			height: 33px !important;
+// 			background-color: #3d3d3d;
+// 		}
+
+// 		&:is(#{escape('.T=prev06')})::before {
+// 			margin-right: 4px;
+// 		}
+
+// 		&:is(#{escape('.T=next06')})::before {
+// 			margin-left: 4px;
+// 		}
+
+// 		// 비활성
+// 		[disabled] > & {
+// 			border-color: rgba(#fff, 0.24);
+// 			background-color: rgba(#f5f5f5, 0.16);
+
+// 			&::before {
+// 				background-color: rgba(#fff, 0.7);
+// 			}
+// 		}
+// 	}
+// }
+//> 컨트롤러
+
+//< 페이지네이션
+// .mui_carousel-pagination#{escape('.T=pagination')} {
+// 	&01 {
+// 		--block_pagination_width: 7px;
+
+// 		li:nth-child(n+2) {
+// 			margin-left: 7px;
+// 		}
+
+// 		button {
+// 			width: var(--block_pagination_width);
+// 			height: var(--block_pagination_width);
+// 			border-radius: 100%;
+// 			background-color: #dcdcdc;
+
+// 			&#{escape('.S=on')} {
+// 				background-color: #1f1f1f;
+// 			}
+// 		}
+// 	}
+
+// 	&02 {
+// 		--block_pagination_width: 8px;
+
+// 		li:nth-child(n+2) {
+// 			margin-left: 8px;
+// 		}
+
+// 		button {
+// 			width: var(--block_pagination_width);
+// 			height: var(--block_pagination_width);
+// 			border-radius: 100%;
+// 			background-color: #cdcdcd;
+
+// 			&#{escape('.S=on')} {
+// 				background-color: #1f1f1f;
+// 			}
+// 		}
+// 	}
+
+// 	&03 {
+// 		--block_pagination_width: 9px;
+
+// 		li:nth-child(n+2) {
+// 			margin-left: 9px;
+// 		}
+
+// 		button {
+// 			width: var(--block_pagination_width);
+// 			height: var(--block_pagination_width);
+// 			border-radius: 100%;
+// 			background-color: rgba(#101010, 0.27);
+
+// 			&#{escape('.S=on')} {
+// 				background-color: #101010;
+// 			}
+// 		}
+// 	}
+
+// 	&04 {
+// 		--block_pagination_width: 6px;
+
+// 		li:nth-child(n+2) {
+// 			margin-left: 10px;
+// 		}
+
+// 		button {
+// 			width: var(--block_pagination_width);
+// 			height: var(--block_pagination_width);
+// 			border-radius: calc(var(--block_pagination_width) / 2);
+// 			background-color: #dcdcdc;
+// 			@include mixin.transition(width const.$time_fast, opacity const.$time_fast);
+
+// 			&#{escape('.S=on')} {
+// 				width: calc(var(--block_pagination_width) * 11);
+// 				background-color: #2b2b2b;
+// 			}
+// 		}
+// 	}
+
+// 	&05 {
+// 		--block_pagination_width: 8px;
+
+// 		li:nth-child(n+2) {
+// 			margin-left: 10px;
+// 		}
+
+// 		button {
+// 			width: var(--block_pagination_width);
+// 			height: var(--block_pagination_width);
+// 			border-radius: calc(var(--block_pagination_width) / 2);
+// 			background-color: rgba(#000, 0.5);
+// 			@include mixin.transition(width const.$time_fast, opacity const.$time_fast);
+
+// 			&#{escape('.S=on')} {
+// 				width: calc(var(--block_pagination_width) * 6);
+// 				background-color: #000;
+// 			}
+// 		}
+// 	}
+// }
+//> 페이지네이션

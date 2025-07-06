@@ -1,0 +1,3885 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<!-- 소셜태그 -->
+	<meta property="og:title" content="">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="">
+	<meta property="og:url" content="">
+	<meta property="og:site_name" content="">
+
+	<title>b_c &#60; 배너 &#60; 1N 블록 - M.Mon solution</title>
+
+	<!--
+		테스트 css
+		(D) 블록 확인용 스타일로 실제 프로젝트에는 :root 변수를 포함하여 프로젝트에 적용된 기본 스타일이 적용됩니다.
+	-->
+	<link rel="stylesheet" href="../css/app.css">
+	<link rel="stylesheet" href="../scss/block/_test.scss">
+	<style>
+		:root {
+			--color_text_base: #010101;
+			--header_height_base: 45px;
+			--header_height_main: 56px;
+			--gnb_height_base: 47px;
+			--prod_ratio_base: 1;
+		}
+	</style>
+
+	<!--
+		블록 css
+		(D) css/block/ 폴더에서 현재 페이지 또는 현재 프로젝트에서 사용되는 css만 combine하여 block.css을 생성해주세요.
+		현재 block.css는 전체 블록이 포함된 버전입니다.
+		현재 페이지에 블록이 없으면 block.css가 없어도 됩니다.
+	-->
+	<link rel="stylesheet" href="../css/block.css">
+
+	<!-- 템플릿에서만 사용 -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/github.min.css">
+
+	<style>
+		:root, body {overflow: visible !important;}
+		.mm_app {padding-top:60px;}
+		.mm_app .mm_view {padding-top:0;}
+
+		.m_template-header {position:fixed;z-index:1000;top:0;right:0;left:0;background:#00989c;white-space:nowrap;}
+		.m_template-header * {display:inline-block;color:#fff;line-height:60px;}
+		.m_template-header h1 {padding:0 10px;font-size:25px;}
+
+		.m_template-sidebar {position:fixed;z-index:1000;top:60px;bottom:0;left:0;width:200px;border-right:1px solid #efefef;background:#fff;}
+		/* .m_template-sidebar .mm_scroller {padding:0 30px 30px;} */
+		.m_template-sidebar .mm_scroller > p {padding:10px;background:rgba(18, 167, 170, 0.1);color:#00989c;font-weight:700;font-size:17px;}
+		.m_template-sidebar .mm_scroller ul + p {margin-top:30px;}
+		.m_template-sidebar ul li .btn_anchor {display:block;position:relative;padding:10px 20px;color:#5a5a5a;font-size:14px;line-height:16px;}
+		.m_template-sidebar ul li .btn_anchor.S\=anchor-on {color:#00989c;font-weight:700;}
+		.m_template-sidebar ul li .btn_anchor.S\=anchor-on + .m_template-sidebar-sub {display: block;}
+
+		.m_template-sidebar .m_template-sidebar-sub {display:none;box-shadow:0px 3px 13px 0px rgba(82, 63, 105, 0.05);position:fixed;z-index:1100;top:0;left:200px;padding:15px 10px 15px 40px;height:60px;font-size:0;line-height:29px;white-space:nowrap;}
+		.m_template-sidebar .m_template-sidebar-sub > li {display:inline-block;margin-left:5px;}
+		.m_template-sidebar .m_template-sidebar-sub > li a {padding:0 10px;width:auto;border:0;background:transparent;color:#fff;font-size:14px;line-height:34px;}
+		.m_template-sidebar .m_template-sidebar-sub > li a.S\=anchor-on {color:#fff;}
+		.m_template-sidebar .m_template-sidebar-sub > li a.S\=anchor-on:after {content:none;}
+
+		.m_template-component {margin-left:200px;padding:10px;background-color:#fff;}
+		.m_template-component > article {padding-bottom:50px;}
+		.m_template-component > article > h2 {padding:17px 20px;background:rgba(18, 167, 170, 0.1);color:#00989c;font-size:17px;}
+		.m_template-component .m_template-component-item {margin-bottom:50px;background-color: #fff;}
+		.m_template-component .m_template-component-item > h3 {padding:15px 20px 10px;border-bottom:1px solid #e4e4e4;color:#00989c;font-weight: 700;font-size:17px;}
+		.m_template-component .m_template-component-item > h3 small {margin-left:10px;color:#999;font-weight:400;font-size:14px;}
+
+		.m_template-component .m_template-component-item > .m\.\.\.item-inner {padding: 20px 30px;}
+		.m_template-component .m_template-component-item > .m\.\.\.item-inner > .mm_tab > .mm_tab_menu li {float:left;}
+		.m_template-component .m_template-component-item > .m\.\.\.item-inner > .mm_tab > .mm_tab_menu .btn_tab {position:relative;width:100px;height:30px;color:#cdcdcd;font-size:14px;line-height:30px;text-align:center;}
+		.m_template-component .m_template-component-item > .m\.\.\.item-inner > .mm_tab > .mm_tab_menu .btn_tab::before {display: none;}
+		.m_template-component .m_template-component-item > .m\.\.\.item-inner > .mm_tab > .mm_tab_menu .btn_tab.S\=tab-on {color:#101010;}
+		.m_template-component .m_template-component-item > .m\.\.\.item-inner > .mm_tab > .mm_tab_menu .btn_tab.S\=tab-on::after {position:absolute;right:0;bottom:-1px;left:0;border-bottom:2px solid #101010;content:'';}
+		.m_template-component .m_template-component-item > .m\.\.\.item-inner > .mm_tab > .mm_tab_menu .btn_tab b::after {border: 0;}
+		.m_template-component .m_template-component-item > .m\.\.\.item-inner > .mm_tab > .mm_tab-item {display:none;padding:25px 0;}
+		.m_template-component .m_template-component-item > .m\.\.\.item-inner > .mm_tab > .mm_tab-item.S\=tab-on {display:block;}
+		.m_template-component .m_template-component-item > .m\.\.\.item-inner > h4 {display:inline-block;margin-bottom:10px;font-size:15px;}
+		.m_template-component .m_template-component-item > .m\.\.\.item-inner > h4 b {padding:2px;background:rgba(51,26,114, 0.15);color:#331a72;}
+		.m_template-component .m_template-component-item > .m\.\.\.item-inner > p {margin-bottom:10px;color:#331a72;font-weight: 700;font-size:17px;}
+
+		/* width:376px 값 해당 mobile 템플릿에서만 사용 */
+		.m\.\.\.preview-inner {width:376px;background:#fff;}
+		.m\.\.\.preview-inner > *:nth-child(n+2) {margin-top:5px;}
+
+		.m_template-component .m_template-component-item pre {overflow:auto;max-height:400px;font-size:13px;line-height:17px;letter-spacing:0.5px;white-space:pre;}
+		.m_template-component .m_template-component-item pre code {padding:20px;}
+		.m_template-component .m\.\.\.item-note {padding:0 2px 10px;font-size:13px;line-height:20px;}
+		.m_template-component .m\.\.\.item-note h6 {margin-top:5px;font-weight: 700;}
+		.m_template-component .m\.\.\.item-note p {padding-left:10px;}
+		/* .m_template-component .m\.\.\.item-note > p strong {color:#331a72;font-weight:700;}
+		.m_template-component .m\.\.\.item-note table {margin-top:10px;border:1px solid #e4e4e4;font-size:14px;}
+		.m_template-component .m\.\.\.item-note table tr > * {padding:10px;border-top:1px solid #e4e4e4;line-height:22px;}
+		.m_template-component .m\.\.\.item-note table thead th {font-weight:600;}
+		.m_template-component .m\.\.\.item-note table thead th:last-child {width:50%;}
+		.m_template-component .m\.\.\.item-note table tbody tr p {text-align:left;}
+		.m_template-component .m\.\.\.item-note table tbody tr:nth-child(odd) {background:#f9f9f9;} */
+
+		/* .m_template-component .m\.\.\.item-icon b {margin:15px 0 -5px;padding:7px 13px;background:#eee;font-size:13px;}
+		.m_template-component .m\.\.\.item-icon i {margin-top:5px;width:32px;height:30px;background-repeat:no-repeat;}
+		.m_template-component .m\.\.\.item-icon table tr > * {padding:6px;} */
+		.m_template-component .m\.\.\.item-match {padding-bottom: 10px;}
+		.m_template-component .m\.\.\.item-match p {position: relative;margin-left:60px;color:#999;font-size:15px;line-height:1.4;}
+		.m_template-component .m\.\.\.item-match p::before {position: absolute;top: 0;left: -40px; content: '↔';}
+		.m_template-component .m\.\.\.item-match p span {display: inline-block;padding:0 2px; background:#ebebeb;}
+		.m_template-component .m\.\.\.item-match p + p {margin-top: 5px;}
+		.m_template-component .m\.\.\.item-match p + .m\.\.\.match-split {margin-top: 12px;}
+		.m_template-component .m\.\.\.item-match .m\.\.\.match-split p span {background-color: #fdedc0;}
+	</style>
+
+	<script type="module" src="/src/script/app/app.ts"></script>
+
+	<!-- (D) 페이지 공통 스크립트는 body 하단, 전용 스크립트는 .mm_page-content 하단에 넣어주세요. -->
+</head>
+<body>
+	<div id="mm_app" class="mm_app">
+		<!-- 템플릿 헤더 -->
+		<div class="m_template-header">
+			<h1><b>배너 (b_c)</b></h1>
+		</div>
+		<!--// 템플릿 헤더 -->
+
+		<div class="mm_view L=frame">
+			<!-- 템플릿 사이드바 -->
+			<div class="m_template-sidebar">
+				<div class="mm_scroller">
+					<!-- w6 -->
+					<p>w6</p>
+					<ul>
+						<li>
+							<a class="btn_anchor" href="#w6Xh2"><b>h2</b></a>
+							<ul class="m_template-sidebar-sub">
+								<!-- <li><a href="#"><b>자동생성</b></a></li> -->
+							</ul>
+						</li>
+						<li>
+							<a class="btn_anchor" href="#w6Xh3"><b>h3</b></a>
+							<ul class="m_template-sidebar-sub">
+								<!-- <li><a href="#"><b>자동생성</b></a></li> -->
+							</ul>
+						</li>
+						<li>
+							<a class="btn_anchor" href="#w6Xh4"><b>h4</b></a>
+							<ul class="m_template-sidebar-sub">
+								<!-- <li><a href="#"><b>자동생성</b></a></li> -->
+							</ul>
+						</li>
+						<li>
+							<a class="btn_anchor" href="#w6Xh5"><b>h5</b></a>
+							<ul class="m_template-sidebar-sub">
+								<!-- <li><a href="#"><b>자동생성</b></a></li> -->
+							</ul>
+						</li>
+						<li>
+							<a class="btn_anchor" href="#w6Xh6"><b>h6</b></a>
+							<ul class="m_template-sidebar-sub">
+								<!-- <li><a href="#"><b>자동생성</b></a></li> -->
+							</ul>
+						</li>
+						<li>
+							<a class="btn_anchor" href="#w6Xh7"><b>h7</b></a>
+							<ul class="m_template-sidebar-sub">
+								<!-- <li><a href="#"><b>자동생성</b></a></li> -->
+							</ul>
+						</li>
+						<li>
+							<a class="btn_anchor" href="#w6Xh8"><b>h8</b></a>
+							<ul class="m_template-sidebar-sub">
+								<!-- <li><a href="#"><b>자동생성</b></a></li> -->
+							</ul>
+						</li>
+						<li>
+							<a class="btn_anchor" href="#w6Xh9"><b>h9</b></a>
+							<ul class="m_template-sidebar-sub">
+								<!-- <li><a href="#"><b>자동생성</b></a></li> -->
+							</ul>
+						</li>
+						<li>
+							<a class="btn_anchor" href="#w6Xh10"><b>h10</b></a>
+							<ul class="m_template-sidebar-sub">
+								<!-- <li><a href="#"><b>자동생성</b></a></li> -->
+							</ul>
+						</li>
+						<li>
+							<a class="btn_anchor" href="#w6Xh11"><b>h11</b></a>
+							<ul class="m_template-sidebar-sub">
+								<!-- <li><a href="#"><b>자동생성</b></a></li> -->
+							</ul>
+						</li>
+						<li>
+							<a class="btn_anchor" href="#w6Xh12"><b>h12</b></a>
+							<ul class="m_template-sidebar-sub">
+								<!-- <li><a href="#"><b>자동생성</b></a></li> -->
+							</ul>
+						</li>
+						<li>
+							<a class="btn_anchor" href="#w6Xh13"><b>h13</b></a>
+							<ul class="m_template-sidebar-sub">
+								<!-- <li><a href="#"><b>자동생성</b></a></li> -->
+							</ul>
+						</li>
+					</ul>
+					<!--// w6 -->
+				</div>
+			</div>
+			<!--// 템플릿 사이드바 -->
+
+			<!-- 템플릿 요소 -->
+			<div class="m_template-component">
+				<!-- w6 -->
+				<!-- w6Xh2 -->
+				<article id="w6Xh2">
+					<h2><b>w6Xh2</b></h2>
+
+					<!-- w6Xh2_s1 -->
+					<section class="m_template-component-item">
+						<h3><b>w6Xh2_s1</b></h3>
+
+						<!-- b_c=w6Xh2_s1 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh2_s1</b></h4>
+							<div class="m...item-match">
+								<p><span>b_c=w0Xh2_s1_1 / b_c=w12Xh2_s1</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 752px * H 188px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh2_s1">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4, '_effect': 'fade' }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh2_s1_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_alt">이미지 대체텍스트</p>
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh2_s1_02.jpg' }"></i>
+															<figcaption>
+																<p class="text_alt">이미지 대체텍스트</p>
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-pagination">
+											<ol>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">1</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">2</b></button></li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh2_s1.ts"></script>
+						</div>
+						<!--// b_c=w6Xh2_s1 -->
+
+						<!-- b_c=w6Xh2_s1_1 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh2_s1_1</b></h4>
+							<div class="m...item-match">
+								<p><span>b_c=w0Xh2_s1 / b_c=w0Xh2_s2 / b_c=w12Xh2_s1_1 / b_c=w12Xh2_s2</span></p>
+								<p><span>b_n=w12Xh2_s2 / b_n=w0Xh2_s3 / b_n=w12Xh2_s3</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 752px * H 188px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh2_s1_1">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4, '_effect': 'fade' }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh2_s1_1_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_alt">이미지 대체텍스트</p>
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh2_s1_1_02.jpg' }"></i>
+															<figcaption>
+																<p class="text_alt">이미지 대체텍스트</p>
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-pagination">
+											<ol>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">1</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">2</b></button></li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh2_s1_1.ts"></script>
+						</div>
+						<!--// b_c=w6Xh2_s1_1 -->
+
+						<!-- b_c=w6Xh2_s1_2 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh2_s1_2</b></h4>
+							<div class="m...item-match">
+								<p><span>b_c=w12Xh2_s1_3</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>어드민</b></h6>
+								<p>문구 색상 변경 가능</p>
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 16자</p>
+								<p>문구2: 최대 19자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 752px * H 188px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh2_s1_2">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4 , '_effect': 'fade' }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<!-- (D) 등록 문구 색상이 검은색이면 figcaption 요소에 'T=text-black' 클래스를 추가합니다. -->
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh2_s1_2_01.jpg' }"></i>
+															<figcaption class="T=text-black">
+																<p class="text_banner1">고단한 하루 일과를 끝낸 당신을 위해</p>
+																<p class="text_banner2">리프레시 아이템</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh2_s1_2_02.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">장비는 철저하게 호흡은 편안하게</p>
+																<p class="text_banner2">바프를 위한 홈트 준비완료</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-pagination">
+											<ol>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">1</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">2</b></button></li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh2_s1_2.ts"></script>
+						</div>
+						<!--// b_c=w6Xh2_s1_2 -->
+
+						<!-- b_c=w6Xh2_s1_3 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh2_s1_3</b></h4>
+							<div class="m...item-match">
+								<p><span>b_n=w12Xh2_s3_1</span></p>
+								<p><span>b_c=w12Xh2_s1_2</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>어드민</b></h6>
+								<p>문구 색상 변경 가능</p>
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 16자</p>
+								<p>문구2: 최대 19자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 752px * H 188px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh2_s1_3">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4 , '_effect': 'fade' }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<!-- (D) 등록 문구 색상이 검은색이면 figcaption 요소에 'T=text-black' 클래스를 추가합니다. -->
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh2_s1_3_01.jpg' }"></i>
+															<figcaption class="T=text-black">
+																<p class="text_banner1">고단한 하루 일과를 끝낸 당신을 위해</p>
+																<p class="text_banner2">리프레시 아이템</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh2_s1_3_02.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">장비는 철저하게 호흡은 편안하게</p>
+																<p class="text_banner2">바프를 위한 홈트 준비완료</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-pagination">
+											<ol>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">1</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">2</b></button></li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh2_s1_3.ts"></script>
+						</div>
+						<!--// b_c=w6Xh2_s1_3 -->
+
+						<!-- b_c=w6Xh2_s1_4 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh2_s1_4</b></h4>
+							<div class="m...item-match">
+								<p><span>b_c=w12Xh2_s1_4</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>어드민</b></h6>
+								<p>문구 색상 변경 가능</p>
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 16자</p>
+								<p>문구2: 최대 19자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 752px * H 188px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh2_s1_4">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4 , '_effect': 'fade' }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<!-- (D) 등록 문구 색상이 검은색이면 figcaption 요소에 'T=text-black' 클래스를 추가합니다. -->
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh2_s1_4_01.jpg' }"></i>
+															<figcaption class="T=text-black">
+																<p class="text_banner1">고단한 하루 일과를 끝낸 당신을 위해</p>
+																<p class="text_banner2">리프레시 아이템</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh2_s1_4_02.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">장비는 철저하게 호흡은 편안하게</p>
+																<p class="text_banner2">바프를 위한 홈트 준비완료</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-pagination">
+											<ol>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">1</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">2</b></button></li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh2_s1_4.ts"></script>
+						</div>
+						<!--// b_c=w6Xh2_s1_4 -->
+					</section>
+					<!--// w6Xh2_s1 -->
+				</article>
+				<!--// w6Xh2 -->
+
+				<!-- w6Xh3 -->
+				<article id="w6Xh3">
+					<h2><b>w6Xh3</b></h2>
+
+					<!-- w6Xh3_s1 -->
+					<section class="m_template-component-item">
+						<h3><b>w6Xh3_s1</b></h3>
+
+						<!-- b_c=w6Xh3_s1 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh3_s1</b></h4>
+							<div class="m...item-match">
+								<p><span>b_c=w0Xh3_s1_1 / b_c=w12Xh3_s1</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 752px * H 308px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh3_s1">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4, '_effect': 'fade' }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh3_s1_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_alt">이미지 대체텍스트</p>
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh3_s1_02.jpg' }"></i>
+															<figcaption>
+																<p class="text_alt">이미지 대체텍스트</p>
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-pagination">
+											<ol>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">1</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">2</b></button></li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh3_s1.ts"></script>
+						</div>
+						<!--// b_c=w6Xh3_s1 -->
+
+						<!-- b_c=w6Xh3_s1_1 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh3_s1_1</b></h4>
+							<div class="m...item-match">
+								<p><span>b_c=w0Xh3_s1 / b_c=w0Xh3_s2 / b_c=w12Xh3_s1_1 / b_c=w12Xh3_s2</span></p>
+								<p><span>b_n=w12Xh3_s2 / b_n=w0Xh3_s3 / b_n=w12Xh3_s3</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 752px * H 308px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh3_s1_1">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4, '_effect': 'fade' }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh3_s1_1_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_alt">이미지 대체텍스트</p>
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh3_s1_1_02.jpg' }"></i>
+															<figcaption>
+																<p class="text_alt">이미지 대체텍스트</p>
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-pagination">
+											<ol>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">1</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">2</b></button></li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh3_s1_1.ts"></script>
+						</div>
+						<!--// b_c=w6Xh3_s1_1 -->
+
+						<!-- b_c=w6Xh3_s1_2 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh3_s1_2</b></h4>
+							<div class="m...item-match">
+								<p><span>b_c=w12Xh3_s1_3</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>어드민</b></h6>
+								<p>문구 색상 변경 가능</p>
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 13자</p>
+								<p>문구2: 최대 13자</p>
+								<p>문구3: 최대 18자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 752px * H 308px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh3_s1_2">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4, '_effect': 'fade' }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<!-- (D) 등록 문구 색상이 검은색이면 figcaption 요소에 'T=text-black' 클래스를 추가합니다. -->
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh3_s1_2_01.jpg' }"></i>
+															<figcaption class="T=text-black">
+																<p class="text_banner1">고단한 하루 일과를</p>
+																<p class="text_banner2">끝낸 당신을 위해</p>
+																<p class="text_banner3">리프레시 아이템</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh3_s1_2_02.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">장비는 철저하게</p>
+																<p class="text_banner2">호흡은 편안하게</p>
+																<p class="text_banner3">바프를 위한 홈트 준비완료</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-pagination">
+											<ol>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">1</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">2</b></button></li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh3_s1_2.ts"></script>
+						</div>
+						<!--// b_c=w6Xh3_s1_2 -->
+
+						<!-- b_c=w6Xh3_s1_3 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh3_s1_3</b></h4>
+							<div class="m...item-match">
+								<p><span>b_c=w12Xh3_s1_2</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>어드민</b></h6>
+								<p>문구 색상 변경 가능</p>
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 13자</p>
+								<p>문구2: 최대 13자</p>
+								<p>문구3: 최대 18자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 752px * H 308px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh3_s1_3">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4, '_effect': 'fade' }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<!-- (D) 등록 문구 색상이 검은색이면 figcaption 요소에 'T=text-black' 클래스를 추가합니다. -->
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh3_s1_3_01.jpg' }"></i>
+															<figcaption class="T=text-black">
+																<p class="text_banner1">고단한 하루 일과를</p>
+																<p class="text_banner2">끝낸 당신을 위해</p>
+																<p class="text_banner3">리프레시 아이템</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh3_s1_3_02.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">장비는 철저하게</p>
+																<p class="text_banner2">호흡은 편안하게</p>
+																<p class="text_banner3">바프를 위한 홈트 준비완료</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-pagination">
+											<ol>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">1</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">2</b></button></li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh3_s1_3.ts"></script>
+						</div>
+						<!--// b_c=w6Xh3_s1_3 -->
+
+						<!-- b_c=w6Xh3_s1_4 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh3_s1_4</b></h4>
+							<div class="m...item-match">
+								<p><span>b_c=w12Xh3_s1_5</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>어드민</b></h6>
+								<p>문구 색상 변경 가능</p>
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 13자</p>
+								<p>문구2: 최대 13자</p>
+								<p>문구3: 최대 18자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 752px * H 308px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh3_s1_4">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4, '_effect': 'fade' }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<!-- (D) 등록 문구 색상이 검은색이면 figcaption 요소에 'T=text-black' 클래스를 추가합니다. -->
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh3_s1_4_01.jpg' }"></i>
+															<figcaption class="T=text-black">
+																<p class="text_banner1">고단한 하루 일과를</p>
+																<p class="text_banner2">끝낸 당신을 위해</p>
+																<p class="text_banner3">리프레시 아이템</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh3_s1_4_02.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">장비는 철저하게</p>
+																<p class="text_banner2">호흡은 편안하게</p>
+																<p class="text_banner3">바프를 위한 홈트 준비완료</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-pagination">
+											<ol>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">1</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">2</b></button></li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh3_s1_4.ts"></script>
+						</div>
+						<!--// b_c=w6Xh3_s1_4 -->
+
+						<!-- b_c=w6Xh3_s1_5 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh3_s1_5</b></h4>
+							<div class="m...item-match">
+								<p><span>b_c=w12Xh3_s1_4</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>어드민</b></h6>
+								<p>문구 색상 변경 가능</p>
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 13자</p>
+								<p>문구2: 최대 13자</p>
+								<p>문구3: 최대 18자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 752px * H 308px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh3_s1_5">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4, '_effect': 'fade' }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<!-- (D) 등록 문구 색상이 검은색이면 figcaption 요소에 'T=text-black' 클래스를 추가합니다. -->
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh3_s1_5_01.jpg' }"></i>
+															<figcaption class="T=text-black">
+																<p class="text_banner1">고단한 하루 일과를</p>
+																<p class="text_banner2">끝낸 당신을 위해</p>
+																<p class="text_banner3">리프레시 아이템</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh3_s1_5_02.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">장비는 철저하게</p>
+																<p class="text_banner2">호흡은 편안하게</p>
+																<p class="text_banner3">바프를 위한 홈트 준비완료</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-pagination">
+											<ol>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">1</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">2</b></button></li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh3_s1_5.ts"></script>
+						</div>
+						<!--// b_c=w6Xh3_s1_5 -->
+
+						<!-- b_c=w6Xh3_s1_6 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh3_s1_6</b></h4>
+							<div class="m...item-match">
+								<p><span>b_n=w12Xh3_s3_1</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>어드민</b></h6>
+								<p>문구1: 최대 12자</p>
+								<p>문구2: 최대 16자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 752px * H 308px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh3_s1_6">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4, '_effect': 'fade' }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh3_s1_6_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">Men New Arrival</p>
+																<p class="text_banner2">이번 시즌 단독 50% 세일</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh3_s1_6_02.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">당신의 라이프 스타일</p>
+																<p class="text_banner2">매일 찾게 되는 그 아이템</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-pagination">
+											<ol>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">1</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">2</b></button></li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh3_s1_6.ts"></script>
+						</div>
+						<!--// b_c=w6Xh3_s1_6 -->
+					</section>
+					<!--// w6Xh3_s1 -->
+				</article>
+				<!--// w6Xh3 -->
+
+				<!-- w6Xh4 -->
+				<article id="w6Xh4">
+					<h2><b>w6Xh4</b></h2>
+
+					<!-- w6Xh4_s1 -->
+					<section class="m_template-component-item">
+						<h3><b>w6Xh4_s1</b></h3>
+
+						<!-- b_c=w6Xh4_s1 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh4_s1</b></h4>
+							<div class="m...item-match">
+								<p><span>b_c=w12Xh4_s2_1</span></p>
+								<div class="m...match-split">
+									<p><span>b_n=w4Xh8_s2 / b_n=w4Xh10_s2_1 / b_n=w6Xh10_s2</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 22자</p>
+								<p>문구2: 최대 28자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 752px * H 428px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh4_s1">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4 }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh4_s1_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">보이는 편안함 그대로의 디자인</p>
+																<p class="text_banner2">엠몬스타</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh4_s1_02.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">매일이 행복해지는 라이프 스타일</p>
+																<p class="text_banner2">엠몬스타</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-pagination">
+											<ol>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">1</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">2</b></button></li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh4_s1.ts"></script>
+						</div>
+						<!--// b_c=w6Xh4_s1 -->
+
+						<!-- b_c=w6Xh4_s1_1 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh4_s1_1</b></h4>
+							<div class="m...item-match">
+								<p><span>b_n=w12Xh9_s1_2</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 25자</p>
+								<p>문구2: 최대 31자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 696px * H 428px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh4_s1_1">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4 }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh4_s1_1_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">화장품 그 이상의 감동을 전하는 브랜드</p>
+																<p class="text_banner2">MILK TOUCH만의 뷰티루틴을 맞춰보세요</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh4_s1_1_02.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">경계를 넘는 새로운 비전</p>
+																<p class="text_banner2">DUNST : NEW PREPS</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-pagination">
+											<ol>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">1</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">2</b></button></li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh4_s1_1.ts"></script>
+						</div>
+						<!--// b_c=w6Xh4_s1_1 -->
+
+						<!-- b_c=w6Xh4_s1_2 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh4_s1_2</b></h4>
+							<div class="m...item-match">
+								<p><span>b_c=w12Xh9_s1_3</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 25자</p>
+								<p>문구2: 최대 33자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 696px * H 428px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh4_s1_2">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4 }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh4_s1_2_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">경계를 넘는 새로운 비전</p>
+																<p class="text_banner2">DUNST : NEW PREPS</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh4_s1_2_02.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">화장품 그 이상의 감동을 전하는 브랜드</p>
+																<p class="text_banner2">MILK TOUCH만의 뷰티루틴을 맞춰보세요</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-pagination">
+											<ol>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">1</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">2</b></button></li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh4_s1_2.ts"></script>
+						</div>
+						<!--// b_c=w6Xh4_s1_2 -->
+					</section>
+					<!-- w6Xh4_s1 -->
+				</article>
+				<!-- w6Xh4 -->
+
+				<!-- w6Xh5 -->
+				<article id="w6Xh5">
+					<h2><b>w6Xh5</b></h2>
+
+					<!-- w6Xh5_s1 -->
+					<section class="m_template-component-item">
+						<h3><b>w6Xh5_s1</b></h3>
+
+						<!-- b_c=w6Xh5_s1 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh5_s1</b></h4>
+							<div class="m...item-match">
+								<p><span>b_c=w12Xh10_s1</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 25자</p>
+								<p>문구2: 최대 32자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 696px * H 428px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh5_s1">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4, '_isAutoHeight': true }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh5_s1_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">컬러풀한 스타일부터 편안함까지</p>
+																<p class="text_banner2">패션 위크에서 엿본 다양한 컬러</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh5_s1_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">컬러풀한 스타일부터 편안함까지</p>
+																<p class="text_banner2">패션 위크에서 엿본 다양한 컬러</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-pagination">
+											<ol>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">1</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">2</b></button></li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh5_s1.ts"></script>
+						</div>
+						<!--// b_c=w6Xh5_s1 -->
+
+						<!-- b_c=w6Xh5_s1_1 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh5_s1_1</b></h4>
+							<div class="m...item-match">
+								<p><span>b_n=w12Xh5_s5</span></p>
+								<p><span>b_c=w12Xh5_s5</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 26자</p>
+								<p>문구2: 최대 31자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 696px * H 428px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh5_s1_1">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4, '_isAutoHeight': true }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh5_s1_1_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">컬러풀한 스타일부터 편안함까지</p>
+																<p class="text_banner2">패션 위크에서 엿본 다양한 컬러</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh5_s1_1_02.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">컬러풀한 스타일부터 편안함까지</p>
+																<p class="text_banner2">패션 위크에서 엿본 다양한 컬러</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh5_s1_1_03.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">컬러풀한 스타일부터 편안함까지</p>
+																<p class="text_banner2">패션 위크에서 엿본 다양한 컬러</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-pagination">
+											<ol>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">1</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">2</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">3</b></button></li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh5_s1_1.ts"></script>
+						</div>
+						<!--// b_c=w6Xh5_s1_1 -->
+					</section>
+					<!-- w6Xh5_s1 -->
+				</article>
+				<!-- w6Xh5 -->
+
+				<!-- w6Xh6 -->
+				<article id="w6Xh6">
+					<h2><b>w6Xh6</b></h2>
+
+					<!-- w6Xh6_s1 -->
+					<section class="m_template-component-item">
+						<h3><b>w6Xh6_s1</b></h3>
+
+						<!-- b_c=w6Xh6_s1 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh6_s1</b></h4>
+							<div class="m...item-match">
+								<p><span>b_c=w12Xh5_s2</span></p>
+								<div class="m...match-split">
+									<p><span>b_n=w4Xh12_s2_1 / b_n=w4Xh12_s4 / b_n=w8Xh10_s4</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 37자</p>
+								<p>문구2: 최대 26자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 696px * H 428px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh6_s1">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4, '_isAutoHeight': true }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh6_s1_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">보이는 편안함 그대로의 디자인, 크로세 니트부터 버캣햇까지</p>
+																<p class="text_banner2">엠몬스타</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh6_s1_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">매일이 행복해지는 라이프 스타일</p>
+																<p class="text_banner2">엠몬스타</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-pagination">
+											<ol>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">1</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">2</b></button></li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh6_s1.ts"></script>
+						</div>
+						<!--// b_c=w6Xh6_s1 -->
+					</section>
+					<!-- w6Xh6_s1 -->
+
+					<!-- w6Xh6_s2 -->
+					<section class="m_template-component-item">
+						<h3><b>w6Xh6_s2</b></h3>
+
+						<!-- b_c=w6Xh6_s2 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh6_s2</b></h4>
+							<div class="m...item-match">
+								<p><span>b_c=w12Xh4_s2</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 12자</p>
+								<p>문구2: 최대 15자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 752px * H 308px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh6_s2">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4, '_effect': 'fade' }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<ul>
+														<li>
+															<a href="#">
+																<figure>
+																	<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh6_s2_01.jpg' }"></i>
+																	<figcaption>
+																		<p class="text_banner1">산뜻하고 촉촉하게</p>
+																		<p class="text_banner2">지친 당신을 위한 아이템</p>
+																		<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																		<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+																	</figcaption>
+																</figure>
+															</a>
+														</li>
+														<li>
+															<a href="#">
+																<figure>
+																	<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh6_s2_02.jpg' }"></i>
+																	<figcaption>
+																		<p class="text_banner1">이런거 하나쯤 GET</p>
+																		<p class="text_banner2">인기상품 Top50 + 무료배송</p>
+																		<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																		<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+																	</figcaption>
+																</figure>
+															</a>
+														</li>
+													</ul>
+												</li>
+												<li class="mui_carousel-item">
+													<ul>
+														<li>
+															<a href="#">
+																<figure>
+																	<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh6_s2_03.jpg' }"></i>
+																	<figcaption>
+																		<p class="text_banner1">간편한 미식생활</p>
+																		<p class="text_banner2">지금이 기회! 1+2, 무료배송</p>
+																		<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																		<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+																	</figcaption>
+																</figure>
+															</a>
+														</li>
+														<li>
+															<a href="#">
+																<figure>
+																	<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh6_s2_04.jpg' }"></i>
+																	<figcaption>
+																		<p class="text_banner1">머스트 해브 아이템</p>
+																		<p class="text_banner2">오늘 하루 50% Sale</p>
+																		<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																		<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+																	</figcaption>
+																</figure>
+															</a>
+														</li>
+													</ul>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-pagination">
+											<ol>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">1</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">2</b></button></li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh6_s2.ts"></script>
+						</div>
+						<!--// b_c=w6Xh6_s2 -->
+					</section>
+					<!-- w6Xh6_s2 -->
+				</article>
+				<!-- w6Xh6 -->
+
+				<!-- w6Xh7 -->
+				<article id="w6Xh7">
+					<h2><b>w6Xh7</b></h2>
+
+					<!-- w6Xh7_s1 -->
+					<section class="m_template-component-item">
+						<h3><b>w6Xh7_s1</b></h3>
+
+						<!-- b_c=w6Xh7_s1 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh7_s1</b></h4>
+							<div class="m...item-match">
+								<p><span>b_c=w0Xh8_s1_sidePager</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>어드민</b></h6>
+								<p>문구 색상 변경 가능</p>
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 15자</p>
+								<p>문구2: 최대 23자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 752px * H 788px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh7_s1">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4 }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s1_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">주목해야 할 뷰티 브랜드</p>
+																<p class="text_banner2">단독 25% 할인쿠폰</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s1_02.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">빛날 수 있는 디자인</p>
+																<p class="text_banner2">10% 할인쿠폰 + 무료배송</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-pagination">
+											<ol>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">1</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">2</b></button></li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh7_s1.ts"></script>
+						</div>
+						<!--// b_c=w6Xh7_s1 -->
+
+						<!-- b_c=w6Xh7_s1_1 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh7_s1_1</b></h4>
+							<div class="m...item-match">
+								<p><span>b_c=w0Xh8_s1_side</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>어드민</b></h6>
+								<p>문구 색상 변경 가능</p>
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 15자</p>
+								<p>문구2: 최대 15자</p>
+								<p>문구3: 최대 23자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 752px * H 788px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh7_s1_1">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4 }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s1_1_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">지금 주목해야 할</p>
+																<p class="text_banner2">라이징 뷰티 브랜드</p>
+																<p class="text_banner3">단독 25% 할인쿠폰</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s1_1_02.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">지금 '나다움'으로</p>
+																<p class="text_banner2">빛날 수 있는 디자인</p>
+																<p class="text_banner3">10% 할인쿠폰 + 무료배송</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-pagination">
+											<ol>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">1</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">2</b></button></li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh7_s1_1.ts"></script>
+						</div>
+						<!--// b_c=w6Xh7_s1_1 -->
+
+						<!-- b_c=w6Xh7_s1_2 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh7_s1_2</b></h4>
+							<div class="m...item-match">
+								<p><span>b_c=w0Xh8_s1_side_1</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>어드민</b></h6>
+								<p>문구 색상 변경 가능</p>
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 15자</p>
+								<p>문구2: 최대 15자</p>
+								<p>문구3: 최대 23자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 752px * H 788px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh7_s1_2">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4 }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s1_2_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">지금 주목해야 할</p>
+																<p class="text_banner2">라이징 뷰티 브랜드</p>
+																<p class="text_banner3">단독 25% 할인쿠폰</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<!-- (D) 등록 문구 색상이 검은색이면 figcaption 요소에 'T=text-black' 클래스를 추가합니다. -->
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s1_2_02.jpg' }"></i>
+															<figcaption class="T=text-black">
+																<p class="text_banner1">지금 '나다움'으로</p>
+																<p class="text_banner2">빛날 수 있는 디자인</p>
+																<p class="text_banner3">10% 할인쿠폰 + 무료배송</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-pagination">
+											<ol>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">1</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">2</b></button></li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh7_s1_2.ts"></script>
+						</div>
+						<!--// b_c=w6Xh7_s1_2 -->
+
+						<!-- b_c=w6Xh7_s1_3 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh7_s1_3</b></h4>
+							<div class="m...item-match">
+								<p><span>b_c=w12Xh7_s2_side</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 20자</p>
+								<p>문구2: 최대 28자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 752px * H 548px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh7_s1_3">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4, '_isAutoHeight': true, 'onStart': 'carouselProgress' }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s1_3_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">우리의 일상을 더욱 채워줄 ITEM</p>
+																<p class="text_banner2">데일리 아이템을 한자리에 ~80%</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s1_3_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">우리의 일상을 더욱 채워줄 ITEM</p>
+																<p class="text_banner2">데일리 아이템을 한자리에 ~80%</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-progress"><div class="mui_carousel-progress-bar" style="width:30%;"></div></div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh7_s1_3.ts"></script>
+						</div>
+						<!--// b_c=w6Xh7_s1_3 -->
+
+						<!-- b_c=w6Xh7_s1_4 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh7_s1_4</b></h4>
+							<div class="m...item-match">
+								<p><span>b_c=w12Xh7_s2</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 19자</p>
+								<p>문구2: 최대 46자</p>
+								<p>문구3: 최대 55자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 658px * H 430px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh7_s1_4">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4, '_isAutoHeight': true }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s1_4_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">엠몬스타</p>
+																<p class="text_banner2">보이는 편안함 그대로의 디자인, 크로세 니트부터 버킷햇까지</p>
+																<p class="text_banner3">내추럴하면서도 그 시대의 핫한 감성을 제안하는 아티스틱 디자이너 브랜드, 그동안 보고싶었던 사람들과의 즐거운 만남을 위하여! 베스트 아이템을 모아봤어요</p>
+																<p class="text_detail"><b>더보기</b><i class="uico_link"></i></p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s1_4_02.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">엠몬스타</p>
+																<p class="text_banner2">바라만 봐도 매일이 행복해지는 라이프 스타일</p>
+																<p class="text_banner3">서로 다른 시선으로 바라본 다양한 오브젝트의 이야기. TIMELESS & TIME SAVING 제품들을 만나보세요</p>
+																<p class="text_detail"><b>더보기</b><i class="uico_link"></i></p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-pagination">
+											<ol>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">1</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">2</b></button></li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh7_s1_4.ts"></script>
+						</div>
+						<!--// b_c=w6Xh7_s1_4 -->
+
+						<!-- b_c=w6Xh7_s1_6 -->
+						<!-- <div class="m...item-inner">
+							<h4><b>b_c=w6Xh7_s1_6</b></h4>
+							<div class="m...item-note">
+								<b style="color:red;font-size:20px;">1. 2차 오픈: 동영상 <br> 2. b_c=w6Xh7_s1_5로 네이밍 변경 필요</b>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh7_s1_6">
+									<div class="mui_carousel" data-carousel="{'_isAutoHeight': true, 'onComplete': 'b_c=w6Xh7_s1_6' }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<figure>
+														<div class="mui_carousel-item-video">
+															<i class="image_thumbnail" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s1_6_01.jpg' }"></i>
+															<video src="https://image.stylecrew.co.kr/mall/video/display/sub/new_magazine/900/3525//네버마인드올22FW영상.mp4" controls></video>
+															<button type="button" class="btn_play"><b class="mui_ir-blind">재생하기</b><i class="uico_play"></i></button>
+														</div>
+														<figcaption>
+															<p class="text_alt">이미지 대체텍스트</p>
+														</figcaption>
+													</figure>
+												</li>
+												<li class="mui_carousel-item">
+													<figure>
+														<div class="mui_carousel-item-video">
+															<i class="image_thumbnail" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s1_6_02.jpg' }"></i>
+															<video src="https://image.stylecrew.co.kr/mall/video/display/sub/new_magazine/900/3226//EDITMENT 22ss lookbook.mp4" controls></video>
+															<button type="button" class="btn_play"><b class="mui_ir-blind">재생하기</b><i class="uico_play"></i></button>
+														</div>
+														<figcaption>
+															<p class="text_alt">이미지 대체텍스트</p>
+														</figcaption>
+													</figure>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-pagination">
+											<ol>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">1</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">2</b></button></li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</script>
+							< !-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -- >
+							<script type="module" src="../script/b_c/b_c=w6Xh7_s1_6.ts"></script>
+						</div> -->
+						<!--// b_c=w6Xh7_s1_6 -->
+
+						<!-- b_c=w6Xh7_s1_side -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh7_s1_side</b></h4>
+							<div class="m...item-match">
+								<p><span>b_c=w0Xh9_s2_side</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>어드민</b></h6>
+								<p>문구 색상 변경 가능</p>
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 15자</p>
+								<p>문구2: 최대 15자</p>
+								<p>문구3: 최대 23자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 730px * H 788px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh7_s1_side">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4, '_isMoreSide': true, '_effect': 'cover' }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s1_side_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">우리의 일상을</p>
+																<p class="text_banner2">더욱 채워줄 ITEM</p>
+																<p class="text_banner3">데일리 아이템을 한자리에 ~80%</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<!-- (D) 등록 문구 색상이 검은색이면 figcaption 요소에 'T=text-black' 클래스를 추가합니다. -->
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s1_side_02.jpg' }"></i>
+															<figcaption class="T=text-black">
+																<p class="text_banner1">최대 15% 쿠폰</p>
+																<p class="text_banner2">단독진행 사전 프로모션</p>
+																<p class="text_banner3">Little Drops Pre-Launching</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-pagination">
+											<ol>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">1</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">2</b></button></li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh7_s1_side.ts"></script>
+						</div>
+						<!--// b_c=w6Xh7_s1_side -->
+
+						<!-- b_c=w6Xh7_s1_side_1 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh7_s1_side_1</b></h4>
+							<div class="m...item-note">
+								<h6><b>어드민</b></h6>
+								<p>문구 색상 변경 가능</p>
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 17자</p>
+								<p>문구2: 최대 17자</p>
+								<p>문구3: 최대 24자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 672px * H 672px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh7_s1_side_1">
+									<div class="mui_carousel" data-carousel="{ '_isMoreSide': true }">
+									<!-- <div class="mui_carousel" data-carousel="{ '_autoDelay': 4, '_isMoreSide': true }"> -->
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s1_side_1_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">사랑스럽고 웨어러블한</p>
+																<p class="text_banner2">주얼리 컬렉션</p>
+																<p class="text_banner3">뉴시즌 단독 특가 20% 할인</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<!-- (D) 등록 문구 색상이 검은색이면 figcaption 요소에 'T=text-black' 클래스를 추가합니다. -->
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s1_side_1_02.jpg' }"></i>
+															<figcaption class="T=text-black">
+																<p class="text_banner1">지금 가장 사랑받는</p>
+																<p class="text_banner2">캐주얼 웨어</p>
+																<p class="text_banner3">TREND WE PICK</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s1_side_1_03.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">다가올 간절기를 위한</p>
+																<p class="text_banner2">베스트 아이템</p>
+																<p class="text_banner3">단 하루, 최대 50% 할인!</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<!-- (D) 등록 문구 색상이 검은색이면 figcaption 요소에 'T=text-black' 클래스를 추가합니다. -->
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s1_side_1_02.jpg' }"></i>
+															<figcaption class="T=text-black">
+																<p class="text_banner1">지금 가장 사랑받는</p>
+																<p class="text_banner2">캐주얼 웨어</p>
+																<p class="text_banner3">TREND WE PICK</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s1_side_1_03.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">다가올 간절기를 위한</p>
+																<p class="text_banner2">베스트 아이템</p>
+																<p class="text_banner3">단 하루, 최대 50% 할인!</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<!-- (D) 등록 문구 색상이 검은색이면 figcaption 요소에 'T=text-black' 클래스를 추가합니다. -->
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s1_side_1_02.jpg' }"></i>
+															<figcaption class="T=text-black">
+																<p class="text_banner1">지금 가장 사랑받는</p>
+																<p class="text_banner2">캐주얼 웨어</p>
+																<p class="text_banner3">TREND WE PICK</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s1_side_1_03.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">다가올 간절기를 위한</p>
+																<p class="text_banner2">베스트 아이템</p>
+																<p class="text_banner3">단 하루, 최대 50% 할인!</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<!-- (D) 등록 문구 색상이 검은색이면 figcaption 요소에 'T=text-black' 클래스를 추가합니다. -->
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s1_side_1_02.jpg' }"></i>
+															<figcaption class="T=text-black">
+																<p class="text_banner1">지금 가장 사랑받는</p>
+																<p class="text_banner2">캐주얼 웨어</p>
+																<p class="text_banner3">TREND WE PICK</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s1_side_1_03.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">다가올 간절기를 위한</p>
+																<p class="text_banner2">베스트 아이템</p>
+																<p class="text_banner3">단 하루, 최대 50% 할인!</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<!-- (D) 등록 문구 색상이 검은색이면 figcaption 요소에 'T=text-black' 클래스를 추가합니다. -->
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s1_side_1_02.jpg' }"></i>
+															<figcaption class="T=text-black">
+																<p class="text_banner1">지금 가장 사랑받는</p>
+																<p class="text_banner2">캐주얼 웨어</p>
+																<p class="text_banner3">TREND WE PICK</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s1_side_1_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">다가올 간절기를 위한</p>
+																<p class="text_banner2">베스트 아이템</p>
+																<p class="text_banner3">단 하루, 최대 50% 할인!</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="m_pagination"></div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh7_s1_side_1.ts"></script>
+						</div>
+						<!--// b_c=w6Xh7_s1_side_1 -->
+
+						<!-- b_c=w6Xh7_s1_pager -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh7_s1_pager</b></h4>
+							<div class="m...item-match">
+								<p><span>b_c=w0Xh8_s1_pager_2</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 13자</p>
+								<p>문구2: 최대 13자</p>
+								<p>문구3: 최대 22자</p>
+								<p>문구4: 최대 22자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 752px * H 788px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh7_s1_pager">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4 }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s1_pager_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">지금 주목해야 할</p>
+																<p class="text_banner2">라이징 뷰티 브랜드</p>
+																<p class="text_banner3">가장 핫한 상품을 품절되기 전에</p>
+																<p class="text_banner4">지금 만나보세요</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s1_pager_02.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">지금 '나다움'으로</p>
+																<p class="text_banner2">빛날 수 있는 디자인</p>
+																<p class="text_banner3">은은하게 빛나는 나만의 무드를</p>
+																<p class="text_banner4">만들어보세요</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-count">
+											<strong class="text_carousel-index"></strong><i>/</i><span class="text_carousel-total"></span>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh7_s1_pager.ts"></script>
+						</div>
+						<!--// b_c=w6Xh7_s1_pager -->
+
+						<!-- b_c=w6Xh7_s1_pager_1 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh7_s1_pager_1</b></h4>
+							<div class="m...item-match">
+								<p><span>b_c=w0Xh8_s1_pager_2</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 13자</p>
+								<p>문구2: 최대 13자</p>
+								<p>문구3: 최대 22자</p>
+								<p>문구4: 최대 22자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 752px * H 788px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh7_s1_pager_1">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4 }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s1_pager_1_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">지금 주목해야 할</p>
+																<p class="text_banner2">라이징 뷰티 브랜드</p>
+																<p class="text_banner3">가장 핫한 상품을 품절되기 전에</p>
+																<p class="text_banner4">지금 만나보세요</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s1_pager_02.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">지금 '나다움'으로</p>
+																<p class="text_banner2">빛날 수 있는 디자인</p>
+																<p class="text_banner3">은은하게 빛나는 나만의 무드를</p>
+																<p class="text_banner4">만들어보세요</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-count">
+											<strong class="text_carousel-index"></strong><i>/</i><span class="text_carousel-total"></span>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh7_s1_pager_1.ts"></script>
+						</div>
+						<!--// b_c=w6Xh7_s1_pager_1 -->
+
+						<!-- b_c=w6Xh7_s1_pager_2 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh7_s1_pager_2</b></h4>
+							<div class="m...item-match">
+								<p><span>b_c=w12Xh7_s1_pager</span></p>
+								<div class="m...match-split">
+									<p><span>b_c=w6Xh8_s1_pager / b_c=w6Xh9_s1_pager / b_c=w8Xh7_s1_pager / b_c=w8Xh8_s1_pager</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 19자</p>
+								<p>문구2: 최대 26자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 752px * H 788px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh7_s1_pager_2">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4, '_effect': 'fade' }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s1_pager_2_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">우먼 패션 SEASON-OFF</p>
+																<p class="text_banner2">단독 최대 65% 할인</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s1_pager_2_02.jpg' }"></i>
+															<figcaption>
+																<!-- <p class="text_banner1">카메라로 담는 세상</p>
+																<p class="text_banner2">엠몬스타 최대 20% 쿠폰</p> -->
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<p class="text_alt">이미지 대체텍스트</p>
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-count">
+											<strong class="text_carousel-index"></strong><i>/</i><span class="text_carousel-total"></span>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh7_s1_pager_2.ts"></script>
+						</div>
+						<!--// b_c=w6Xh7_s1_pager_2 -->
+
+						<!-- b_c=w6Xh7_s1_pager_3 -->
+						<!-- <div class="m...item-inner">
+							<h4><b>b_c=w6Xh7_s1_pager_3</b></h4>
+							<div class="m...item-note">
+								<b style="color:red;font-size:20px;">2차 오픈: 컬러픽커</b>
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 19자</p>
+								<p>문구2: 최대 26자</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh7_s1_pager_3">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4, '_effect': 'fade' }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s1_pager_3_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">지금 핫한 그옷! 단독 기획전</p>
+																<p class="text_banner2">엠몬스타 최대 30% 쿠폰</p>
+																(D) 등록된 text_banner가 없을 때 노출합니다.
+																<p class="text_alt">이미지 대체텍스트</p>
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s1_pager_3_02.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">카메라로 담는 세상</p>
+																<p class="text_banner2">엠몬스타 최대 20% 쿠폰</p>
+																(D) 등록된 text_banner가 없을 때 노출합니다.
+																<p class="text_alt">이미지 대체텍스트</p>
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-count">
+											<strong class="text_carousel-index"></strong><i>/</i><span class="text_carousel-total"></span>
+										</div>
+									</div>
+								</div>
+							</script>
+							< !-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -- >
+							<script type="module" src="../script/b_c/b_c=w6Xh7_s1_pager_3.ts"></script>
+						</div> -->
+						<!--// b_c=w6Xh7_s1_pager_3 -->
+					</section>
+					<!--// w6Xh7_s1 -->
+
+					<!-- w6Xh7_s4 -->
+					<section class="m_template-component-item">
+						<h3><b>w6Xh7_s4</b></h3>
+
+						<!-- b_c=w6Xh7_s4 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh7_s4</b></h4>
+							<div class="m...item-match">
+								<p><span>b_c=w12Xh5_s4</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 15자</p>
+								<p>문구2: 최대 15자</p>
+								<p>문구3: 최대 18자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 346px * H 346px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh7_s4">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 0 }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<ul>
+														<li>
+															<a href="#">
+																<figure>
+																	<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s4_01.jpg' }"></i>
+																	<figcaption>
+																		<p class="text_banner1">지금 떠오르는</p>
+																		<p class="text_banner2">친환경 가방 브랜드</p>
+																		<p class="text_banner3">BRAND STORY</p>
+																		<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																		<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+																	</figcaption>
+																</figure>
+															</a>
+														</li>
+														<li>
+															<a href="#">
+																<figure>
+																	<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s4_02.jpg' }"></i>
+																	<figcaption>
+																		<p class="text_banner1">행복을 밝히는 영롱한 빛</p>
+																		<p class="text_banner2">오브젝트 전시회</p>
+																		<p class="text_banner3">LIFE</p>
+																		<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																		<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+																	</figcaption>
+																</figure>
+															</a>
+														</li>
+														<li>
+															<a href="#">
+																<figure>
+																	<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s4_03.jpg' }"></i>
+																	<figcaption>
+																		<p class="text_banner1">플로렛 디저트플레이트 4종</p>
+																		<p class="text_banner2">브런치 디저트 홈카페 신혼</p>
+																		<p class="text_banner3">COOK</p>
+																		<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																		<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+																	</figcaption>
+																</figure>
+															</a>
+														</li>
+														<li>
+															<a href="#">
+																<figure>
+																	<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s4_04.jpg' }"></i>
+																	<figcaption>
+																		<p class="text_banner1">세상에서 가장 따뜻한 사진</p>
+																		<p class="text_banner2">리 슐만의 어노니머스 프로젝트</p>
+																		<p class="text_banner3">CULTURE</p>
+																		<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																		<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+																	</figcaption>
+																</figure>
+															</a>
+														</li>
+													</ul>
+												</li>
+												<li class="mui_carousel-item">
+													<ul>
+														<li>
+															<a href="#">
+																<figure>
+																	<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s4_01.jpg' }"></i>
+																	<figcaption>
+																		<p class="text_banner1">지금 떠오르는</p>
+																		<p class="text_banner2">친환경 가방 브랜드</p>
+																		<p class="text_banner3">BRAND STORY</p>
+																		<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																		<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+																	</figcaption>
+																</figure>
+															</a>
+														</li>
+														<li>
+															<a href="#">
+																<figure>
+																	<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s4_02.jpg' }"></i>
+																	<figcaption>
+																		<p class="text_banner1">행복을 밝히는 영롱한 빛</p>
+																		<p class="text_banner2">오브젝트 전시회</p>
+																		<p class="text_banner3">LIFE</p>
+																		<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																		<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+																	</figcaption>
+																</figure>
+															</a>
+														</li>
+														<li>
+															<a href="#">
+																<figure>
+																	<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s4_03.jpg' }"></i>
+																	<figcaption>
+																		<p class="text_banner1">플로렛 디저트플레이트 4종</p>
+																		<p class="text_banner2">브런치 디저트 홈카페 신혼</p>
+																		<p class="text_banner3">COOK</p>
+																		<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																		<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+																	</figcaption>
+																</figure>
+															</a>
+														</li>
+														<li>
+															<a href="#">
+																<figure>
+																	<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh7_s4_04.jpg' }"></i>
+																	<figcaption>
+																		<p class="text_banner1">세상에서 가장 따뜻한 사진</p>
+																		<p class="text_banner2">리 슐만의 어노니머스 프로젝트</p>
+																		<p class="text_banner3">CULTURE</p>
+																		<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																		<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+																	</figcaption>
+																</figure>
+															</a>
+														</li>
+													</ul>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-pagination">
+											<ol>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">1</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">2</b></button></li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh7_s4.ts"></script>
+						</div>
+						<!--// b_c=w6Xh7_s4 -->
+					</section>
+					<!--// w6Xh7_s4 -->
+
+				</article>
+				<!--// w6Xh7 -->
+
+				<!-- w6Xh8 -->
+				<article id="w6Xh8">
+					<h2><b>w6Xh8</b></h2>
+
+					<!-- w6Xh8_s1 -->
+					<section class="m_template-component-item">
+						<h3><b>w6Xh8_s1</b></h3>
+
+						<!-- b_c=w6Xh8_s1 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh8_s1</b></h4>
+							<div class="m...item-match">
+								<p><span>b_c=w12Xh7_s1</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 22자</p>
+								<p>문구2: 최대 22자</p>
+								<p>문구3: 최대 29자</p>
+								<p>문구4: 최대 29자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 752px * H 788px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh8_s1">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4, '_isAutoHeight': true, '_effect': 'fade' }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh8_s1_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">날이 좋아 떠나고 싶은 요즘</p>
+																<p class="text_banner2">카메라로 담는 세상</p>
+																<p class="text_banner3">설레이는 마음으로 다가올 여행 준비해요</p>
+																<p class="text_banner4">엠몬스타 최대 20% 쿠폰</p>
+																<i class="uico_link"></i>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh8_s1_02.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">지금 핫한 그옷!</p>
+																<p class="text_banner2">단독 기획전</p>
+																<p class="text_banner3">설레이는 마음으로 다가올 여행 준비해요</p>
+																<p class="text_banner4">엠몬스타 최대 20% 쿠폰</p>
+																<i class="uico_link"></i>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-control">
+											<button type="button" class="btn_carousel-prev"><i class="uico_control-prev"></i><b class="mui_ir-blind">이전으로</b></button>
+											<button type="button" class="btn_carousel-next"><i class="uico_control-next"></i><b class="mui_ir-blind">다음으로</b></button>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh8_s1.ts"></script>
+						</div>
+						<!--// b_c=w6Xh8_s1 -->
+
+						<!-- b_c=w6Xh8_s1_1 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh8_s1_1</b></h4>
+							<div class="m...item-match">
+								<p><span>b_n=w12Xh7_s3</span></p>
+								<p><span>b_c=w12Xh7_s3</span></p>
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh8_s2</span></p>
+									<p><span>b_c=w6Xh6_s2 / b_c=w6Xh6_s2_1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 27자</p>
+								<p>문구2: 최대 61자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 696px * H 696px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh8_s1_1">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4, '_isAutoHeight': true }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh8_s1_1_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">보이는 편안함 그대로의 디자인</p>
+																<p class="text_banner2">내추럴하면서도 그 시대의 핫한 감성을 제안하는 아티스틱 디자이너 브랜드, 그동안 보고싶었던 사람들과의 즐거운 만남을 위하여!</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh8_s1_1_02.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">매일이 행복해지는 라이프 스타일</p>
+																<p class="text_banner2">서로 다른 시선으로 바라본 다양한 오브젝트의 이야기. TIMELESS & TIME SAVING 제품들을 만나보세요</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-pagination">
+											<ol>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">1</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">2</b></button></li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh8_s1_1.ts"></script>
+						</div>
+						<!--// b_c=w6Xh8_s1_1 -->
+
+						<!-- b_c=w6Xh8_s1_2 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh8_s1_2</b></h4>
+							<div class="m...item-match">
+								<p><span>b_c=w12Xh12_s1</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 22자</p>
+								<p>문구2: 최대 31자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 696px * H 668px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh8_s1_2">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4, '_isAutoHeight': true }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh8_s1_2_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">마치 꿈만 같았던 순간 Take On Me</p>
+																<p class="text_banner2">머리부터 발끝까지 편안한 데일리룩을 만나보세요</p>
+																<p class="text_detail"><b>더보기</b><i class="uico_link"></i></p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh8_s1_2_02.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">라이징 뷰티 브랜드</p>
+																<p class="text_banner2">절제되면서도 편안한 실루엣이 밋밋해보이지 않도록</p>
+																<p class="text_detail"><b>더보기</b><i class="uico_link"></i></p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh8_s1_2_03.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">마치 꿈만 같았던 순간 Take On Me</p>
+																<p class="text_banner2">머리부터 발끝까지 편안한 데일리룩을 만나보세요</p>
+																<p class="text_detail"><b>더보기</b><i class="uico_link"></i></p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-pagination">
+											<ol>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">1</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">2</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">3</b></button></li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh8_s1_2.ts"></script>
+						</div>
+						<!--// b_c=w6Xh8_s1_2 -->
+
+						<!-- b_c=w6Xh8_s1_3 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh8_s1_3</b></h4>
+							<div class="m...item-match">
+								<p><span>b_c=w12Xh7_s3_1</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 24자</p>
+								<p>문구2: 최대 29자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 752px * H 752px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh8_s1_3">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4, '_isAutoHeight': true }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh8_s1_3_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">마인드브릿지 T-SHIRTS</p>
+																<p class="text_banner2">봄 옷장 아이템</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh8_s1_3_02.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">호보백 뉴 스타일 모아보기</p>
+																<p class="text_banner2">BAG NEW STYLE</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh8_s1_3_03.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">호보백 뉴 스타일 모아보기</p>
+																<p class="text_banner2">르니나 컬렉션과 함께 한 가을의 순간</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-pagination">
+											<ol>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">1</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">2</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">3</b></button></li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh8_s1_3.ts"></script>
+						</div>
+						<!--// b_c=w6Xh8_s1_3 -->
+
+						<!-- b_c=w6Xh8_s1_pager -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh8_s1_pager</b></h4>
+							<div class="m...item-match">
+								<p><span>b_c=w0Xh7_s1_pager / b_c=w0Xh7_s1_pager_1</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>어드민</b></h6>
+								<p>문구 색상 변경 가능</p>
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 26자</p>
+								<p>문구2: 최대 13자</p>
+								<p>문구3: 최대 20자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 752px * H 908px</p>
+								<h6><b>추가기능</b></h6>
+								<p>배너 전체보기 팝업</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh8_s1_pager">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4 }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh8_s1_pager_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">Brand M.MONSTAR</p>
+																<p class="text_banner2">주목해야 할 뷰티 브랜드</p>
+																<p class="text_banner3">단독 25% 할인쿠폰</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<!-- (D) 등록 문구 색상이 검은색이면 figcaption 요소에 'T=text-black' 클래스를 추가합니다. -->
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh8_s1_pager_02.jpg' }"></i>
+															<figcaption class="T=text-black">
+																<p class="text_banner1">Brand M.MONSTAR</p>
+																<p class="text_banner2">빛날 수 있는 디자인</p>
+																<p class="text_banner3">10% 할인쿠폰 + 무료배송</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-count">
+											<a href="b_c=w6Xh8_s1_pager_popup.html">
+												<strong class="text_carousel-index"></strong><i>/</i><span class="text_carousel-total"></span><i class="uico_plus"></i><b>전체보기</b>
+											</a>
+										</div>
+									</div>
+
+									<!-- 전체보기 팝업 -->
+									<!-- (D) mui_carousel-count 부분 클릭 시 솔루션 팝업 구조에 b_c=w6Xh8_s1_pager_popup.html 내부 구조를 넣어줍니다. -->
+									<!--// 전체보기 팝업 -->
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh8_s1_pager.ts"></script>
+						</div>
+						<!--// b_c=w6Xh8_s1_pager -->
+
+						<!-- b_c=w6Xh8_s1_pager_1 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh8_s1_pager_1</b></h4>
+							<div class="m...item-match">
+								<p><span>b_c=w12Xh9_s1</span></p>
+								<div class="m...match-split">
+									<p><span>b_c=w4Xh8_s1 / b_c=w4Xh9_s1 / b_c=w4Xh10_s1 / b_c=w4Xh11_s1 / b_c=w6Xh8_s1 / b_c=w6Xh9_s1 / b_c=w6Xh10_s1 / b_c=w6Xh12_s1 / b_c=w8Xh7_s1 / b_c=w8Xh8_s1 / b_c=w8Xh9_s1 / b_c=w8Xh10_s1 / b_c=w8Xh11_s1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 696px * H 908px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh8_s1_pager_1">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4 }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh8_s1_pager_1_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_alt">이미지 대체텍스트</p>
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh8_s1_pager_1_02.jpg' }"></i>
+															<figcaption>
+																<p class="text_alt">이미지 대체텍스트</p>
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-count">
+											<strong class="text_carousel-index"></strong><span class="text_carousel-total"></span>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh8_s1_pager_1.ts"></script>
+						</div>
+						<!--// b_c=w6Xh8_s1_pager_1 -->
+
+						<!-- b_c=w6Xh8_s1_side -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh8_s1_side</b></h4>
+							<div class="m...item-match">
+								<p><span>b_c=w12Xh9_s1_1</span></p>
+								<div class="m...match-split">
+									<p><span>b_c=w4Xh8_s1_1 / b_c=w4Xh9_s1_1 / b_c=w4Xh10_s1_1 / b_c=w4Xh11_s1_1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 696px * H 908px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh8_s1_side">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4, '_isMoreSide': true, '_effect': 'cover' }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh8_s1_side_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_alt">이미지 대체텍스트</p>
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh8_s1_side_02.jpg' }"></i>
+															<figcaption>
+																<p class="text_alt">이미지 대체텍스트</p>
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-control">
+											<button type="button" class="btn_carousel-prev"><i class="uico_control-prev"></i><b class="mui_ir-blind">이전으로</b></button>
+											<button type="button" class="btn_carousel-next"><i class="uico_control-next"></i><b class="mui_ir-blind">다음으로</b></button>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh8_s1_side.ts"></script>
+						</div>
+						<!--// b_c=w6Xh8_s1_side -->
+					</section>
+					<!--// w6Xh8_s1 -->
+				</article>
+				<!--// w6Xh8 -->
+
+				<!-- w6Xh9 -->
+				<article id="w6Xh9">
+					<h2><b>w6Xh9</b></h2>
+
+					<!-- w6Xh9_s1 -->
+					<section class="m_template-component-item">
+						<h3><b>w6Xh9_s1</b></h3>
+
+						<!-- b_c=w6Xh9_s1 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh9_s1</b></h4>
+							<div class="m...item-match">
+								<p><span>b_n=w12Xh8_s3</span></p>
+								<p><span>b_c=w12Xh8_s3</span></p>
+								<div class="m...match-split">
+									<p><span>b_n=w6Xh8_s1_1 / b_n=w6Xh9_s1_1 / b_n=w6Xh10_s1_1 / b_n=w6Xh12_s4</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>배너 노출날짜</p>
+								<p>문구1: 최대 27자</p>
+								<p>문구2: 최대 61자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 696px * H 696px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh9_s1">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4, '_isAutoHeight': true }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh9_s1_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">보이는 편안함 그대로의 디자인, 크로세 니트부터 버킷햇까지</p>
+																<p class="text_banner2">내추럴하면서도 그 시대의 핫한 감성을 제안하는 아티스틱 디자이너 브랜드, 그동안 보고싶었던 사람들과의 즐거운 만남을 위하여!</p>
+																<p class="text_date">2021.07.01 ~ 2021.08.02</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh9_s1_02.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">바라만 봐도 매일이 행복해지는 라이프 스타일</p>
+																<p class="text_banner2">서로 다른 시선으로 바라본 다양한 오브젝트의 이야기. TIMELESS & TIME SAVING 제품들을 만나보세요</p>
+																<p class="text_date">2021.07.01 ~ 2021.08.02</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-pagination">
+											<ol>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">1</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">2</b></button></li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh9_s1.ts"></script>
+						</div>
+						<!--// b_c=w6Xh9_s1 -->
+
+						<!-- b_c=w6Xh9_s1_1 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh9_s1_1</b></h4>
+							<div class="m...item-match">
+								<p><span>b_c=w12Xh9_s6</span></p>
+								<div class="m...match-split">
+									<p><span>b_n=w4Xh8_s1 / b_n=w4Xh9_s1 / b_n=w4Xh9_s3 / b_n=w4Xh10_s1 / b_n=w4Xh10_s2 / b_n=w4Xh12_s2 / b_n=w6Xh9_s3 / b_n=w6Xh12_s4_1</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>배너 노출날짜</p>
+								<p>문구1: 최대 22자</p>
+								<p>문구2: 최대 28자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 696px * H 696px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh9_s1_1">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4, '_isAutoHeight': true }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh9_s1_1_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">보이는 편안함 그대로의 디자인, 크로세 니트부터 버킷햇까지</p>
+																<p class="text_banner2">내추럴하면서도 그 시대의 핫한 감성을 제안하는 아티스틱 디자이너 브랜드, 그동안 보고싶었던 사람들과의 즐거운 만남을 위하여!</p>
+																<p class="text_date">2021.07.01 ~ 2021.08.02</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh9_s1_1_02.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">바라만 봐도 매일이 행복해지는 라이프 스타일</p>
+																<p class="text_banner2">서로 다른 시선으로 바라본 다양한 오브젝트의 이야기. TIMELESS & TIME SAVING 제품들을 만나보세요</p>
+																<p class="text_date">2021.07.01 ~ 2021.08.02</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-pagination">
+											<ol>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">1</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">2</b></button></li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh9_s1_1.ts"></script>
+						</div>
+						<!--// b_c=w6Xh9_s1_1 -->
+
+						<!-- b_c=w6Xh9_s1_side -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh9_s1_side</b></h4>
+							<div class="m...item-match">
+								<p><span>b_n=w12Xh6_s5</span></p>
+								<p><span>b_c=w12Xh6_s5</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>어드민</b></h6>
+								<p>배너 등록날짜</p>
+								<p>문구1: 최대 19자</p>
+								<p>문구2: 최대 20자</p>
+								<p>문구3: 최대 29자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 472px * H 472px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh9_s1_side">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4, '_isAutoHeight': true, '_isMoreSide': true }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh9_s1_side_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">메뉴1</p>
+																<p class="text_date">29 APR 2022</p>
+																<p class="text_banner2">Brand Story</p>
+																<p class="text_banner3">엠몬스타(M.MONSTAR) 브랜드명이 2줄일 경우</p>
+																<p class="text_detail">VIEW MORE<i class="uico_link"></i></p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh9_s1_side_02.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">메뉴2</p>
+																<p class="text_date">29 APR 2022</p>
+																<p class="text_banner2">Have A Good Brand</p>
+																<p class="text_banner3">엠몬스타</p>
+																<p class="text_detail">VIEW MORE<i class="uico_link"></i></p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh9_s1_side_03.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">메뉴3</p>
+																<p class="text_date">29 APR 2022</p>
+																<p class="text_banner2">Have A Good Brand</p>
+																<p class="text_banner3">엠몬스타</p>
+																<p class="text_detail">VIEW MORE<i class="uico_link"></i></p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-pagination">
+											<ol>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">1</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">2</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">3</b></button></li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh9_s1_side.ts"></script>
+						</div>
+						<!--// b_c=w6Xh9_s1_side -->
+
+						<!-- b_c=w6Xh9_s1_pager -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh9_s1_pager</b></h4>
+							<div class="m...item-match">
+								<p><span>b_c=w0Xh9_s2_sidePager</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>어드민</b></h6>
+								<p>문구 색상 변경 가능</p>
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 16자</p>
+								<p>문구2: 최대 16자</p>
+								<p>문구3: 최대 23자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 752px * H 960px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh9_s1_pager">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4 }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<!-- (D) 등록 문구 색상이 검은색이면 figcaption 요소에 'T=text-black' 클래스를 추가합니다. -->
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh9_s1_pager_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">우리의 일상을</p>
+																<p class="text_banner2">더욱 채워줄 ITEM</p>
+																<p class="text_banner3">데일리 아이템을 한자리 ~80%</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<!-- (D) 등록 문구 색상이 검은색이면 figcaption 요소에 'T=text-black' 클래스를 추가합니다. -->
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh9_s1_pager_02.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">다양한 공간에서 만나는</p>
+																	<p class="text_banner2">다양한 사람들</p>
+																	<p class="text_banner3">더비라인 출시기념 할인전</p>
+																	<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																	<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-count">
+											<a href="b_c=w6Xh9_s1_pager_popup.html" class="btn_more"><strong class="text_carousel-index"></strong><i>/</i><span class="text_carousel-total"></span><i class="uico_plus"></i><b>전체보기</b></a>
+										</div>
+
+										<!-- 전체보기 팝업 -->
+										<!-- (D) mui_carousel-count 부분 클릭 시 솔루션 팝업 구조에 b_c=w6Xh9_s1_pager_popup.html 내부 구조를 넣어줍니다. -->
+										<!--// 전체보기 팝업 -->
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh9_s1_pager.ts"></script>
+						</div>
+						<!--// b_c=w6Xh9_s1_pager -->
+					</section>
+					<!--// w6Xh9_s1 -->
+				</article>
+				<!--// w6Xh9 -->
+
+				<!-- w6Xh10 -->
+				<article id="w6Xh10">
+					<h2><b>w6Xh10</b></h2>
+
+					<!-- w6Xh10_s1 -->
+					<section class="m_template-component-item">
+						<h3><b>w6Xh10_s1</b></h3>
+
+						<!-- b_c=w6Xh10_s1_pager -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh10_s1_pager</b></h4>
+							<div class="m...item-match">
+								<p><span>b_c=w0Xh8_s1_pager / b_c=w0Xh8_s1_pager_1</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>어드민</b></h6>
+								<p>문구 색상 변경 가능</p>
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 13자</p>
+								<p>문구2: 최대 13자</p>
+								<p>문구3: 최대 22자</p>
+								<p>문구4: 최대 22자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 752px * H 1148px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh10_s1_pager">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4 }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh10_s1_pager_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">지금 주목해야 할</p>
+																<p class="text_banner2">라이징 뷰티 브랜드</p>
+																<p class="text_banner3">본사단독 25% 할인쿠폰</p>
+																<p class="text_banner4">Brand M.MONSTAR</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<!-- (D) 등록 문구 색상이 검은색이면 figcaption 요소에 'T=text-black' 클래스를 추가합니다. -->
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh10_s1_pager_02.jpg' }"></i>
+															<figcaption class="T=text-black">
+																<p class="text_banner1">지금 '나다움'으로</p>
+																<p class="text_banner2">빛날 수 있는 디자인</p>
+																<p class="text_banner3">10% 할인쿠폰 + 무료배송</p>
+																<p class="text_banner4">Brand M.MONSTAR</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-count">
+											<strong class="text_carousel-index"></strong><i>/</i><span class="text_carousel-total"></span>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh10_s1_pager.ts"></script>
+						</div>
+						<!--// b_c=w6Xh10_s1_pager -->
+
+						<!-- b_c=w6Xh10_s1_pager_1 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh10_s1_pager_1</b></h4>
+							<div class="m...item-match">
+								<p><span>b_c=w0Xh8_s1 / b_c=w0Xh8_s1_1</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>어드민</b></h6>
+								<p>문구 색상 변경 가능</p>
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 13자</p>
+								<p>문구2: 최대 13자</p>
+								<p>문구3: 최대 22자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 752px * H 1148px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh10_s1_pager_1">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4 }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh10_s1_pager_1_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">라이징 뷰티 브랜드</p>
+																<p class="text_banner2">단독 25% 할인쿠폰</p>
+																<p class="text_banner3">Brand M.MONSTAR</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<!-- (D) 등록 문구 색상이 검은색이면 figcaption 요소에 'T=text-black' 클래스를 추가합니다. -->
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh10_s1_pager_1_02.jpg' }"></i>
+															<figcaption class="T=text-black">
+																<p class="text_banner1">빛날 수 있는 디자인</p>
+																<p class="text_banner2">10% 할인쿠폰 + 무료배송</p>
+																<p class="text_banner3">Brand M.MONSTAR</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-count">
+											<strong class="text_carousel-index"></strong><i>/</i><span class="text_carousel-total"></span>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh10_s1_pager_1.ts"></script>
+						</div>
+						<!--// b_c=w6Xh10_s1_pager_1 -->
+
+						<!-- b_c=w6Xh10_s1_pager_2 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh10_s1_pager_2</b></h4>
+							<div class="m...item-match">
+								<p><span>b_c=w0Xh7_s1_pager / b_c=w0Xh7_s1_pager_1</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>어드민</b></h6>
+								<p>문구 색상 변경 가능</p>
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 26자</p>
+								<p>문구2: 최대 13자</p>
+								<p>문구3: 최대 20자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 752px * H 1150px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh10_s1_pager_2">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4 }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh10_s1_pager_2_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">STÜSSY & DRIES VAN NOTEN</p>
+																<p class="text_banner2">Limited Item</p>
+																<p class="text_banner3">HAND-STENCILLED DENIM</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<!-- (D) 등록 문구 색상이 검은색이면 figcaption 요소에 'T=text-black' 클래스를 추가합니다. -->
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh10_s1_pager_2_02.jpg' }"></i>
+															<figcaption class="T=text-black">
+																<p class="text_banner1">RISING Brand M.MONSTAR</p>
+																<p class="text_banner2">로라로라Xsaki</p>
+																<p class="text_banner3">오픈기념 10% OFF</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-count">
+											<a href="b_c=w6Xh10_s1_pager_2_popup.html">
+												<strong class="text_carousel-index"></strong><i>/</i><span class="text_carousel-total"></span><i class="uico_plus"></i>
+											</a>
+										</div>
+									</div>
+
+									<!-- 전체보기 팝업 -->
+									<!-- (D) mui_carousel-count 부분 클릭 시 솔루션 팝업 구조에 b_c=w6Xh10_s1_pager_2_popup.html 내부 구조를 넣어줍니다. -->
+									<!--// 전체보기 팝업 -->
+								</div>
+							</script>
+							<script type="module" src="../script/b_c/b_c=w6Xh10_s1_pager_2.ts"></script>
+						</div>
+						<!--// b_c=w6Xh10_s1_pager_2 -->
+					</section>
+					<!--// w6Xh10_s1 -->
+				</article>
+				<!--// w6Xh10 -->
+
+				<!-- w6Xh11 -->
+				<article id="w6Xh11">
+					<h2><b>w6Xh11</b></h2>
+
+					<!-- w6Xh11_s1 -->
+					<section class="m_template-component-item">
+						<h3><b>w6Xh11_s1</b></h3>
+
+						<!-- b_c=w6Xh11_s1 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh11_s1</b></h4>
+							<div class="m...item-match">
+								<p><span>b_n=w12Xh7_s4</span></p>
+								<p><span>b_c=w12Xh7_s4</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>배너 등록날짜</p>
+								<p>문구1: 최대 24자</p>
+								<p>문구2: 최대 57자</p>
+								<p>문구3: 최대 25자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 696px * H 908px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh11_s1">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4, '_isAutoHeight': true }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh11_s1_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">보이는 편안함 그대로의 디자인, 크로세 니트부터 버킷햇까지</p>
+																<p class="text_banner2">내추럴하면서도 그 시대의 핫한 감성을 제안하는 아티스틱 디자이너 브랜드</p>
+																<p class="text_banner3">메뉴1</p>
+																<p class="text_date">2021.06</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh11_s1_02.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">바라만 봐도 매일이 행복해지는 라이프 스타일</p>
+																<p class="text_banner2">서로 다른 시선으로 바라본 다양한 오브젝트의 이야기. TIMELESS & TIME SAVING 제품들을 만나보세요</p>
+																<p class="text_banner3">메뉴2</p>
+																<p class="text_date">2021.06</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-pagination">
+											<ol>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">1</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">2</b></button></li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh11_s1.ts"></script>
+						</div>
+						<!--// b_c=w6Xh11_s1 -->
+
+						<!-- b_c=w6Xh11_s1_side -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh11_s1_side</b></h4>
+							<div class="m...item-match">
+								<p><span>b_n=w12Xh10_s3 / b_n=w12Xh20_s6</span></p>
+								<p><span>b_c=w12Xh10_s3</span></p>
+								<div class="m...match-split">
+									<p><span>b_n=w4Xh7_s1 / b_n=w4Xh8_s1_3 / b_n=w4Xh9_s1_3 / b_n=w4Xh10_s1_3 / b_n=w8Xh11_s2</span></p>
+								</div>
+							</div>
+							<div class="m...item-note">
+								<h6><b>어드민</b></h6>
+								<p>배너 등록날짜</p>
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 37자</p>
+								<p>문구2: 최대 78자</p>
+								<p>문구3: 최대 25자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 680px * H 908px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh11_s1_side">
+									<div class="mui_carousel" data-carousel="{ '_isMoreSide': true, '_autoDelay': 4 }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh11_s1_side_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">보이는 편안함 그대로의 디자인, 크로세 니트부터 버킷햇까지</p>
+																<p class="text_banner2">내추럴하면서도 그 시대의 핫한 감성을 제안하는 아티스틱 디자이너 브랜드</p>
+																<p class="text_banner3">메뉴1</p>
+																<p class="text_date">2021.06</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh11_s1_side_02.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">바라만 봐도 매일이 행복해지는 라이프 스타일</p>
+																<p class="text_banner2">서로 다른 시선으로 바라본 다양한 오브젝트의 이야기. TIMELESS & TIME SAVING 제품들을 만나보세요</p>
+																<p class="text_banner3">메뉴2</p>
+																<p class="text_date">2021.06</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh11_s1_side.ts"></script>
+						</div>
+						<!--// b_c=w6Xh11_s1_side -->
+
+						<!-- b_c=w6Xh11_s1_side_1 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh11_s1_side_1</b></h4>
+							<div class="m...item-match">
+								<p><span>b_n=w12Xh9_s3 / b_n=w12Xh18_s6</span></p>
+								<p><span>b_c=w12Xh9_s3</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 27자</p>
+								<p>문구2: 최대 61자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 680px * H 908px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh11_s1_side_1">
+									<div class="mui_carousel" data-carousel="{ '_isMoreSide': true, '_autoDelay': 4 }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh11_s1_side_1_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">보이는 편안함 그대로의 디자인, 크로세 니트부터 버킷햇까지</p>
+																<p class="text_banner2">내추럴하면서도 그 시대의 핫한 감성을 제안하는 아티스틱 디자이너 브랜드</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh11_s1_side_1_02.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">바라만 봐도 매일이 행복해지는 라이프 스타일</p>
+																<p class="text_banner2">서로 다른 시선으로 바라본 다양한 오브젝트의 이야기. TIMELESS & TIME SAVING 제품들을 만나보세요</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh11_s1_side_1.ts"></script>
+						</div>
+						<!--// b_c=w6Xh11_s1_side_1 -->
+					</section>
+					<!--// w6Xh11_s1 -->
+				</article>
+				<!--// w6Xh11 -->
+
+				<!-- w6Xh12 -->
+				<article id="w6Xh12">
+					<h2><b>w6Xh12</b></h2>
+
+					<!-- w6Xh12_s1 -->
+					<section class="m_template-component-item">
+						<h3><b>w6Xh12_s1</b></h3>
+
+						<!-- b_c=w6Xh12_s1 -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh12_s1</b></h4>
+							<div class="m...item-match">
+								<p><span>b_c=w12Xh8_s1</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 19자</p>
+								<p>문구2: 최대 98자</p>
+								<p>문구3: 최대 98자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 696px * H 908px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh12_s1">
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4, '_isAutoHeight': true }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh12_s1_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">과하지 않은 심플함</p>
+																<p class="text_banner2">ACTIVE, CREATIVE, UTLIZING, DRAMATIC 심플하고 매끄러운 현대 의류를 통해 실제생활과 함께 할 수 있도록 설계한 디자이너 브랜드이다.</p>
+																<p class="text_banner3">절제되면서도 편안한 실루엣이 밋밋해보이지 않도록, 섬세한 디테일을 가미한 이번 컬렉션은 아쿠드만의 특별함을 선사한다는 점에서 매력적이다.</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh12_s1_02.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">과하지 않은 심플함</p>
+																<p class="text_banner2">ACTIVE, CREATIVE, UTLIZING, DRAMATIC 심플하고 매끄러운 현대 의류를 통해 실제생활과 함께 할 수 있도록 설계한 디자이너 브랜드이다.</p>
+																<p class="text_banner3">절제되면서도 편안한 실루엣이 밋밋해보이지 않도록, 섬세한 디테일을 가미한 이번 컬렉션은 아쿠드만의 특별함을 선사한다는 점에서 매력적이다.</p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-pagination">
+											<ol>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">1</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">2</b></button></li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh12_s1.ts"></script>
+						</div>
+						<!--// b_c=w6Xh12_s1 -->
+					</section>
+					<!--// w6Xh12_s1 -->
+				</article>
+				<!--// w6Xh12 -->
+
+				<!-- w6Xh13 -->
+				<article id="w6Xh13">
+					<h2><b>w6Xh13</b></h2>
+
+					<!-- w6Xh13_s1 -->
+					<section class="m_template-component-item">
+						<h3><b>w6Xh13_s1</b></h3>
+
+						<!-- b_c=w6Xh13_s1_side -->
+						<div class="m...item-inner">
+							<h4><b>b_c=w6Xh13_s1_side</b></h4>
+							<div class="m...item-match">
+								<p><span>b_n=w0Xh11_s5</span></p>
+							</div>
+							<div class="m...item-note">
+								<h6><b>홈페이지</b></h6>
+								<p>'디자인 타이틀 사용' 체크박스</p>
+								<h6><b>어드민</b></h6>
+								<p>메인/서브 타이틀 기본 노출</p>
+								<p>배너 등록날짜</p>
+								<h6><b>글자 수 제한(띄어쓰기 포함)</b></h6>
+								<p>문구1: 최대 19자</p>
+								<p>문구2: 최대 20자</p>
+								<p>문구3: 최대 29자</p>
+								<h6><b>배너 이미지 사이즈</b></h6>
+								<p>W 472px * H 472px</p>
+							</div>
+							<script type="text/codehtml">
+								<div data-mui="b_c=w6Xh13_s1_side">
+									<!-- 타이틀 -->
+									<!-- (D) '디자인 타이틀 사용' 선택 시 mui_title에 'T=design' 클래스를 추가합니다. -->
+									<div class="mui_title T=design">
+										<h3 class="title_main"><b>THE JOURNAL</b></h3>
+										<h4 class="title_sub"><b>엠몬스타가 전달하는 우리의 일상, 라이프스타일을 담는 매거진 형 컨텐츠입니다</b></h4>
+									</div>
+									<!--// 타이틀 -->
+
+									<div class="mui_carousel" data-carousel="{ '_autoDelay': 4, '_isAutoHeight': true, '_isMoreSide': true }">
+										<div class="mui_carousel-inner">
+											<ul class="mui_carousel-list">
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh13_s1_side_01.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">메뉴1</p>
+																<p class="text_date">29 APR 2022</p>
+																<p class="text_banner2">Brand Story</p>
+																<p class="text_banner3">엠몬스타(M.MONSTAR) 브랜드명이 2줄일 경우</p>
+																<p class="text_detail">VIEW MORE<i class="uico_link"></i></p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh13_s1_side_02.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">메뉴2</p>
+																<p class="text_date">29 APR 2022</p>
+																<p class="text_banner2">Have A Good Brand</p>
+																<p class="text_banner3">엠몬스타</p>
+																<p class="text_detail">VIEW MORE<i class="uico_link"></i></p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+												<li class="mui_carousel-item">
+													<a href="#">
+														<figure>
+															<i class="mui_bg-cover image_banner" data-lazyload="{ '_src': '../image/block/_sample/b_c=w6Xh13_s1_side_03.jpg' }"></i>
+															<figcaption>
+																<p class="text_banner1">메뉴3</p>
+																<p class="text_date">29 APR 2022</p>
+																<p class="text_banner2">Have A Good Brand</p>
+																<p class="text_banner3">엠몬스타</p>
+																<p class="text_detail">VIEW MORE<i class="uico_link"></i></p>
+																<!-- (D) 등록된 text_banner가 없을 때 노출합니다. -->
+																<!-- <p class="text_alt">이미지 대체텍스트</p> -->
+															</figcaption>
+														</figure>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="mui_carousel-pagination">
+											<ol>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">1</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">2</b></button></li>
+												<li><button type="button" class="btn_carousel-page"><b class="mui_ir-blind">3</b></button></li>
+											</ol>
+										</div>
+									</div>
+								</div>
+							</script>
+							<!-- (D) html에서 ts를 사용할 수 없어 module로 적용 => 같은 블록이 여러개 있어도 중복되지 않도록 각각의 고유 아이디로 실행 필요 -->
+							<script type="module" src="../script/b_c/b_c=w6Xh13_s1_side.ts"></script>
+						</div>
+						<!--// b_c=w6Xh13_s1_side -->
+					</section>
+					<!--// w6Xh13_s1 -->
+				</article>
+				<!--// w6Xh13 -->
+			</div>
+			<!--// 템플릿 요소 -->
+		</div>
+
+		<!-- 공통 페이지 스크립트 -->
+		<script type="module" src="../script/template.ts"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+		<script>
+			// markup 색상 적용(highlight js)
+			window.onload = hljs.initHighlighting;
+		</script>
+	</div>
+</body>
+
+</html>

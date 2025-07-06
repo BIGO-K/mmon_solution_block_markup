@@ -1,0 +1,32 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../common/helper/function' as *;
+@use '../../common/helper/mixin';
+@use '../../common/setting/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="p_n=w8Xh6_s4"] {
+	width: const.$grid_pc_column * 8 + const.$grid_pc_column_gutter * (8 - 1);
+
+	> .mui_container {
+		height: const.$grid_pc_row * 6 + const.$grid_pc_row_gutter * (6 - 1);
+	}
+
+	.mui_product-list {
+		> ul {
+			display: grid;
+			grid-template-columns: repeat(4, 209px);
+			column-gap: 20px;
+
+			&::after {
+				content: none;
+			}
+		}
+	}
+}

@@ -1,0 +1,125 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../helper/function';
+@use '../../helper/mixin';
+@use '../../helper/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="b_n=w6Xh22_s8_more"] {
+	ul {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-gap: 25px 12px;
+		padding: 0 14px;
+
+		li:nth-child(n+9) {
+			display: none;
+		}
+
+		&::after {
+			content: none;
+		}
+	}
+
+	// 리스트 펼침
+	&#{function.escape('.S=switch-on')} {
+		> ul {
+			> li:nth-child(n+9) {
+				display: block;
+			}
+		}
+
+		.uico_more {
+			@include mixin.transform(scale(-1));
+		}
+	}
+
+	a {
+		display: block;
+		position: relative;
+	}
+
+	figure {
+		.image_banner {
+			padding-top: 100%;
+			width: 100%;
+		}
+
+		figcaption {
+			padding: 0 10px 0 2px;
+			@include mixin.font('1.4rem/2rem');
+
+			> *:first-child {
+				margin-top: 13px;
+			}
+
+			.text_banner1 {
+				+ .text_banner2 {
+					margin-top: 6px;
+				}
+			}
+
+			.text_banner2 {
+				@include mixin.font(#4a4a4a '1.3rem/1.9rem');
+			}
+
+			.text_alt {
+				@include mixin.text_ellipsis(2);
+				@include mixin.font(#a3a3a3 '1.4rem/2rem');
+
+				@include mixin.context-after(':not(.mui_image-none)', 'figure') {
+					display: none;
+				}
+			}
+		}
+	}
+
+	// 하단 더보기
+	.btn_more {
+		display: block;
+		margin: 39px 14px 0;
+		width: calc(100% - (14px * 2));// 100% - 좌우여백
+		height: 42px;
+		border: 1px solid #2b2b2b;
+		border-radius: 21px;
+		@include mixin.font(#2b2b2b '1.5rem/4.2rem');
+
+		&::before {
+			content: attr(title);
+		}
+
+		.uico_more {
+			margin: 17px 0 0 10px;
+
+			&::before {
+				width: 11px;
+				height: 6px;
+				@include mixin.svg(#2b2b2b url('../../image/block/common/ico_arrow_down.svg'));
+			}
+		}
+	}
+
+	// 이미지 에러
+	.mui_image-none {
+		.uico_none {
+			position: relative;
+			background-color: #f5f5f5;
+
+			&::before {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 50%;
+				height: 50%;
+				@include mixin.transform(translate(-50%, -50%));
+				@include mixin.svg(#d3d3d3 url('../../image/common/logo.svg'));
+			}
+		}
+	}
+}

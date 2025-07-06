@@ -1,0 +1,42 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../helper/function';
+@use '../../helper/mixin';
+@use '../../helper/var';
+
+/**
+ * 블록 옵션
+ * 컨트롤러, 페이지네이션, 타이틀
+**/
+
+
+//< 타이틀
+.mui_title {
+	padding: 0 16px;
+	text-align: left;
+
+	// 메인타이틀
+	.title_main {
+		margin-bottom: 20px;
+		@include mixin.font(var.$color_text_base '2rem/2.4rem');
+
+		+ .title_sub {
+			margin: -7px 0 19px;
+		}
+	}
+
+	.title_sub {
+		margin-bottom: 15px;
+		@include mixin.font(var.$color_text_base '1.7rem/2.1rem');
+	}
+
+	// 정렬
+	$align: 'center', 'right';
+	@each $text in $align {
+		&#{function.escape('.T=#{$text}')} {
+			text-align: #{$text};
+		}
+	}
+}
+//> 타이틀

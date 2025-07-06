@@ -1,0 +1,165 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../common/helper/function' as *;
+@use '../../common/helper/mixin';
+@use '../../common/setting/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="maga_b_n=w12Xh8_s3_link"] {
+	position: relative;
+	width: const.$grid_pc_column * 12 + const.$grid_pc_column_gutter * (12 - 1);
+
+	// 디자인 타이틀
+	.mui_title#{escape('.T=design')} {
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding: 53px 74px 0 0;
+		@include mixin.transform(rotate(-90deg) translate(-100%), 0 0);
+
+		&::after {
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 2px;
+			height: 142px;
+			background-color: #101010;
+			content: '';
+		}
+
+		.title_main {
+			margin: 0;
+			@include mixin.font(v_700 '5rem');
+		}
+
+		.title_sub {
+			margin-top: 15px;
+			@include mixin.font('2rem' right);
+		}
+	}
+
+	.mui_inner {
+		position: relative;
+
+		// 전체보기
+		.btn_link {
+			position: absolute;
+			top: -47px;
+			right: 2px;
+			@include mixin.font(#767676 '1.5rem');
+
+			&::before {
+				position: absolute;
+				top: -20px;
+				right: -20px;
+				bottom: -20px;
+				left: -20px;
+				content: '';
+			}
+
+			.uico_link {
+				margin: 2px 0 0 9px;
+
+				&::before {
+					width: 6px;
+					height: 9px;
+					@include mixin.svg(#767676 url('../image/block/common/ico_arrow_thick_round_right.svg'));
+				}
+			}
+		}
+	}
+
+	ul {
+		display: grid;
+		grid-template-columns: repeat(3, 370px);
+		column-gap: 31px;
+		padding-left: 188px;
+
+		&::after {
+			content: none;
+		}
+	}
+
+	a {
+		display: block;
+		position: relative;
+	}
+
+	figure {
+		.image_banner {
+			padding-top: 470px;
+			width: 100%;
+		}
+
+		figcaption {
+			position: relative;
+			padding: 25px 20px 27px 7px;
+			border-bottom: 1px solid #101010;
+
+			.text_banner1 {
+				overflow: hidden;
+				height: 56px;
+				@include mixin.font('2rem/2.8rem');
+
+				+ .text_detail {
+					margin-top: 12px;
+				}
+			}
+
+			.text_detail {
+				margin: 12px 0 0 1px;
+				@include mixin.font(#6a6a6a '1.3rem/1.5rem');
+
+				.uico_link {
+					margin: 2px 0 0 7px;
+
+					&::before{
+						width: 5px;
+						height: 11px;
+						@include mixin.svg(#6a6a6a url('../image/block/common/ico_arrow_right.svg'));
+					}
+				}
+
+				// 배너 문구 없을 때
+				&:first-child {
+					margin-top: 56px + 12px;// 배너문구 height + text_detail 기본 margin-top 값
+				}
+			}
+
+			.text_alt {
+				@include mixin.text_ellipsis(2);
+				position: absolute;
+				top: 30px;
+				@include mixin.font(#a3a3a3 '1.4rem/2rem');
+
+				@include mixin.context-after(':not(.mui_image-none)', 'figure') {
+					display: none;
+				}
+			}
+		}
+	}
+
+	// 이미지 에러
+	.mui_image-none {
+		.uico_none {
+			position: relative;
+			background-color: #f5f5f5;
+
+			&::before {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 50%;
+				height: 50%;
+				@include mixin.transform(translate(-50%, -50%));
+				@include mixin.svg(#d3d3d3 url('../image/common/logo.svg'));
+			}
+		}
+	}
+}

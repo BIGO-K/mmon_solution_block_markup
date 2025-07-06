@@ -1,0 +1,114 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../helper/function';
+@use '../../helper/mixin';
+@use '../../helper/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="coop_p_n=w6Xh72_s10"] {
+	.mui_product-list {
+		padding: 0 14px;
+
+		> ul {
+			> li:nth-child(n+2) {
+				margin-top: 34px;
+			}
+		}
+	}
+
+	.mui_product-item {
+		figure {
+			.image_product {
+				overflow: hidden;
+				padding-top: 71.26436%;
+				border-radius: 10px;
+			}
+
+			.text_adult {
+				z-index: 0;
+				padding-top: 71.26436%;
+				border-radius: 10px;
+
+				.uico_adult {
+					width: 68px;
+					height: 68px;
+
+					&::before {
+						@include mixin.font('3.7rem/6rem');
+					}
+				}
+			}
+
+			> div {
+				overflow: hidden;
+				position: absolute;
+				top: 0;
+				right: 0;
+				left: 0;
+				margin-top: 71.26436%;
+				border-radius: 0 0 10px 10px;
+				font-size: 0;
+				@include mixin.transform(translateY(-100%));
+
+				> b {
+					display: block;
+					position: relative;
+					height: 28px;
+					background-color: rgba(#000, 0.2);
+
+					> i {
+						position: absolute;
+						top: 0;
+						bottom: 0;
+						left: 0;
+						background-color: #f84f34;
+					}
+				}
+
+				dl {
+					position: absolute;
+					top: 0;
+					left: 0;
+					padding: 0 14px;
+					@include mixin.font(#fff '1.3rem/3rem');
+
+					> * {
+						display: inline-block;
+						@include mixin.prefix(text-shadow, 0 0 10px rgba(#000, 0.16), webkit);
+					}
+
+					dd {
+						padding-left: 9px;
+						@include mixin.font(700 '1.4rem/2.8rem');
+					}
+				}
+			}
+
+			figcaption {
+				margin-top: 13px;
+				padding-right: 20px;
+
+				.text_sale {
+					right: 15px;
+				}
+
+				.mui_tag-list {
+					margin-top: 11px;
+
+					.mui_tag {
+						padding: 0 5px;
+						height: 21px;
+						border-color: #5c5c5c;
+						@include mixin.font(#5c5c5c '1.2rem/2.1rem');
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,54 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../helper/function';
+@use '../../helper/mixin';
+@use '../../helper/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="new_p_c=w6Xh12_s4"] {
+	.mui_carousel {
+		&-pagination {
+			bottom: -26px;
+			@include mixin.transform(translate(-50%, 100%));
+
+			li:nth-child(n+2) {
+				margin-left: 12px;
+			}
+
+			button {
+				width: 9px;
+				height: 9px;
+				border-radius: 100%;
+				background-color: rgba(#2b2b2b, 0.27);
+
+				&#{function.escape('.S=on')} {
+					background-color: #2b2b2b;
+				}
+			}
+		}
+	}
+
+	.mui_product-list {
+		padding: 0 14px;
+
+		> ul {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			grid-gap: 26px 12px;
+
+			> li {
+				min-width: 0;
+			}
+
+			&::after {
+				content: none;
+			}
+		}
+	}
+}

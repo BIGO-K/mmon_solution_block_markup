@@ -1,0 +1,287 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../common/helper/function' as *;
+@use '../../common/helper/mixin';
+@use '../../common/setting/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="rank_p_n=w12Xh9_s6_link"] {
+	position: relative;
+	margin: 0 auto;
+	width: const.$grid_pc_column * 12 + const.$grid_pc_column_gutter * (12 - 1);
+
+	.mui_title#{escape('.T=design')} {
+		position: absolute;
+		top: 29px;
+		left: 0;
+		width: 240px;
+
+		.title_main {
+			margin-bottom: 26px;
+		}
+
+		.title_sub {
+			@include mixin.font('2rem/2.8rem');
+		}
+	}
+
+	.btn_link {
+		position: absolute;
+		padding: 10px 28px 10px 3px;
+		top: 224px;
+		left: 0;
+		@include mixin.font(v_600 '1.5rem');
+
+		&::before {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			border-bottom: 1px solid #101010;
+			content: '';
+		}
+
+		&::after {
+			position: absolute;
+			right: 2px;
+			bottom: -3px;
+			width: 8px;
+			height: 8px;
+			border-right: 1px solid #101010;
+			@include mixin.transform(rotate(-45deg));
+			content: '';
+		}
+	}
+
+	.mui_product-list {
+		position: relative;
+		height: 636px;
+
+		li {
+			position: absolute;
+
+			.text_rank {
+				position: absolute;
+				z-index: 3;
+				top: 0;
+				left: 0;
+				width: 44px;
+				text-align: center;
+
+				> strong {
+					display: block;
+					padding: 6px 0 23px;
+					background-color: #2b2b2b;
+					@include mixin.font(#fff v_600 '2rem');
+
+					&::after {
+						position: absolute;
+						bottom: -11px;
+						left: 0;
+						width: 44px;
+						@include mixin.triangle(transparent, top, 22px, 11px);
+						border-right-color: #2b2b2b;
+						border-left-color: #2b2b2b;
+						content: '';
+					}
+
+					&:only-child {
+						padding-bottom: 6px;
+
+						&::after {
+							bottom: -7px;
+							border-bottom-width: 7px;
+						}
+					}
+
+					+ * {
+						position: absolute;
+						bottom: 6px;
+						left: 0;
+						width: 100%;
+					}
+				}
+
+				$ranks: (up, #ee6439), (down, #3e98ff), (new, #fff), (unchanged, #fff);
+				@each $rank, $color in $ranks {
+					@if $rank == up or $rank == down {
+						.text_rank-#{$rank} {
+							display: inline-block;
+							margin-top: 5px;
+							@include mixin.font($color '1.2rem', 0);
+
+							&::before {
+								margin: 3px 3px 0 0;
+								width: 7px;
+								height: 6px;
+								@include mixin.svg($color url('../image/block/common/ico_triangle.svg'));
+								content: '';
+
+								@if $rank == down {
+									@include mixin.transform(rotate(180deg));
+								}
+							}
+						}
+					}
+
+					.uico_rank-#{$rank} {
+						@if $rank == new {
+							margin-top: 7px;
+
+							&::before {
+								@include mixin.font($color '1rem', 0);
+								content: 'NEW';
+							}
+						}
+
+						@if $rank == unchanged {
+							margin-top: 6px;
+
+							&::before {
+								width: 6px;
+								height: 11px;
+								@include mixin.svg($color url('../image/block/common/ico_unchanged.svg'));
+								content: '';
+							}
+						}
+					}
+				}
+			}
+
+			&:first-child {
+				top: 0;
+				left: 550px;
+
+				.text_rank {
+					> strong {
+						background-color: #f84f33;
+
+						&::after {
+							border-right-color: #f84f33;
+							border-left-color: #f84f33;
+						}
+					}
+
+					[class*="text_rank"] {
+						color: #fff;
+
+						&::before {
+							background-color: #fff;
+						}
+					}
+				}
+
+				.mui_product-item {
+					width: 538px;
+
+					figcaption {
+						bottom: 40px;
+
+						.text_product {
+							font-size: 2.3rem;
+						}
+
+						.text_brand {
+							margin-top: 4px;
+						}
+					}
+
+					.text_detail {
+						width: 150px;
+						height: 46px;
+						@include mixin.font('1.5rem/4.4rem');
+					}
+				}
+			}
+
+			&:nth-child(2) {
+				top: 100px;
+				left: 274px;
+			}
+
+			&:nth-child(3) {
+				top: 324px;
+				left: 0;
+			}
+
+			&:nth-child(4) {
+				top: 374px;
+				left: 274px;
+			}
+
+			&:nth-child(5) {
+				top: 40px;
+				right: 0;
+			}
+
+			&:nth-child(6) {
+				top: 314px;
+				right: 0;
+			}
+		}
+	}
+
+	.mui_product-item {
+		width: 262px;
+
+		&:hover {
+			.image_product {
+				@include mixin.transform(scale(1));
+			}
+
+			.text_detail {
+				@include mixin.opacity(1);
+			}
+		}
+
+		figure {
+			.image_product {
+				padding-top: 100%;
+				@include mixin.transform(scale(1.07));
+				@include mixin.transition(transform 1s ease-in-out);
+			}
+
+			figcaption {
+				position: absolute;
+				right: 25px;
+				bottom: 30px;
+				left: 25px;
+				margin: 0;
+
+				> p {
+					display: block;
+					@include mixin.text-ellipsis(1);
+				}
+
+				.text_product {
+					height: auto;
+					@include mixin.font(#fff '1.6rem');
+				}
+
+				.text_brand {
+					margin-top: 2px;
+					@include mixin.font(#fff '1.3rem');
+				}
+			}
+		}
+
+		.text_detail {
+			@include mixin.opacity(0);
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 104px;
+			height: 32px;
+			border: 1px solid #fff;
+			@include mixin.font(#fff '1.3rem/3rem' center);
+			@include mixin.transform(translate(-50%, -50%));
+			@include mixin.transition(opacity, const.$time_base);
+		}
+	}
+}

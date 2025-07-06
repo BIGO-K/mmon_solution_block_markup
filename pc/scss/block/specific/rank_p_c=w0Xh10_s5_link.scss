@@ -1,0 +1,254 @@
+@charset 'utf-8';
+
+@use 'sass:math';
+@use '../../common/helper/function' as *;
+@use '../../common/helper/mixin';
+@use '../../common/setting/const';
+
+/**
+ * 블록
+ * 배너
+**/
+
+
+[data-mui="rank_p_c=w0Xh10_s5_link"] {
+	position: relative;
+	padding: 105px 0 80px;
+	background-color: #f5f5f5;
+
+	> .mui_inner {
+		position: relative;
+		margin: 0 auto;
+		width: const.$grid_pc_column * 12 + const.$grid_pc_column_gutter * (12 - 1);
+	}
+
+	.mui_carousel {
+		&-list {
+			margin: 0 -10px;
+		}
+
+		&-item {
+			padding: 0 10px;
+		}
+
+		&-control {
+			position: absolute;
+			top: -76px;
+			right: 0;
+			left: auto;
+			width: 166px;
+			height: 48px;
+			@include mixin.transform(none);
+
+			button {
+				position: absolute;
+				width: 48px;
+				height: 48px;
+				border: 1px solid #cdcdcd;
+				border-radius: 100%;
+				@include mixin.transform(none);
+
+				[class*="uico_control"] {
+					&::before {
+						width: 18px;
+						height: 13px;
+						@include mixin.svg(#4a4a4a url('../image/block/common/ico_arrow_tail_left.svg'));
+					}
+				}
+
+				&.btn_carousel-prev {
+					top: 0;
+					left: 0;
+				}
+
+				&.btn_carousel-next {
+					top: 0;
+					right: 0;
+
+					.uico_control-next::before {
+						@include mixin.transform(rotate(180deg));
+					}
+				}
+			}
+		}
+
+		&-count {
+			position: absolute;
+			top: -76px;
+			right: 48px;
+			width: 70px;
+			height: 48px;
+			@include mixin.font(#aeaeae v_400 '1.6rem/5rem' center);
+
+			.text_carousel-index {
+				@include mixin.font(const.$color_text_base v_600);
+			}
+		}
+	}
+
+	.mui_product-list {
+		> ol {
+			display: grid;
+			grid-template-columns: repeat(5, 256px);
+			column-gap: 20px;
+
+			&::after {
+				content: none;
+			}
+		}
+	}
+
+	.mui_product-item {
+		.text_rank {
+			overflow: hidden;
+			position: absolute;
+			z-index: 3;
+			top: 10px;
+			left: 0;
+			width: 54px;
+			border-radius: 100%;
+			text-align: center;
+
+			> strong {
+				display: block;
+				padding-top: 11px;
+				height: 54px;
+				background-color: #101010;
+				@include mixin.font(#fff '1.7rem' center);
+
+				&:only-child {
+					padding-top: 18px;
+				}
+
+				+ * {
+					position: absolute;
+					bottom: 11px;
+					left: 0;
+					width: 100%;
+				}
+			}
+
+			$ranks: up, down, new, unchanged;
+			@each $rank, $color in $ranks {
+				@if $rank == up or $rank == down {
+					.text_rank-#{$rank} {
+						display: inline-block;
+						@include mixin.font(#fff v_300 '1.2rem', 0);
+
+						.uico_rank-#{$rank} {
+							margin: 3px 3px 0 0;
+
+							&::before {
+								width: 7px;
+								height: 6px;
+								@include mixin.svg(#fff url('../image/block/common/ico_triangle.svg'));
+								content: '';
+
+								@if $rank == down {
+									@include mixin.transform(rotate(180deg));
+								}
+							}
+						}
+					}
+				}
+
+				.uico_rank-#{$rank} {
+					@if $rank == new {
+						&::before {
+							@include mixin.font(#fff '1.2rem', 0);
+							content: 'NEW';
+						}
+					}
+
+					@if $rank == unchanged {
+						&::before {
+							width: 6px;
+							height: 12px;
+							@include mixin.svg(#fff url('../image/block/common/ico_unchanged.svg'));
+							content: '';
+						}
+					}
+				}
+			}
+
+			// 1위
+			&#{escape('.T=rank-first')} {
+				strong {
+					background-color: #f84f34;
+				}
+			}
+		}
+
+		figure {
+			.mui_image-scale {
+				position: relative;
+				border-radius: 100%;
+			}
+
+			figcaption {
+				text-align: center;
+
+				> ul {
+					margin-top: 16px;
+					font-size: 0;
+
+					li {
+						display: inline-block;
+						margin: 2px 2px 0 0;
+
+						> * {
+							padding: 0 6px;
+							height: 21px;
+							border-radius: 2px;
+							background-color: #fff;
+							@include mixin.font(#5c5c5c '1.2rem/2rem' center);
+						}
+
+						> b {
+							border: 1px solid #5c5c5c;
+						}
+
+						> strong {
+							display: inline-block;
+							border: 1px solid #f84f34;
+							color: #f84f34;
+						}
+					}
+				}
+			}
+
+			// 품절
+			.text_soldout {
+				top: auto;
+				bottom: 0;
+				@include mixin.font('1.7rem/5rem');
+			}
+
+			// 미성년자 구매불가
+			.text_adult {
+				border-radius: 100%;
+			}
+		}
+	}
+
+	.btn_link {
+		display: block;
+		margin: 39px auto 0;
+		width: 233px;
+		height: 46px;
+		border: 1px solid #6a6a6a;
+		border-radius: 23px;
+		background-color: #fff;
+		@include mixin.font(#5c5c5c '1.5rem/4.6rem' center);
+
+		.uico_link {
+			margin: 17px 0 0 10px;
+
+			&::before {
+				width: 6px;
+				height: 11px;
+				@include mixin.svg(#6a6a6a url('../image/block/common/ico_arrow_right.svg'));
+			}
+		}
+	}
+}
