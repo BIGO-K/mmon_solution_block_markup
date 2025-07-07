@@ -1,10 +1,11 @@
-# __ui__solution__block
-+ 엠몬 전체일정 https://docs.google.com/spreadsheets/d/1ZNsKeZrZAr2o6DdYGvnWOHJsOPCGyQJgjerCMU5jhUY/edit#gid=425404578
+# 솔루션 블록 마크업
+_2022.02 ~ 2022.10_
++ 엠몬 전체일정
 + 기획 구글드라이브 경로
-+ 디자인 구글드라이브 경로 https://docs.google.com/spreadsheets/d/17rZa7t6h5t_oplHYtAPDIfUzDYsf62NO/edit#gid=253575788
++ 디자인 구글드라이브 경로
 + 퍼블리싱 작업 리스트 
-	- PC:: https://publish.mmonstar.co.kr/solution/block/pc/
-	- Mobile:: https://publish.mmonstar.co.kr/solution/block/mobile/
+	- PC
+	- Mobile
 <br><br>
 
 ## 작업환경
@@ -12,14 +13,12 @@
 	- SFTP의 **sftp.json** 파일설정
 		```
 		"name": "ftp",
-		"host": "1.xxx.xx.x2",
+		"host": "",
 		"protocol": "sftp",
 		"port": 8023,
-		"username": "mmon_publish",
+		"username": "",
 		"password": "비밀번호",
-		"remotePath": "/home/mmon_publish/html/solution/block/",(실서버)
-		"remotePath": "/home/mmon_publish/_merge/html/solution/block/",(FTP전달용)
-		"remotePath": "/home/mmon_publish/작업자/html/solution/block/",(서브 작업자 설정방식)
+		"remotePath": "",
 		"uploadOnSave": true,
 		...
 		"watcher": {
